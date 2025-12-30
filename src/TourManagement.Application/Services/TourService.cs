@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using TourManagement.Application.DTOs;
 using TourManagement.Domain.Entities;
 using TourManagement.Domain.Interfaces.Repositories;
-using TourManagement.Domain.Interfaces.Services;
+using TourManagement.Application.Interfaces;
 
 namespace TourManagement.Application.Services;
 

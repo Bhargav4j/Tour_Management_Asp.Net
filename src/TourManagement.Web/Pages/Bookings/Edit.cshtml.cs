@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TourManagement.Application.DTOs;
-using TourManagement.Domain.Interfaces.Services;
+using TourManagement.Application.Interfaces;
 
 namespace TourManagement.Web.Pages.Bookings;
 

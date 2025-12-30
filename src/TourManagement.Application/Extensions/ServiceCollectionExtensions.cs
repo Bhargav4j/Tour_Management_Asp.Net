@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
+using TourManagement.Application.Interfaces;
 using TourManagement.Application.Services;
-using TourManagement.Domain.Interfaces.Services;
 
 namespace TourManagement.Application.Extensions;
 

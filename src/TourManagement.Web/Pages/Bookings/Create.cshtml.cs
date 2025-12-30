@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TourManagement.Application.DTOs;
-using TourManagement.Domain.Interfaces.Services;
+using TourManagement.Application.Interfaces;
 
 namespace TourManagement.Web.Pages.Bookings;
 

@@ -1,9 +1,9 @@
 using AutoMapper;
 using Microsoft.Extensions.Logging;
 using TourManagement.Application.DTOs;
+using TourManagement.Application.Interfaces;
 using TourManagement.Domain.Entities;
 using TourManagement.Domain.Interfaces.Repositories;
-using TourManagement.Domain.Interfaces.Services;
 
 namespace TourManagement.Application.Services;
 

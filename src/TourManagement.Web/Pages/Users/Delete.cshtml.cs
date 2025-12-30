@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TourManagement.Domain.Interfaces.Services;
+using TourManagement.Application.Interfaces;
 
 namespace TourManagement.Web.Pages.Users;
 

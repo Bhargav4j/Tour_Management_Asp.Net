@@ -1,7 +1,7 @@
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using Moq;
+using Microsoft.Extensions.Logging.Abstractions;
+
 using TourManagement.Domain.Entities;
 using TourManagement.Infrastructure.Data;
 using TourManagement.Infrastructure.Repositories;
@@ -21,8 +21,8 @@ public class UserRepositoryTests
             .Options;
 
         _context = new TourManagementDbContext(options);
-        var mockLogger = new Mock<ILogger<UserRepository>>();
-        _repository = new UserRepository(_context, mockLogger.Object);
+        var logger = NullLogger<UserRepository>.Instance;
+        _repository = new UserRepository(_context, logger);
     }
 
     [Fact]
