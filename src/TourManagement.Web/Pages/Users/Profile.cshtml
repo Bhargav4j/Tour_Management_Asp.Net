@@ -1,0 +1,61 @@
+@page
+@model TourManagement.Web.Pages.Users.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h1>My Profile</h1>
+
+@if (Model.User != null)
+{
+    <div class="card">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Email</dt>
+                <dd class="col-sm-9">@Model.User.Email</dd>
+
+                <dt class="col-sm-3">First Name</dt>
+                <dd class="col-sm-9">@Model.User.FirstName</dd>
+
+                <dt class="col-sm-3">Last Name</dt>
+                <dd class="col-sm-9">@Model.User.LastName</dd>
+
+                @if (!string.IsNullOrEmpty(Model.User.Gender))
+                {
+                    <dt class="col-sm-3">Gender</dt>
+                    <dd class="col-sm-9">@Model.User.Gender</dd>
+                }
+
+                @if (Model.User.DateOfBirth.HasValue)
+                {
+                    <dt class="col-sm-3">Date of Birth</dt>
+                    <dd class="col-sm-9">@Model.User.DateOfBirth.Value.ToShortDateString()</dd>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.User.Street))
+                {
+                    <dt class="col-sm-3">Street</dt>
+                    <dd class="col-sm-9">@Model.User.Street</dd>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.User.City))
+                {
+                    <dt class="col-sm-3">City</dt>
+                    <dd class="col-sm-9">@Model.User.City</dd>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.User.State))
+                {
+                    <dt class="col-sm-3">State</dt>
+                    <dd class="col-sm-9">@Model.User.State</dd>
+                }
+            </dl>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        User profile not found. Please <a asp-page="./Login">log in</a>.
+    </div>
+}

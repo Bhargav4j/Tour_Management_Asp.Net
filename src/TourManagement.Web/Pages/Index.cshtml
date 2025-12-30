@@ -1,0 +1,45 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Tour Management</h1>
+    <p class="lead">Discover and book your next adventure</p>
+
+    <div class="mt-5">
+        <a class="btn btn-primary btn-lg" asp-page="/Tours/Index">Browse Tours</a>
+        @if (HttpContext.Session.GetInt32("UserId") == null)
+        {
+            <a class="btn btn-outline-primary btn-lg ms-2" asp-page="/Users/Register">Get Started</a>
+        }
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Wide Selection</h5>
+                <p class="card-text">Choose from a variety of tour packages to exciting destinations.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Easy Booking</h5>
+                <p class="card-text">Book your tours online with our simple and secure booking system.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Best Prices</h5>
+                <p class="card-text">Get competitive prices on all our tour packages with no hidden fees.</p>
+            </div>
+        </div>
+    </div>
+</div>

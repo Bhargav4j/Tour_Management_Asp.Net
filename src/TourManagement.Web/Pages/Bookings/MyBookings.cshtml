@@ -1,0 +1,62 @@
+@page
+@model TourManagement.Web.Pages.Bookings.MyBookingsModel
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<h1>My Bookings</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
+@if (Model.Bookings != null && Model.Bookings.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Tour Name</th>
+                    <th>Booking Date</th>
+                    <th>Number of People</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model.Bookings)
+                {
+                    <tr>
+                        <td>@booking.BookingId</td>
+                        <td>@booking.Tour.TourName</td>
+                        <td>@booking.BookingDate.ToShortDateString()</td>
+                        <td>@booking.NumberOfPeople</td>
+                        <td>$@booking.TotalAmount</td>
+                        <td>
+                            @if (booking.Status == "Pending")
+                            {
+                                <span class="badge bg-warning">@booking.Status</span>
+                            }
+                            else if (booking.Status == "Confirmed")
+                            {
+                                <span class="badge bg-success">@booking.Status</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">@booking.Status</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        You have no bookings yet. <a asp-page="/Tours/Index">Browse tours</a> to make your first booking!
+    </div>
+}

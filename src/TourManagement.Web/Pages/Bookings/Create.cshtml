@@ -1,0 +1,54 @@
+@page
+@model TourManagement.Web.Pages.Bookings.CreateModel
+@{
+    ViewData["Title"] = "Book Tour";
+}
+
+<h1>Book Tour</h1>
+
+@if (Model.Tour != null)
+{
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Tour.TourName</h5>
+            <p class="card-text">
+                <strong>Price per person:</strong> $@Model.Tour.Price<br />
+                <strong>Duration:</strong> @Model.Tour.Days days
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <input type="hidden" asp-for="Input.TourId" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.NumberOfPeople" class="form-label"></label>
+                    <input asp-for="Input.NumberOfPeople" class="form-control" min="1" />
+                    <span asp-validation-for="Input.NumberOfPeople" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Total Amount</label>
+                    <input type="text" class="form-control" value="$@(Model.Tour.Price * (Model.Input.NumberOfPeople > 0 ? Model.Input.NumberOfPeople : 1))" readonly />
+                </div>
+
+                <button type="submit" class="btn btn-success">Confirm Booking</button>
+                <a asp-page="/Tours/Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        Tour not found.
+    </div>
+    <a asp-page="/Tours/Index" class="btn btn-secondary">Back to Tours</a>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
