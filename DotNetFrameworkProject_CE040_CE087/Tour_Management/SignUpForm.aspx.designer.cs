@@ -21,7 +21,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// email control.
@@ -30,7 +30,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox email;
+        protected System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
         /// Label2 control.
@@ -39,7 +39,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
         /// fname control.
@@ -48,7 +48,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fname;
+        protected System.Web.UI.WebControls.TextBox fname;
 
         /// <summary>
         /// Label3 control.
@@ -57,7 +57,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
         /// lname control.
@@ -66,7 +66,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lname;
+        protected System.Web.UI.WebControls.TextBox lname;
 
         /// <summary>
         /// Label4 control.
@@ -75,7 +75,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
         /// gender control.
@@ -84,7 +84,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList gender;
+        protected System.Web.UI.WebControls.DropDownList gender;
 
         /// <summary>
         /// Label5 control.
@@ -93,7 +93,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
         /// password1 control.
@@ -102,7 +102,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password1;
+        protected System.Web.UI.WebControls.TextBox password1;
 
         /// <summary>
         /// Label6 control.
@@ -111,7 +111,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
         /// password2 control.
@@ -120,7 +120,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password2;
+        protected System.Web.UI.WebControls.TextBox password2;
 
         /// <summary>
         /// Label7 control.
@@ -129,7 +129,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
         /// dob control.
@@ -138,7 +138,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox dob;
+        protected System.Web.UI.WebControls.TextBox dob;
 
         /// <summary>
         /// Label9 control.
@@ -147,7 +147,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
+        protected System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
         /// street control.
@@ -156,7 +156,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox street;
+        protected System.Web.UI.WebControls.TextBox street;
 
         /// <summary>
         /// Label10 control.
@@ -165,7 +165,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label10;
+        protected System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
         /// city control.
@@ -174,7 +174,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox city;
+        protected System.Web.UI.WebControls.TextBox city;
 
         /// <summary>
         /// Label11 control.
@@ -183,7 +183,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label11;
+        protected System.Web.UI.WebControls.Label Label11;
 
         /// <summary>
         /// state control.
@@ -192,7 +192,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox state;
+        protected System.Web.UI.WebControls.TextBox state;
 
         /// <summary>
         /// Register control.
@@ -201,7 +201,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Register;
+        protected System.Web.UI.WebControls.Button Register;
 
         /// <summary>
         /// Reset control.
@@ -210,6 +210,6 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Reset;
+        protected System.Web.UI.WebControls.Button Reset;
     }
 }

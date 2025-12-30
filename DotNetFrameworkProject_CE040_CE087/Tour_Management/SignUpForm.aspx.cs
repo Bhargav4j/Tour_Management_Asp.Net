@@ -4,19 +4,19 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Microsoft.AspNetCore.Mvc;
+// using System.Web.UI.WebControls;
 
 namespace Tour_Management
 {
     public partial class SignUpForm : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        public void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void Register_Click(object sender, EventArgs e)
+        public void Register_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
             conn.Open();
@@ -25,7 +25,7 @@ namespace Tour_Management
             com.Parameters.AddWithValue("@Email", email.Text);
             com.Parameters.AddWithValue("@FirstName", fname.Text);
             com.Parameters.AddWithValue("@LastName", lname.Text);
-            com.Parameters.AddWithValue("@Gender", gender.Text);
+            com.Parameters.AddWithValue("@Gender", gender.SelectedValue);
             com.Parameters.AddWithValue("@Password", password1.Text);
             com.Parameters.AddWithValue("@dob", dob.Text);
             com.Parameters.AddWithValue("@Street", street.Text);

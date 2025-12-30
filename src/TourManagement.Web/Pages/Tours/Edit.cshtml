@@ -1,0 +1,217 @@
+@page "{id:int}"
+@model TourManagement.Web.Pages.Tours.EditModel
+@{
+    ViewData["Title"] = "Edit Tour";
+}
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="/Index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-page="./Index">Tours</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                </ol>
+            </nav>
+            <h1 class="display-4">Edit Tour</h1>
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Input.Id" />
+                <input type="hidden" asp-for="Input.CurrentPictureFileName" />
+
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="mb-0">Tour Information</h4>
+                    </div>
+                    <div class="card-body">
+                        @if (!string.IsNullOrEmpty(TempData["ErrorMessage"] as string))
+                        {
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                @TempData["ErrorMessage"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label asp-for="Input.TourName" class="form-label">Tour Name *</label>
+                                <input asp-for="Input.TourName" class="form-control" placeholder="Enter tour name" />
+                                <span asp-validation-for="Input.TourName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.Place" class="form-label">Place *</label>
+                                <input asp-for="Input.Place" class="form-control" placeholder="Enter destination place" />
+                                <span asp-validation-for="Input.Place" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.Locations" class="form-label">Locations *</label>
+                                <input asp-for="Input.Locations" class="form-control" placeholder="Enter locations (comma separated)" />
+                                <span asp-validation-for="Input.Locations" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.Days" class="form-label">Days *</label>
+                                <input asp-for="Input.Days" type="number" min="1" class="form-control" placeholder="Enter number of days" />
+                                <span asp-validation-for="Input.Days" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.Price" class="form-label">Price *</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input asp-for="Input.Price" type="number" step="0.01" min="0" class="form-control" placeholder="0.00" />
+                                </div>
+                                <span asp-validation-for="Input.Price" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.TourInfo" class="form-label">Tour Information *</label>
+                            <textarea asp-for="Input.TourInfo" class="form-control" rows="5" placeholder="Enter detailed tour information"></textarea>
+                            <span asp-validation-for="Input.TourInfo" class="text-danger"></span>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.Input.CurrentPictureFileName))
+                        {
+                            <div class="mb-3">
+                                <label class="form-label">Current Image</label>
+                                <div class="position-relative">
+                                    <img src="~/images/tours/@Model.Input.CurrentPictureFileName"
+                                         alt="Current tour image"
+                                         class="img-thumbnail"
+                                         style="max-width: 300px; max-height: 200px;" />
+                                    <div class="form-check mt-2">
+                                        <input asp-for="Input.DeleteExistingImage" class="form-check-input" type="checkbox" />
+                                        <label asp-for="Input.DeleteExistingImage" class="form-check-label">
+                                            Delete current image
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="mb-3">
+                            <label asp-for="Input.ImageFile" class="form-label">
+                                @(string.IsNullOrEmpty(Model.Input.CurrentPictureFileName) ? "Tour Image" : "Upload New Image (Optional)")
+                            </label>
+                            <input asp-for="Input.ImageFile" type="file" class="form-control" accept="image/*" />
+                            <span asp-validation-for="Input.ImageFile" class="text-danger"></span>
+                            <div class="form-text">
+                                Supported formats: JPG, JPEG, PNG, GIF (Max size: 5MB)
+                                @if (!string.IsNullOrEmpty(Model.Input.CurrentPictureFileName))
+                                {
+                                    <br />
+                                    <span>Leave empty to keep current image</span>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input asp-for="Input.IsActive" class="form-check-input" type="checkbox" />
+                                <label asp-for="Input.IsActive" class="form-check-label">
+                                    Active
+                                </label>
+                            </div>
+                            <div class="form-text">Inactive tours will not be visible to users</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <a asp-page="./Index" class="btn btn-secondary">
+                                    <i class="bi bi-arrow-left"></i> Back to List
+                                </a>
+                                <a asp-page="./Details" asp-route-id="@Model.Input.Id" class="btn btn-info">
+                                    <i class="bi bi-eye"></i> View Details
+                                </a>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-save"></i> Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-light">
+                <div class="card-header">
+                    <h5 class="mb-0">Edit Guidelines</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Required Fields</h6>
+                    <ul class="small">
+                        <li>Tour Name: Unique and descriptive name</li>
+                        <li>Place: Main destination</li>
+                        <li>Locations: Comma-separated list of places</li>
+                        <li>Days: Tour duration (minimum 1 day)</li>
+                        <li>Price: Tour cost in USD</li>
+                        <li>Tour Info: Detailed description</li>
+                    </ul>
+                    <h6>Image Management</h6>
+                    <ul class="small">
+                        <li>Upload a new image to replace the current one</li>
+                        <li>Check "Delete current image" to remove it</li>
+                        <li>Leave upload empty to keep current image</li>
+                        <li>Maximum file size: 5MB</li>
+                        <li>Formats: JPG, PNG, GIF</li>
+                    </ul>
+                    <h6>Status</h6>
+                    <ul class="small">
+                        <li>Active tours are visible to all users</li>
+                        <li>Inactive tours are hidden from public view</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card mt-3 border-warning">
+                <div class="card-header bg-warning">
+                    <h5 class="mb-0">Tour ID: @Model.Input.Id</h5>
+                </div>
+                <div class="card-body">
+                    <p class="small mb-0">You are editing tour with ID <strong>@Model.Input.Id</strong>. All changes will be saved to this tour.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Preview image before upload
+        document.querySelector('input[type="file"]')?.addEventListener('change', function(e) {
+            if (this.files && this.files[0]) {
+                const fileSize = this.files[0].size / 1024 / 1024; // in MB
+                if (fileSize > 5) {
+                    alert('File size exceeds 5MB. Please choose a smaller image.');
+                    this.value = '';
+                }
+            }
+        });
+
+        // Warn if trying to delete image and upload new one at the same time
+        const deleteCheckbox = document.querySelector('input[name="Input.DeleteExistingImage"]');
+        const fileInput = document.querySelector('input[type="file"]');
+
+        if (deleteCheckbox && fileInput) {
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files.length > 0 && deleteCheckbox.checked) {
+                    deleteCheckbox.checked = false;
+                    alert('Delete checkbox unchecked because you are uploading a new image.');
+                }
+            });
+        }
+    </script>
+}

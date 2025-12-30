@@ -1,0 +1,236 @@
+@page
+@model TourManagement.Web.Pages.Bookings.MyBookingsModel
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h1 class="display-4">My Bookings</h1>
+            <p class="lead">View and manage your tour bookings</p>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <div class="card shadow-sm">
+                <div class="card-header bg-light">
+                    <form method="get" class="row g-3 align-items-end">
+                        <div class="col-md-4">
+                            <label for="userEmail" class="form-label">Your Email</label>
+                            <input type="email"
+                                   name="userEmail"
+                                   id="userEmail"
+                                   value="@Model.UserEmail"
+                                   class="form-control"
+                                   placeholder="Enter your email to view bookings"
+                                   required />
+                        </div>
+                        <div class="col-md-3">
+                            <label for="userId" class="form-label">Or User ID (Optional)</label>
+                            <input type="number"
+                                   name="userId"
+                                   id="userId"
+                                   value="@Model.UserId"
+                                   class="form-control"
+                                   placeholder="Enter user ID" />
+                        </div>
+                        <div class="col-md-3">
+                            <label for="statusFilter" class="form-label">Filter by Status</label>
+                            <select name="statusFilter" id="statusFilter" class="form-select">
+                                <option value="">All Statuses</option>
+                                <option value="Pending" selected="@(Model.StatusFilter == "Pending")">Pending</option>
+                                <option value="Confirmed" selected="@(Model.StatusFilter == "Confirmed")">Confirmed</option>
+                                <option value="Cancelled" selected="@(Model.StatusFilter == "Cancelled")">Cancelled</option>
+                                <option value="Completed" selected="@(Model.StatusFilter == "Completed")">Completed</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary w-100">View Bookings</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (string.IsNullOrEmpty(Model.UserEmail) && !Model.UserId.HasValue)
+    {
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">Enter Your Information</h4>
+            <p>Please enter your email address or user ID to view your bookings.</p>
+        </div>
+    }
+    else if (Model.Bookings == null || !Model.Bookings.Any())
+    {
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">No Bookings Found</h4>
+            <p>You don't have any bookings yet. Start exploring our tours and book your next adventure!</p>
+            <hr>
+            <a asp-page="/Tours/Index" class="btn btn-primary">Browse Tours</a>
+        </div>
+    }
+    else
+    {
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert">
+                    <strong>Found @Model.Bookings.Count() booking(s)</strong> for @Model.UserEmail
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var booking in Model.Bookings)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm h-100 @(booking.Status == "Cancelled" ? "border-danger" : "")">
+                        <div class="card-header @GetHeaderClass(booking.Status)">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Booking #@booking.Id</h5>
+                                @if (booking.Status == "Confirmed")
+                                {
+                                    <span class="badge bg-success">@booking.Status</span>
+                                }
+                                else if (booking.Status == "Cancelled")
+                                {
+                                    <span class="badge bg-danger">@booking.Status</span>
+                                }
+                                else if (booking.Status == "Pending")
+                                {
+                                    <span class="badge bg-warning text-dark">@booking.Status</span>
+                                }
+                                else if (booking.Status == "Completed")
+                                {
+                                    <span class="badge bg-info">@booking.Status</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">@booking.Status</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title text-primary">@booking.TourName</h6>
+                            <p class="card-text">
+                                <strong>Destination:</strong> @booking.Place<br />
+                                <strong>Booking Date:</strong> @booking.BookingDate.ToString("MMMM dd, yyyy")<br />
+                                <strong>Customer:</strong> @booking.FirstName<br />
+                                <strong>Email:</strong> @booking.Email<br />
+                                <strong>Booked On:</strong> @booking.CreatedDate.ToString("MMM dd, yyyy")
+                            </p>
+
+                            @if (booking.ModifiedDate.HasValue)
+                            {
+                                <p class="text-muted small">
+                                    <em>Last updated: @booking.ModifiedDate.Value.ToString("MMM dd, yyyy HH:mm")</em>
+                                </p>
+                            }
+
+                            @if (!booking.IsActive)
+                            {
+                                <div class="alert alert-warning small mb-2" role="alert">
+                                    This booking is inactive
+                                </div>
+                            }
+                        </div>
+                        <div class="card-footer bg-light">
+                            <div class="d-flex justify-content-between">
+                                <a asp-page="Details" asp-route-id="@booking.Id" class="btn btn-sm btn-outline-info">
+                                    View Details
+                                </a>
+                                @if (booking.Status != "Cancelled" && booking.Status != "Completed")
+                                {
+                                    <div>
+                                        <a asp-page="Edit" asp-route-id="@booking.Id" class="btn btn-sm btn-outline-warning">
+                                            Edit
+                                        </a>
+                                        <a asp-page="Delete" asp-route-id="@booking.Id" class="btn btn-sm btn-outline-danger">
+                                            Cancel Booking
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5>Booking Summary</h5>
+                        <div class="row text-center">
+                            <div class="col-md-3">
+                                <h3 class="text-primary">@Model.Bookings.Count()</h3>
+                                <p>Total Bookings</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="text-warning">@Model.Bookings.Count(b => b.Status == "Pending")</h3>
+                                <p>Pending</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="text-success">@Model.Bookings.Count(b => b.Status == "Confirmed")</h3>
+                                <p>Confirmed</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h3 class="text-danger">@Model.Bookings.Count(b => b.Status == "Cancelled")</h3>
+                                <p>Cancelled</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div class="row mt-4">
+        <div class="col-md-12 text-center">
+            <a asp-page="Create" class="btn btn-primary btn-lg">
+                <i class="bi bi-plus-circle"></i> Book a New Tour
+            </a>
+        </div>
+    </div>
+</div>
+
+@functions {
+    string GetHeaderClass(string status)
+    {
+        return status switch
+        {
+            "Confirmed" => "bg-success text-white",
+            "Cancelled" => "bg-danger text-white",
+            "Pending" => "bg-warning",
+            "Completed" => "bg-info text-white",
+            _ => "bg-secondary text-white"
+        };
+    }
+}
+
+@section Scripts {
+    <script>
+        // Auto-dismiss alerts after 5 seconds
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 5000);
+    </script>
+}

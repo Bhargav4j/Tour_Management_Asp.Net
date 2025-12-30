@@ -4,19 +4,19 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Microsoft.AspNetCore.Mvc;
+// using System.Web.UI.WebControls;
 
 namespace Tour_Management
 {
     public partial class Order : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        public void Page_Load(object sender, EventArgs e)
         {
           
         }
 
-        protected void btn_click(object sender, EventArgs e)
+        public void btn_click(object sender, EventArgs e)
         {
                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
                 conn.Open();

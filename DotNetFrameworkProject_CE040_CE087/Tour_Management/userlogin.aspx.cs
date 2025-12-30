@@ -4,20 +4,20 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Microsoft.AspNetCore.Mvc;
+// using System.Web.UI.WebControls;
 
 namespace Tour_Management
 {
     public partial class userlogin : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        public void Page_Load(object sender, EventArgs e)
         {
 
         }
 
   
-            protected void Btn_Submit(object sender, EventArgs e)
+            public void Btn_Submit(object sender, EventArgs e)
             { 
             
                
@@ -53,7 +53,7 @@ namespace Tour_Management
 
             }
 
-        protected void Btn_reg(object sender, EventArgs e)
+        public void Btn_reg(object sender, EventArgs e)
         {
             Response.Redirect("SignUpForm.aspx");
             Server.Transfer("SignUpForm.aspx");

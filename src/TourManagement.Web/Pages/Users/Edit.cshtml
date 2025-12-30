@@ -1,0 +1,126 @@
+@page
+@model TourManagement.Web.Pages.Users.EditModel
+@{
+    ViewData["Title"] = "Edit User Profile";
+}
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="/Index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-page="./Index">Users</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                </ol>
+            </nav>
+            <h1 class="display-4">Edit User Profile</h1>
+            <p class="lead text-muted">Update user information</p>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error:</strong> @Model.ErrorMessage
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model.EditInput != null)
+    {
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card shadow">
+                    <div class="card-header bg-warning">
+                        <h4 class="mb-0">User Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            <input type="hidden" asp-for="EditInput.Id" />
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="EditInput.FirstName" class="form-label">First Name</label>
+                                    <input asp-for="EditInput.FirstName" class="form-control" />
+                                    <span asp-validation-for="EditInput.FirstName" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="EditInput.LastName" class="form-label">Last Name</label>
+                                    <input asp-for="EditInput.LastName" class="form-control" />
+                                    <span asp-validation-for="EditInput.LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Email Address</label>
+                                <input type="text" class="form-control" value="@Model.EditInput.Email" disabled readonly />
+                                <small class="form-text text-muted">Email address cannot be changed</small>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="EditInput.Gender" class="form-label">Gender</label>
+                                    <select asp-for="EditInput.Gender" class="form-select">
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span asp-validation-for="EditInput.Gender" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="EditInput.DateOfBirth" class="form-label">Date of Birth</label>
+                                    <input asp-for="EditInput.DateOfBirth" class="form-control" type="date" />
+                                    <span asp-validation-for="EditInput.DateOfBirth" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <h5 class="mt-4 mb-3">Address Information</h5>
+                            <hr />
+
+                            <div class="mb-3">
+                                <label asp-for="EditInput.Street" class="form-label">Street Address</label>
+                                <input asp-for="EditInput.Street" class="form-control" />
+                                <span asp-validation-for="EditInput.Street" class="text-danger"></span>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="EditInput.City" class="form-label">City</label>
+                                    <input asp-for="EditInput.City" class="form-control" />
+                                    <span asp-validation-for="EditInput.City" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label asp-for="EditInput.State" class="form-label">State</label>
+                                    <input asp-for="EditInput.State" class="form-control" />
+                                    <span asp-validation-for="EditInput.State" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-info mt-3" role="alert">
+                                <strong>Note:</strong> Email address cannot be changed for security reasons.
+                            </div>
+
+                            <div class="d-grid gap-2 mt-4">
+                                <button type="submit" class="btn btn-warning btn-lg">
+                                    <i class="bi bi-save"></i> Save Changes
+                                </button>
+                                <a asp-page="./Details" asp-route-id="@Model.EditInput.Id" class="btn btn-secondary">
+                                    Cancel
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

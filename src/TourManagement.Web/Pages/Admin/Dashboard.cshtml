@@ -1,0 +1,310 @@
+@page
+@model TourManagement.Web.Pages.Admin.DashboardModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container-fluid">
+    <!-- Header Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="mb-1">
+                        <i class="bi bi-speedometer2"></i> Admin Dashboard
+                    </h2>
+                    <p class="text-muted mb-0">
+                        Welcome back, <strong>@Model.AdminEmail</strong>
+                    </p>
+                </div>
+                <div>
+                    <span class="badge bg-success me-2">
+                        <i class="bi bi-clock"></i> @Model.CurrentDateTime
+                    </span>
+                    <form method="post" asp-page-handler="Logout" class="d-inline">
+                        <button type="submit" class="btn btn-outline-danger btn-sm">
+                            <i class="bi bi-box-arrow-right"></i> Logout
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase mb-2">Total Tours</h6>
+                            <h2 class="mb-0">@Model.TotalTours</h2>
+                            <small class="text-success">
+                                <i class="bi bi-arrow-up"></i> @Model.ActiveTours Active
+                            </small>
+                        </div>
+                        <div class="text-primary">
+                            <i class="bi bi-map" style="font-size: 3rem; opacity: 0.3;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a asp-page="/Tours/Index" class="text-decoration-none small">
+                        View all tours <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase mb-2">Total Users</h6>
+                            <h2 class="mb-0">@Model.TotalUsers</h2>
+                            <small class="text-info">
+                                <i class="bi bi-person-plus"></i> Registered
+                            </small>
+                        </div>
+                        <div class="text-info">
+                            <i class="bi bi-people" style="font-size: 3rem; opacity: 0.3;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a asp-page="/Users/Index" class="text-decoration-none small">
+                        View all users <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase mb-2">Total Bookings</h6>
+                            <h2 class="mb-0">@Model.TotalBookings</h2>
+                            <small class="text-warning">
+                                <i class="bi bi-hourglass-split"></i> @Model.PendingBookings Pending
+                            </small>
+                        </div>
+                        <div class="text-warning">
+                            <i class="bi bi-calendar-check" style="font-size: 3rem; opacity: 0.3;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <a asp-page="/Bookings/Index" class="text-decoration-none small">
+                        View all bookings <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="text-muted text-uppercase mb-2">Total Revenue</h6>
+                            <h2 class="mb-0">$@Model.TotalRevenue.ToString("N2")</h2>
+                            <small class="text-success">
+                                <i class="bi bi-graph-up"></i> This month
+                            </small>
+                        </div>
+                        <div class="text-success">
+                            <i class="bi bi-currency-dollar" style="font-size: 3rem; opacity: 0.3;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-transparent border-0">
+                    <span class="text-decoration-none small text-muted">
+                        From confirmed bookings
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions and Recent Activity -->
+    <div class="row g-4">
+        <!-- Quick Actions -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-lightning-charge"></i> Quick Actions
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group list-group-flush">
+                        <a asp-page="/Tours/Create" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="bi bi-plus-circle text-primary"></i>
+                                <strong class="ms-2">Create New Tour</strong>
+                                <p class="mb-0 small text-muted">Add a new tour package to the system</p>
+                            </div>
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                        <a asp-page="/Users/Create" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="bi bi-person-plus text-info"></i>
+                                <strong class="ms-2">Add New User</strong>
+                                <p class="mb-0 small text-muted">Register a new user account</p>
+                            </div>
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                        <a asp-page="/Bookings/Index" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="bi bi-list-check text-warning"></i>
+                                <strong class="ms-2">Manage Bookings</strong>
+                                <p class="mb-0 small text-muted">View and update booking status</p>
+                            </div>
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                        <a asp-page="/Tours/Index" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="bi bi-geo-alt text-success"></i>
+                                <strong class="ms-2">View All Tours</strong>
+                                <p class="mb-0 small text-muted">Browse and edit tour listings</p>
+                            </div>
+                            <i class="bi bi-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Information -->
+        <div class="col-lg-6">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-info-circle"></i> System Information
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="text-muted">
+                                        <i class="bi bi-person-badge"></i> Admin Email:
+                                    </td>
+                                    <td class="text-end">
+                                        <strong>@Model.AdminEmail</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">
+                                        <i class="bi bi-clock-history"></i> Login Time:
+                                    </td>
+                                    <td class="text-end">
+                                        <strong>@Model.LoginTime</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">
+                                        <i class="bi bi-hourglass-split"></i> Session Duration:
+                                    </td>
+                                    <td class="text-end">
+                                        <strong>@Model.SessionDuration</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">
+                                        <i class="bi bi-server"></i> Environment:
+                                    </td>
+                                    <td class="text-end">
+                                        <span class="badge bg-info">@Model.Environment</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-muted">
+                                        <i class="bi bi-shield-check"></i> Status:
+                                    </td>
+                                    <td class="text-end">
+                                        <span class="badge bg-success">
+                                            <i class="bi bi-check-circle"></i> Active
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <hr>
+
+                    <div class="alert alert-info mb-0">
+                        <i class="bi bi-lightbulb"></i>
+                        <strong>Tip:</strong> Use the quick actions panel to efficiently manage tours, users, and bookings.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity Section -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-activity"></i> Recent Statistics
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-3">
+                            <div class="p-3">
+                                <h3 class="text-primary">@Model.TodaysBookings</h3>
+                                <p class="text-muted mb-0">Today's Bookings</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-3">
+                                <h3 class="text-info">@Model.ThisWeekBookings</h3>
+                                <p class="text-muted mb-0">This Week's Bookings</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-3">
+                                <h3 class="text-success">@Model.ConfirmedBookings</h3>
+                                <p class="text-muted mb-0">Confirmed Bookings</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="p-3">
+                                <h3 class="text-warning">@Model.PendingBookings</h3>
+                                <p class="text-muted mb-0">Pending Bookings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+
+    <script>
+        // Auto-refresh page every 5 minutes to keep session alive
+        setTimeout(function() {
+            location.reload();
+        }, 300000);
+
+        // Confirm logout
+        document.querySelector('form[asp-page-handler="Logout"]')?.addEventListener('submit', function(e) {
+            if (!confirm('Are you sure you want to logout?')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+}

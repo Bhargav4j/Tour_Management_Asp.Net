@@ -1,0 +1,116 @@
+@page
+@model TourManagement.Web.Pages.Users.RegisterModel
+@{
+    ViewData["Title"] = "User Registration";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white">
+                <h2 class="mb-0">Create Your Account</h2>
+            </div>
+            <div class="card-body">
+                @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                {
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Error:</strong> @Model.ErrorMessage
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="RegisterInput.FirstName" class="form-label">First Name</label>
+                            <input asp-for="RegisterInput.FirstName" class="form-control" placeholder="Enter first name" />
+                            <span asp-validation-for="RegisterInput.FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="RegisterInput.LastName" class="form-label">Last Name</label>
+                            <input asp-for="RegisterInput.LastName" class="form-control" placeholder="Enter last name" />
+                            <span asp-validation-for="RegisterInput.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="RegisterInput.Email" class="form-label">Email Address</label>
+                        <input asp-for="RegisterInput.Email" class="form-control" placeholder="Enter email address" />
+                        <span asp-validation-for="RegisterInput.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="RegisterInput.Password" class="form-label">Password</label>
+                            <input asp-for="RegisterInput.Password" class="form-control" placeholder="Enter password" />
+                            <span asp-validation-for="RegisterInput.Password" class="text-danger"></span>
+                            <small class="form-text text-muted">Minimum 6 characters</small>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="RegisterInput.ConfirmPassword" class="form-label">Confirm Password</label>
+                            <input asp-for="RegisterInput.ConfirmPassword" class="form-control" placeholder="Confirm password" />
+                            <span asp-validation-for="RegisterInput.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="RegisterInput.Gender" class="form-label">Gender</label>
+                            <select asp-for="RegisterInput.Gender" class="form-select">
+                                <option value="">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <span asp-validation-for="RegisterInput.Gender" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="RegisterInput.DateOfBirth" class="form-label">Date of Birth</label>
+                            <input asp-for="RegisterInput.DateOfBirth" class="form-control" type="date" />
+                            <span asp-validation-for="RegisterInput.DateOfBirth" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <h5 class="mt-4 mb-3">Address Information</h5>
+                    <hr />
+
+                    <div class="mb-3">
+                        <label asp-for="RegisterInput.Street" class="form-label">Street Address</label>
+                        <input asp-for="RegisterInput.Street" class="form-control" placeholder="Enter street address" />
+                        <span asp-validation-for="RegisterInput.Street" class="text-danger"></span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="RegisterInput.City" class="form-label">City</label>
+                            <input asp-for="RegisterInput.City" class="form-control" placeholder="Enter city" />
+                            <span asp-validation-for="RegisterInput.City" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="RegisterInput.State" class="form-label">State</label>
+                            <input asp-for="RegisterInput.State" class="form-control" placeholder="Enter state" />
+                            <span asp-validation-for="RegisterInput.State" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-success btn-lg">
+                            <i class="bi bi-person-plus"></i> Register
+                        </button>
+                        <a asp-page="./Login" class="btn btn-outline-secondary">
+                            Already have an account? Login
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

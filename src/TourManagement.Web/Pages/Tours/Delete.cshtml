@@ -1,0 +1,173 @@
+@page "{id:int}"
+@model TourManagement.Web.Pages.Tours.DeleteModel
+@{
+    ViewData["Title"] = "Delete Tour";
+}
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="/Index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-page="./Index">Tours</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Delete</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(TempData["ErrorMessage"] as string))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model.Tour != null)
+    {
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card border-danger shadow">
+                    <div class="card-header bg-danger text-white">
+                        <h3 class="mb-0">
+                            <i class="bi bi-exclamation-triangle-fill"></i> Delete Tour Confirmation
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-warning" role="alert">
+                            <h5 class="alert-heading">
+                                <i class="bi bi-exclamation-triangle"></i> Warning
+                            </h5>
+                            <p class="mb-0">
+                                You are about to permanently delete this tour. This action cannot be undone.
+                                All associated data will be removed from the system.
+                            </p>
+                        </div>
+
+                        <h4 class="mb-3">Tour Details</h4>
+
+                        <div class="row">
+                            @if (!string.IsNullOrEmpty(Model.Tour.PictureFileName))
+                            {
+                                <div class="col-md-4 mb-3">
+                                    <img src="~/images/tours/@Model.Tour.PictureFileName"
+                                         class="img-thumbnail"
+                                         alt="@Model.Tour.TourName"
+                                         style="max-height: 200px; width: 100%; object-fit: cover;" />
+                                </div>
+                            }
+                            <div class="@(string.IsNullOrEmpty(Model.Tour.PictureFileName) ? "col-md-12" : "col-md-8")">
+                                <dl class="row">
+                                    <dt class="col-sm-4">Tour ID:</dt>
+                                    <dd class="col-sm-8">@Model.Tour.Id</dd>
+
+                                    <dt class="col-sm-4">Tour Name:</dt>
+                                    <dd class="col-sm-8">@Model.Tour.TourName</dd>
+
+                                    <dt class="col-sm-4">Place:</dt>
+                                    <dd class="col-sm-8">@Model.Tour.Place</dd>
+
+                                    <dt class="col-sm-4">Duration:</dt>
+                                    <dd class="col-sm-8">@Model.Tour.Days Day(s)</dd>
+
+                                    <dt class="col-sm-4">Price:</dt>
+                                    <dd class="col-sm-8 text-success fw-bold">$@Model.Tour.Price.ToString("N2")</dd>
+
+                                    <dt class="col-sm-4">Status:</dt>
+                                    <dd class="col-sm-8">
+                                        @if (Model.Tour.IsActive)
+                                        {
+                                            <span class="badge bg-success">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">Inactive</span>
+                                        }
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <dl class="row">
+                                    <dt class="col-sm-3">Locations:</dt>
+                                    <dd class="col-sm-9">@Model.Tour.Locations</dd>
+
+                                    <dt class="col-sm-3">Tour Info:</dt>
+                                    <dd class="col-sm-9">@Model.Tour.TourInfo</dd>
+
+                                    <dt class="col-sm-3">Created Date:</dt>
+                                    <dd class="col-sm-9">@Model.Tour.CreatedDate.ToString("MMMM dd, yyyy HH:mm")</dd>
+
+                                    @if (Model.Tour.ModifiedDate.HasValue)
+                                    {
+                                        <dt class="col-sm-3">Last Modified:</dt>
+                                        <dd class="col-sm-9">@Model.Tour.ModifiedDate.Value.ToString("MMMM dd, yyyy HH:mm")</dd>
+                                    }
+                                </dl>
+                            </div>
+                        </div>
+
+                        <hr class="my-4" />
+
+                        <div class="alert alert-info" role="alert">
+                            <h6 class="alert-heading">Important Information</h6>
+                            <ul class="mb-0">
+                                <li>Deleting this tour will remove all tour information from the database</li>
+                                <li>If there are any bookings associated with this tour, they may be affected</li>
+                                <li>The tour image file will be permanently deleted from the server</li>
+                                <li>This action is irreversible and cannot be undone</li>
+                            </ul>
+                        </div>
+
+                        <form method="post" class="mt-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <a asp-page="./Index" class="btn btn-secondary btn-lg">
+                                        <i class="bi bi-arrow-left"></i> Cancel
+                                    </a>
+                                    <a asp-page="./Details" asp-route-id="@Model.Tour.Id" class="btn btn-info btn-lg">
+                                        <i class="bi bi-eye"></i> View Details
+                                    </a>
+                                </div>
+                                <button type="submit" class="btn btn-danger btn-lg">
+                                    <i class="bi bi-trash"></i> Yes, Delete This Tour
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small>
+                            <i class="bi bi-info-circle"></i>
+                            Make sure you have reviewed all the details before confirming deletion.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Tour Not Found</h4>
+            <p>The requested tour could not be found. It may have already been deleted or the ID is incorrect.</p>
+            <hr>
+            <a asp-page="./Index" class="btn btn-primary">Return to Tours List</a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        // Add confirmation dialog before form submission
+        document.querySelector('form')?.addEventListener('submit', function(e) {
+            const confirmed = confirm('Are you absolutely sure you want to delete this tour? This action cannot be undone.');
+            if (!confirmed) {
+                e.preventDefault();
+            }
+        });
+    </script>
+}

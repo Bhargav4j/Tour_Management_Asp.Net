@@ -1,0 +1,169 @@
+@page "{id:int}"
+@model TourManagement.Web.Pages.Bookings.EditModel
+@{
+    ViewData["Title"] = "Edit Booking";
+}
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h1 class="display-4">Edit Booking</h1>
+            <p class="lead">Update booking information</p>
+        </div>
+    </div>
+
+    @if (Model.Booking == null)
+    {
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Booking Not Found</h4>
+            <p>The booking you are trying to edit does not exist or has been deleted.</p>
+            <hr>
+            <a asp-page="Index" class="btn btn-primary">Back to Bookings List</a>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-warning">
+                        <h5 class="mb-0">Edit Booking #@Model.Booking.Id</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                            <input type="hidden" asp-for="Booking.Id" />
+
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <h6 class="border-bottom pb-2 mb-3">Customer Information</h6>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label asp-for="Booking.FirstName" class="form-label">First Name</label>
+                                    <input asp-for="Booking.FirstName" class="form-control" />
+                                    <span asp-validation-for="Booking.FirstName" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="Booking.Email" class="form-label">Email</label>
+                                    <input asp-for="Booking.Email" class="form-control" />
+                                    <span asp-validation-for="Booking.Email" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <h6 class="border-bottom pb-2 mb-3">Tour Information</h6>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label asp-for="Booking.TourName" class="form-label">Tour Name</label>
+                                    <input asp-for="Booking.TourName" class="form-control" />
+                                    <span asp-validation-for="Booking.TourName" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="Booking.Place" class="form-label">Place</label>
+                                    <input asp-for="Booking.Place" class="form-control" />
+                                    <span asp-validation-for="Booking.Place" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <h6 class="border-bottom pb-2 mb-3">Booking Details</h6>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label asp-for="Booking.Status" class="form-label">Status</label>
+                                    <select asp-for="Booking.Status" class="form-select">
+                                        <option value="Pending">Pending</option>
+                                        <option value="Confirmed">Confirmed</option>
+                                        <option value="Cancelled">Cancelled</option>
+                                        <option value="Completed">Completed</option>
+                                    </select>
+                                    <span asp-validation-for="Booking.Status" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label asp-for="Booking.BookingDate" class="form-label">Booking Date</label>
+                                    <input asp-for="Booking.BookingDate" type="date" class="form-control" />
+                                    <span asp-validation-for="Booking.BookingDate" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <div class="form-check">
+                                        <input asp-for="Booking.IsActive" class="form-check-input" type="checkbox" />
+                                        <label asp-for="Booking.IsActive" class="form-check-label">
+                                            Active
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <h6 class="border-bottom pb-2 mb-3">Read-Only Information</h6>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label text-muted">Created Date</label>
+                                    <input type="text" class="form-control" value="@Model.Booking.CreatedDate.ToString("MMMM dd, yyyy HH:mm")" readonly />
+                                </div>
+                                @if (Model.Booking.ModifiedDate.HasValue)
+                                {
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Last Modified</label>
+                                        <input type="text" class="form-control" value="@Model.Booking.ModifiedDate.Value.ToString("MMMM dd, yyyy HH:mm")" readonly />
+                                    </div>
+                                }
+                            </div>
+
+                            @if (Model.Booking.TourId.HasValue)
+                            {
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">Tour ID</label>
+                                        <input type="text" class="form-control" value="@Model.Booking.TourId" readonly />
+                                    </div>
+                                </div>
+                            }
+
+                            @if (Model.Booking.UserId.HasValue)
+                            {
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label text-muted">User ID</label>
+                                        <input type="text" class="form-control" value="@Model.Booking.UserId" readonly />
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                <a asp-page="Details" asp-route-id="@Model.Booking.Id" class="btn btn-secondary">
+                                    Cancel
+                                </a>
+                                <button type="submit" class="btn btn-warning">
+                                    Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

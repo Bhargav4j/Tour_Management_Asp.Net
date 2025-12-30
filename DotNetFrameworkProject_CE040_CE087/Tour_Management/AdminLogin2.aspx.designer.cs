@@ -21,7 +21,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// name control.
@@ -30,7 +30,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label name;
+        protected System.Web.UI.WebControls.Label name;
 
         /// <summary>
         /// TextBox1 control.
@@ -39,7 +39,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
         /// password control.
@@ -48,7 +48,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label password;
+        protected System.Web.UI.WebControls.Label password;
 
         /// <summary>
         /// TextBox2 control.
@@ -57,7 +57,7 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected System.Web.UI.WebControls.TextBox TextBox2;
 
         /// <summary>
         /// Button1 control.
@@ -66,6 +66,6 @@ namespace Tour_Management
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected System.Web.UI.WebControls.Button Button1;
     }
 }

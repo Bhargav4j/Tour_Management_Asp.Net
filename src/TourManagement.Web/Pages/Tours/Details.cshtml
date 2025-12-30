@@ -1,0 +1,196 @@
+@page "{id:int}"
+@model TourManagement.Web.Pages.Tours.DetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-page="/Index">Home</a></li>
+                    <li class="breadcrumb-item"><a asp-page="./Index">Tours</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Details</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(TempData["ErrorMessage"] as string))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model.Tour != null)
+    {
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    @if (!string.IsNullOrEmpty(Model.Tour.PictureFileName))
+                    {
+                        <img src="~/images/tours/@Model.Tour.PictureFileName"
+                             class="card-img-top"
+                             alt="@Model.Tour.TourName"
+                             style="max-height: 400px; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center"
+                             style="height: 400px;">
+                            <span class="text-white h1">No Image Available</span>
+                        </div>
+                    }
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h1 class="card-title display-5">@Model.Tour.TourName</h1>
+                            @if (Model.Tour.IsActive)
+                            {
+                                <span class="badge bg-success fs-6">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary fs-6">Inactive</span>
+                            }
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h6 class="text-muted">Destination</h6>
+                                        <h4 class="mb-0">@Model.Tour.Place</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-light">
+                                    <div class="card-body">
+                                        <h6 class="text-muted">Duration</h6>
+                                        <h4 class="mb-0">@Model.Tour.Days Day(s)</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card bg-primary text-white">
+                                    <div class="card-body">
+                                        <h6>Price</h6>
+                                        <h4 class="mb-0">$@Model.Tour.Price.ToString("N2")</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5 class="border-bottom pb-2">Tour Information</h5>
+                            <p class="lead">@Model.Tour.TourInfo</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5 class="border-bottom pb-2">Locations</h5>
+                            <div class="d-flex flex-wrap gap-2">
+                                @foreach (var location in Model.Tour.Locations.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                                {
+                                    <span class="badge bg-info text-dark fs-6">@location.Trim()</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="text-muted small">
+                                <div>Created: @Model.Tour.CreatedDate.ToString("MMMM dd, yyyy HH:mm")</div>
+                                @if (Model.Tour.ModifiedDate.HasValue)
+                                {
+                                    <div>Last Modified: @Model.Tour.ModifiedDate.Value.ToString("MMMM dd, yyyy HH:mm")</div>
+                                }
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a asp-page="./Edit" asp-route-id="@Model.Tour.Id" class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </a>
+                                <a asp-page="./Delete" asp-route-id="@Model.Tour.Id" class="btn btn-danger">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm mb-3">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Quick Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <a asp-page="/Bookings/Create" asp-route-tourId="@Model.Tour.Id" class="btn btn-success">
+                                <i class="bi bi-calendar-check"></i> Book This Tour
+                            </a>
+                            <a asp-page="./Edit" asp-route-id="@Model.Tour.Id" class="btn btn-outline-primary">
+                                <i class="bi bi-pencil"></i> Edit Tour
+                            </a>
+                            <a asp-page="./Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left"></i> Back to List
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">Tour Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Tour ID:</th>
+                                    <td>@Model.Tour.Id</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Destination:</th>
+                                    <td>@Model.Tour.Place</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Duration:</th>
+                                    <td>@Model.Tour.Days Day(s)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Price:</th>
+                                    <td class="text-success fw-bold">$@Model.Tour.Price.ToString("N2")</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Status:</th>
+                                    <td>
+                                        @if (Model.Tour.IsActive)
+                                        {
+                                            <span class="badge bg-success">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">Inactive</span>
+                                        }
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Tour Not Found</h4>
+            <p>The requested tour could not be found. It may have been deleted or the ID is incorrect.</p>
+            <hr>
+            <a asp-page="./Index" class="btn btn-primary">Return to Tours List</a>
+        </div>
+    }
+</div>

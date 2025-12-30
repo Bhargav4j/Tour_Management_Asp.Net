@@ -1,0 +1,186 @@
+@page "{id:int}"
+@model TourManagement.Web.Pages.Bookings.DetailsModel
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h1 class="display-4">Booking Details</h1>
+            <p class="lead">View booking information</p>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (Model.Booking == null)
+    {
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Booking Not Found</h4>
+            <p>The booking you are looking for does not exist or has been deleted.</p>
+            <hr>
+            <a asp-page="Index" class="btn btn-primary">Back to Bookings List</a>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Booking #@Model.Booking.Id</h5>
+                        @if (Model.Booking.Status == "Confirmed")
+                        {
+                            <span class="badge bg-success">@Model.Booking.Status</span>
+                        }
+                        else if (Model.Booking.Status == "Cancelled")
+                        {
+                            <span class="badge bg-danger">@Model.Booking.Status</span>
+                        }
+                        else if (Model.Booking.Status == "Pending")
+                        {
+                            <span class="badge bg-warning text-dark">@Model.Booking.Status</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">@Model.Booking.Status</span>
+                        }
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <h5 class="border-bottom pb-2 mb-3">Customer Information</h5>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="fw-bold text-muted">First Name:</label>
+                                <p class="fs-6">@Model.Booking.FirstName</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-bold text-muted">Email:</label>
+                                <p class="fs-6">@Model.Booking.Email</p>
+                            </div>
+                        </div>
+
+                        @if (Model.Booking.UserId.HasValue)
+                        {
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="fw-bold text-muted">User ID:</label>
+                                    <p class="fs-6">@Model.Booking.UserId</p>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <h5 class="border-bottom pb-2 mb-3 mt-4">Tour Information</h5>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="fw-bold text-muted">Tour Name:</label>
+                                <p class="fs-6">@Model.Booking.TourName</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-bold text-muted">Place:</label>
+                                <p class="fs-6">@Model.Booking.Place</p>
+                            </div>
+                        </div>
+
+                        @if (Model.Booking.TourId.HasValue)
+                        {
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="fw-bold text-muted">Tour ID:</label>
+                                    <p class="fs-6">@Model.Booking.TourId</p>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <h5 class="border-bottom pb-2 mb-3 mt-4">Booking Details</h5>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="fw-bold text-muted">Booking Date:</label>
+                                <p class="fs-6">@Model.Booking.BookingDate.ToString("MMMM dd, yyyy")</p>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="fw-bold text-muted">Status:</label>
+                                <p class="fs-6">@Model.Booking.Status</p>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="fw-bold text-muted">Created Date:</label>
+                                <p class="fs-6">@Model.Booking.CreatedDate.ToString("MMMM dd, yyyy HH:mm")</p>
+                            </div>
+                            @if (Model.Booking.ModifiedDate.HasValue)
+                            {
+                                <div class="col-md-6">
+                                    <label class="fw-bold text-muted">Last Modified:</label>
+                                    <p class="fs-6">@Model.Booking.ModifiedDate.Value.ToString("MMMM dd, yyyy HH:mm")</p>
+                                </div>
+                            }
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="fw-bold text-muted">Active:</label>
+                                <p class="fs-6">
+                                    @if (Model.Booking.IsActive)
+                                    {
+                                        <span class="badge bg-success">Yes</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">No</span>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-light">
+                        <div class="d-flex justify-content-between">
+                            <a asp-page="Index" class="btn btn-secondary">
+                                Back to List
+                            </a>
+                            <div>
+                                <a asp-page="Edit" asp-route-id="@Model.Booking.Id" class="btn btn-warning">
+                                    Edit
+                                </a>
+                                <a asp-page="Delete" asp-route-id="@Model.Booking.Id" class="btn btn-danger">
+                                    Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        // Auto-dismiss alerts after 5 seconds
+        setTimeout(function() {
+            $('.alert').fadeOut('slow');
+        }, 5000);
+    </script>
+}

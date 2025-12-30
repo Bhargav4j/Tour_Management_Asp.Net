@@ -1,0 +1,101 @@
+@page
+@model TourManagement.Web.Pages.Bookings.CreateModel
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h1 class="display-4">Create New Booking</h1>
+            <p class="lead">Book a tour for a customer</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0">Booking Information</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="Input.FirstName" class="form-label">First Name</label>
+                                <input asp-for="Input.FirstName" class="form-control" placeholder="Enter first name" />
+                                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Input.Email" class="form-label">Email</label>
+                                <input asp-for="Input.Email" class="form-control" placeholder="Enter email address" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="Input.TourId" class="form-label">Tour</label>
+                                <select asp-for="Input.TourId" class="form-select" asp-items="Model.ToursList">
+                                    <option value="">-- Select Tour --</option>
+                                </select>
+                                <span asp-validation-for="Input.TourId" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Input.BookingDate" class="form-label">Booking Date</label>
+                                <input asp-for="Input.BookingDate" type="date" class="form-control" />
+                                <span asp-validation-for="Input.BookingDate" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.TourName" class="form-label">Tour Name (Optional)</label>
+                            <input asp-for="Input.TourName" class="form-control" placeholder="Enter custom tour name" />
+                            <small class="form-text text-muted">Leave blank to use selected tour's name</small>
+                            <span asp-validation-for="Input.TourName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Place" class="form-label">Place (Optional)</label>
+                            <input asp-for="Input.Place" class="form-control" placeholder="Enter place or destination" />
+                            <small class="form-text text-muted">Leave blank to use selected tour's place</small>
+                            <span asp-validation-for="Input.Place" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.UserId" class="form-label">User ID (Optional)</label>
+                            <input asp-for="Input.UserId" type="number" class="form-control" placeholder="Enter user ID if applicable" />
+                            <small class="form-text text-muted">Leave blank for guest bookings</small>
+                            <span asp-validation-for="Input.UserId" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-page="Index" class="btn btn-secondary">
+                                Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                Create Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Set default date to today
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInput = document.querySelector('input[type="date"]');
+            if (dateInput && !dateInput.value) {
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.value = today;
+            }
+        });
+    </script>
+}
