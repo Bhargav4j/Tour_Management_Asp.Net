@@ -30,7 +30,12 @@ namespace Tour_Management
             com.Parameters.AddWithValue("@LOCATIONS", locations.Text);
             com.Parameters.AddWithValue("@TOUR_INFO", tour_info.Text);
 
-            FileUpload1.SaveAs(Server.MapPath("~/Tour_pics/") + FileUpload1.FileName);
+            string uploadPath = Environment.GetEnvironmentVariable("UPLOAD_PATH") ?? Server.MapPath("~/Tour_pics/");
+            if (!System.IO.Directory.Exists(uploadPath))
+            {
+                System.IO.Directory.CreateDirectory(uploadPath);
+            }
+            FileUpload1.SaveAs(System.IO.Path.Combine(uploadPath, FileUpload1.FileName));
 
              com.Parameters.AddWithValue("@pic", FileUpload1.FileName);
 

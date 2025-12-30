@@ -1,0 +1,57 @@
+# Build artifacts
+bin/
+obj/
+
+# IDE and editor folders
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+README*
+LICENSE*
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+
+# Logs
+logs/
+*.log
+
+# Publish profiles
+**/Properties/launchSettings.json
+**/Properties/PublishProfiles/
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+
+# Docker files
+Dockerfile*
+docker-compose*
+.dockerignore
+
+# Generated artifacts
+generated/
+artifacts/
+
+# Environment files
+.env
+.env.*
