@@ -1,0 +1,12 @@
+@page
+@model TourManagement.Web.Pages.Account.LogoutModel
+@{
+    ViewData["Title"] = "Logout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>You have been logged out successfully.</p>
+
+<a asp-page="/Index" class="btn btn-primary">Home</a>
+<a asp-page="/Account/Login" class="btn btn-secondary">Login Again</a>

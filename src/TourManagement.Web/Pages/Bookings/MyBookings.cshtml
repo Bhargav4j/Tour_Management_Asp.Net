@@ -1,0 +1,47 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@model TourManagement.Web.Pages.Bookings.MyBookingsModel
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.Bookings.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tour Name</th>
+                    <th>Place</th>
+                    <th>Booking Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model.Bookings)
+                {
+                    <tr>
+                        <td>@booking.TourName</td>
+                        <td>@booking.Place</td>
+                        <td>@booking.BookingDate.ToString("MMM dd, yyyy")</td>
+                        <td>
+                            <a asp-page="/Tours/Details" asp-route-id="@booking.TourId" class="btn btn-sm btn-info">View Tour</a>
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@booking.BookingId" style="display:inline;">
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to cancel this booking?')">Cancel</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        You have no bookings yet. <a asp-page="/Tours/Index">Browse tours</a> to make your first booking!
+    </div>
+}

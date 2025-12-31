@@ -1,0 +1,40 @@
+@page "{tourId:int}"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@model TourManagement.Web.Pages.Bookings.CreateModel
+@{
+    ViewData["Title"] = "Book Tour";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.Tour != null)
+{
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>@Model.Tour.TourName</h3>
+            <p><strong>Place:</strong> @Model.Tour.Place</p>
+            <p><strong>Duration:</strong> @Model.Tour.Days days</p>
+            <p><strong>Price:</strong> $@Model.Tour.Price</p>
+        </div>
+    </div>
+
+    <form method="post">
+        <input type="hidden" asp-for="TourId" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="alert alert-info">
+            <p>You are booking this tour as: <strong>@Model.UserEmail</strong></p>
+        </div>
+
+        <div class="form-group mb-3">
+            <button type="submit" class="btn btn-success">Confirm Booking</button>
+            <a asp-page="/Tours/Details" asp-route-id="@Model.Tour.TourId" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+}
+else
+{
+    <div class="alert alert-warning">Tour not found.</div>
+    <a asp-page="/Tours/Index" class="btn btn-secondary">Back to Tours</a>
+}
