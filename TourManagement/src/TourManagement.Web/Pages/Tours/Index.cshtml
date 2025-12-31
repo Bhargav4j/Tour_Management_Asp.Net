@@ -1,0 +1,46 @@
+@page
+@model ToursIndexModel
+@{
+    ViewData["Title"] = "Tours";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Tour Packages</h2>
+        <a asp-page="Create" class="btn btn-primary">Add New Tour</a>
+    </div>
+
+    @if (Model.Tours != null && Model.Tours.Any())
+    {
+        <div class="row">
+            @foreach (var tour in Model.Tours)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        @if (!string.IsNullOrEmpty(tour.ImageUrl))
+                        {
+                            <img src="@tour.ImageUrl" class="card-img-top" alt="@tour.TourName" style="height: 200px; object-fit: cover;">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@tour.TourName</h5>
+                            <p class="card-text">@tour.Description</p>
+                            <p class="card-text"><strong>Place:</strong> @tour.Place</p>
+                            <p class="card-text"><strong>Price:</strong> $@tour.Price</p>
+                            <p class="card-text"><strong>Duration:</strong> @tour.Duration days</p>
+                        </div>
+                        <div class="card-footer">
+                            <a asp-page="Details" asp-route-id="@tour.Id" class="btn btn-info btn-sm">Details</a>
+                            <a asp-page="Edit" asp-route-id="@tour.Id" class="btn btn-warning btn-sm">Edit</a>
+                            <a asp-page="Delete" asp-route-id="@tour.Id" class="btn btn-danger btn-sm">Delete</a>
+                            <a asp-page="/Bookings/Create" asp-route-tourId="@tour.Id" class="btn btn-success btn-sm">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">No tours available.</div>
+    }
+</div>

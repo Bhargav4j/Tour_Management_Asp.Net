@@ -1,0 +1,41 @@
+@page
+@model CreateBookingModel
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<div class="container">
+    <h2>Create New Booking</h2>
+    <hr />
+
+    <form method="post">
+        <div class="mb-3">
+            <label asp-for="Input.TourName" class="form-label">Tour Name</label>
+            <input asp-for="Input.TourName" class="form-control" required />
+            <span asp-validation-for="Input.TourName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Input.Place" class="form-label">Place</label>
+            <input asp-for="Input.Place" class="form-control" required />
+            <span asp-validation-for="Input.Place" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Input.FirstName" class="form-label">Customer Name</label>
+            <input asp-for="Input.FirstName" class="form-control" required />
+            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Input.Email" class="form-label">Email</label>
+            <input asp-for="Input.Email" class="form-control" type="email" required />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="d-grid gap-2 d-md-flex">
+            <button type="submit" class="btn btn-primary">Create Booking</button>
+            <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
