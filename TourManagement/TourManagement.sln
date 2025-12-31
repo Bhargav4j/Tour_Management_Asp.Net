@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TourManagement.Infrastructure", "src\TourManagement.Infrastructure\TourManagement.Infrastructure.csproj", "{B1C2D3E4-F5G6-7H8I-9J0K-1L2M3N4O5P6Q}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TourManagement.Web", "src\TourManagement.Web\TourManagement.Web.csproj", "{C1D2E3F4-G5H6-7I8J-9K0L-1M2N3O4P5Q6R}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TourManagement.Domain.Tests", "Tests\TourManagement.Domain.Tests.csproj", "{07E9B83D-1724-4DDA-B252-27B5E5771F43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{C1D2E3F4-G5H6-7I8J-9K0L-1M2N3O4P5Q6R}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1D2E3F4-G5H6-7I8J-9K0L-1M2N3O4P5Q6R}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1D2E3F4-G5H6-7I8J-9K0L-1M2N3O4P5Q6R}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07E9B83D-1724-4DDA-B252-27B5E5771F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07E9B83D-1724-4DDA-B252-27B5E5771F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07E9B83D-1724-4DDA-B252-27B5E5771F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07E9B83D-1724-4DDA-B252-27B5E5771F43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D1A2B3C4-5E6F-7G8H-9I0J-1K2L3M4N5O6P} = {8E3A9B7C-9F24-4E8B-B8F2-6E9C7D3A4B1F}
