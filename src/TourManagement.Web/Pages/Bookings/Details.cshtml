@@ -1,0 +1,51 @@
+@page
+@model TourManagement.Web.Pages.Bookings.DetailsModel
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<div class="container">
+    <h1>Booking Details</h1>
+
+    @if (Model.Booking != null)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Booking #@Model.Booking.Id</h5>
+                <dl class="row">
+                    <dt class="col-sm-3">User</dt>
+                    <dd class="col-sm-9">@Model.Booking.UserName</dd>
+
+                    <dt class="col-sm-3">Tour</dt>
+                    <dd class="col-sm-9">@Model.Booking.TourName</dd>
+
+                    <dt class="col-sm-3">Booking Date</dt>
+                    <dd class="col-sm-9">@Model.Booking.BookingDate.ToString("d")</dd>
+
+                    <dt class="col-sm-3">Number of People</dt>
+                    <dd class="col-sm-9">@Model.Booking.NumberOfPeople</dd>
+
+                    <dt class="col-sm-3">Total Amount</dt>
+                    <dd class="col-sm-9">@Model.Booking.TotalAmount.ToString("C")</dd>
+
+                    <dt class="col-sm-3">Status</dt>
+                    <dd class="col-sm-9">@Model.Booking.Status</dd>
+
+                    <dt class="col-sm-3">Created Date</dt>
+                    <dd class="col-sm-9">@Model.Booking.CreatedDate.ToString("g")</dd>
+                </dl>
+
+                <div class="mt-3">
+                    <a asp-page="Edit" asp-route-id="@Model.Booking.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="Delete" asp-route-id="@Model.Booking.Id" class="btn btn-danger">Delete</a>
+                    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">Booking not found.</div>
+        <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+    }
+</div>

@@ -1,0 +1,51 @@
+@page
+@model TourManagement.Web.Pages.Users.DetailsModel
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<div class="container">
+    <h1>User Details</h1>
+
+    @if (Model.User != null)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@Model.User.FirstName @Model.User.LastName</h5>
+                <dl class="row">
+                    <dt class="col-sm-3">Email</dt>
+                    <dd class="col-sm-9">@Model.User.Email</dd>
+
+                    <dt class="col-sm-3">Gender</dt>
+                    <dd class="col-sm-9">@Model.User.Gender</dd>
+
+                    <dt class="col-sm-3">Date of Birth</dt>
+                    <dd class="col-sm-9">@Model.User.DateOfBirth.ToString("d")</dd>
+
+                    <dt class="col-sm-3">Street</dt>
+                    <dd class="col-sm-9">@Model.User.Street</dd>
+
+                    <dt class="col-sm-3">City</dt>
+                    <dd class="col-sm-9">@Model.User.City</dd>
+
+                    <dt class="col-sm-3">State</dt>
+                    <dd class="col-sm-9">@Model.User.State</dd>
+
+                    <dt class="col-sm-3">Created Date</dt>
+                    <dd class="col-sm-9">@Model.User.CreatedDate.ToString("g")</dd>
+                </dl>
+
+                <div class="mt-3">
+                    <a asp-page="Edit" asp-route-id="@Model.User.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="Delete" asp-route-id="@Model.User.Id" class="btn btn-danger">Delete</a>
+                    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">User not found.</div>
+        <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+    }
+</div>

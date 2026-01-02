@@ -1,0 +1,40 @@
+@page
+@model TourManagement.Web.Pages.Users.DeleteModel
+@{
+    ViewData["Title"] = "Delete User";
+}
+
+<div class="container">
+    <h1>Delete User</h1>
+    <h3 class="text-danger">Are you sure you want to delete this user?</h3>
+
+    @if (Model.User != null)
+    {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@Model.User.FirstName @Model.User.LastName</h5>
+                <dl class="row">
+                    <dt class="col-sm-3">Email</dt>
+                    <dd class="col-sm-9">@Model.User.Email</dd>
+
+                    <dt class="col-sm-3">City</dt>
+                    <dd class="col-sm-9">@Model.User.City</dd>
+
+                    <dt class="col-sm-3">State</dt>
+                    <dd class="col-sm-9">@Model.User.State</dd>
+                </dl>
+
+                <form method="post">
+                    <input type="hidden" asp-for="User.Id" />
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">User not found.</div>
+        <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+    }
+</div>

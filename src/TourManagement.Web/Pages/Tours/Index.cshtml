@@ -1,0 +1,49 @@
+@page
+@model TourManagement.Web.Pages.Tours.IndexModel
+@{
+    ViewData["Title"] = "Tours";
+}
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col">
+            <h1>Tours</h1>
+        </div>
+        <div class="col text-end">
+            <a asp-page="Create" class="btn btn-primary">Create New Tour</a>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <div class="alert alert-success">@Model.Message</div>
+    }
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Place</th>
+                <th>Days</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tour in Model.Tours)
+            {
+                <tr>
+                    <td>@tour.TourName</td>
+                    <td>@tour.Place</td>
+                    <td>@tour.Days</td>
+                    <td>@tour.Price.ToString("C")</td>
+                    <td>
+                        <a asp-page="Details" asp-route-id="@tour.Id" class="btn btn-sm btn-info">Details</a>
+                        <a asp-page="Edit" asp-route-id="@tour.Id" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-page="Delete" asp-route-id="@tour.Id" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
