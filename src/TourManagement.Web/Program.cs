@@ -16,6 +16,9 @@ builder.Services.AddRazorPages();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<TourManagement.Infrastructure.Data.TourManagementDbContext>();
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -39,6 +42,7 @@ app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
 
+app.MapHealthChecks("/health");
 app.MapRazorPages();
 
 app.Run();
