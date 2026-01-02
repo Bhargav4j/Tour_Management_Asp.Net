@@ -41,6 +41,7 @@
           "Microsoft.EntityFrameworkCore.InMemory": "8.0.0",
           "Microsoft.NET.Test.Sdk": "17.9.0",
           "TourManagement.Web": "1.0.0",
+          "coverlet.msbuild": "6.0.4",
           "xunit": "2.6.6",
           "xunit.runner.visualstudio": "2.5.6",
           "Microsoft.AspNetCore.Antiforgery": "8.0.0.0",
@@ -432,6 +433,7 @@
           "lib/net6.0/BCrypt.Net-Next.dll": {}
         }
       },
+      "coverlet.msbuild/6.0.4": {},
       "Dapper/2.1.28": {
         "runtime": {
           "lib/net7.0/Dapper.dll": {
@@ -3652,6 +3654,13 @@
       "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
       "path": "bcrypt.net-next/4.0.3",
       "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
+    "coverlet.msbuild/6.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Qa7Hg+wrOMDKpXVn2dw4Wlun490bIWsFW0fdNJQFJLZnbU27MCP0HJ2mPgS+3EQBQUb0zKlkwiQzP+j38Hc3Iw==",
+      "path": "coverlet.msbuild/6.0.4",
+      "hashPath": "coverlet.msbuild.6.0.4.nupkg.sha512"
     },
     "Dapper/2.1.28": {
       "type": "package",
