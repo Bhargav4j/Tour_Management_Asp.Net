@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestRun id="4cf61075-3b51-4085-9c14-7774924f11a7" name="@b0cf5c89b820 2026-01-05 10:52:58" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <Times creation="2026-01-05T10:52:58.1330596+00:00" queuing="2026-01-05T10:52:58.1330597+00:00" start="2026-01-05T10:52:57.5024012+00:00" finish="2026-01-05T10:52:58.9872543+00:00" />
+  <TestSettings name="default" id="e213e141-817c-4897-bdd5-77c7163f5ac4">
+    <Deployment runDeploymentRoot="_b0cf5c89b820_2026-01-05_10_52_58" />
+  </TestSettings>
+  <Results>
+    <UnitTestResult executionId="0b6f7e08-ebbf-4e0d-8ff7-a14f9d36c0cf" testId="e2c20f84-7cfc-af2a-a997-54f1fcb1347a" testName="TourManagement.Application.Services.Tests.BookingServiceTests.GetAllAsync_WithNoBookings_ShouldReturnEmptyList" computerName="b0cf5c89b820" duration="00:00:00.0042452" startTime="2026-01-05T10:52:58.1218360+00:00" endTime="2026-01-05T10:52:58.1218361+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0b6f7e08-ebbf-4e0d-8ff7-a14f9d36c0cf" />
+    <UnitTestResult executionId="ca5a8bdd-deba-4cb8-970b-1c316115eadf" testId="0ca7e743-0467-fa0a-e87b-a9b117f7f481" testName="TourManagement.Application.Services.Tests.TourServiceTests.Constructor_ShouldCreateInstance" computerName="b0cf5c89b820" duration="00:00:00.0001051" startTime="2026-01-05T10:52:58.1205418+00:00" endTime="2026-01-05T10:52:58.1205418+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ca5a8bdd-deba-4cb8-970b-1c316115eadf" />
+    <UnitTestResult executionId="018e6519-689f-4f02-b6a3-8d4654d7dc79" testId="54d808a3-18de-8fce-3e81-1c85d66d8550" testName="TourManagement.Application.Services.Tests.TourServiceTests.GetAllAsync_WithNoTours_ShouldReturnEmptyList" computerName="b0cf5c89b820" duration="00:00:00.0025464" startTime="2026-01-05T10:52:58.1253234+00:00" endTime="2026-01-05T10:52:58.1253235+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="018e6519-689f-4f02-b6a3-8d4654d7dc79" />
+    <UnitTestResult executionId="063f91b4-c9ce-4a36-a9f1-75c66f693da5" testId="62206e8c-ad9e-048b-b9e2-0738f4d48237" testName="TourManagement.Application.Services.Tests.TourServiceTests.DeleteAsync_WithInvalidId_ShouldStillCallRepository" computerName="b0cf5c89b820" duration="00:00:00.0020555" startTime="2026-01-05T10:52:58.1203817+00:00" endTime="2026-01-05T10:52:58.1203818+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="063f91b4-c9ce-4a36-a9f1-75c66f693da5" />
+    <UnitTestResult executionId="0b3716a4-92b5-456b-8a7c-e371320854fe" testId="581201f0-4472-c089-f1ca-ee8d9fd97236" testName="TourManagement.Application.Services.Tests.UserServiceTests.GetByIdAsync_WithInvalidId_ShouldReturnNull" computerName="b0cf5c89b820" duration="00:00:00.0014892" startTime="2026-01-05T10:52:58.3686136+00:00" endTime="2026-01-05T10:52:58.3686137+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0b3716a4-92b5-456b-8a7c-e371320854fe" />
+    <UnitTestResult executionId="3b4fee8c-e14f-4061-8570-bda90e497098" testId="8829e673-a713-8733-9e6c-3ab49760ddb0" testName="TourManagement.Application.Services.Tests.TourServiceTests.GetByIdAsync_WithInvalidId_ShouldReturnNull" computerName="b0cf5c89b820" duration="00:00:00.0009268" startTime="2026-01-05T10:52:58.1316993+00:00" endTime="2026-01-05T10:52:58.1316993+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3b4fee8c-e14f-4061-8570-bda90e497098" />
+    <UnitTestResult executionId="953c3480-bec9-40ea-b525-55cd7b15ef9c" testId="d964cb3d-842e-7e96-833e-93c507c8cce4" testName="TourManagement.Application.Services.Tests.UserServiceTests.UpdateAsync_WithValidData_ShouldUpdateUser" computerName="b0cf5c89b820" duration="00:00:00.0025056" startTime="2026-01-05T10:52:58.9285094+00:00" endTime="2026-01-05T10:52:58.9285095+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="953c3480-bec9-40ea-b525-55cd7b15ef9c" />
+    <UnitTestResult executionId="0eeb78d2-886c-4854-8284-876272774861" testId="90941d4d-e0f4-10a4-9fef-26f12cc167da" testName="TourManagement.Application.Services.Tests.UserServiceTests.GetByIdAsync_WithValidId_ShouldReturnUserDto" computerName="b0cf5c89b820" duration="00:00:00.0016362" startTime="2026-01-05T10:52:58.3705008+00:00" endTime="2026-01-05T10:52:58.3705008+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0eeb78d2-886c-4854-8284-876272774861" />
+    <UnitTestResult executionId="b0048b43-ce2f-44b4-90db-416cc35c6ac0" testId="62067d3b-3401-25f8-baac-63b4cffa40e7" testName="TourManagement.Application.Services.Tests.TourServiceTests.SearchAsync_WithNoMatches_ShouldReturnEmptyList" computerName="b0cf5c89b820" duration="00:00:00.0020933" startTime="2026-01-05T10:52:58.1227066+00:00" endTime="2026-01-05T10:52:58.1227066+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b0048b43-ce2f-44b4-90db-416cc35c6ac0" />
+    <UnitTestResult executionId="75cb9316-3a47-4003-9ef2-289628b0fe76" testId="5f64380f-ed3f-1e2e-697d-4beaa938752f" testName="TourManagement.Application.Services.Tests.UserServiceTests.GetAllAsync_ShouldReturnUserDtos" computerName="b0cf5c89b820" duration="00:00:00.1109577" startTime="2026-01-05T10:52:58.1016443+00:00" endTime="2026-01-05T10:52:58.1016444+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="75cb9316-3a47-4003-9ef2-289628b0fe76" />
+    <UnitTestResult executionId="1b3e2f24-e3cf-4bf1-8d83-65146ac06e1e" testId="c0226ce7-8a1f-014f-581d-ee6fa2ce1772" testName="TourManagement.Application.Services.Tests.TourServiceTests.SearchAsync_WithMatchingTerm_ShouldReturnTourDtos" computerName="b0cf5c89b820" duration="00:00:00.1110260" startTime="2026-01-05T10:52:58.1016538+00:00" endTime="2026-01-05T10:52:58.1016538+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1b3e2f24-e3cf-4bf1-8d83-65146ac06e1e" />
+    <UnitTestResult executionId="fb6214c8-2100-4de4-879e-6643dc2b2b89" testId="925fc3b4-fa6d-29af-618f-ea7a1ed3bc32" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.BookingUpdateDto_ToBooking_ShouldMap" computerName="b0cf5c89b820" duration="00:00:00.0023534" startTime="2026-01-05T10:52:58.1477061+00:00" endTime="2026-01-05T10:52:58.1477062+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fb6214c8-2100-4de4-879e-6643dc2b2b89" />
+    <UnitTestResult executionId="a75a3f56-53f3-49b5-80d4-f1fd23308610" testId="bf288483-32bb-73df-a29b-549b44cab3ac" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.BookingCreateDto_ToBooking_ShouldMap" computerName="b0cf5c89b820" duration="00:00:00.0847111" startTime="2026-01-05T10:52:58.1015797+00:00" endTime="2026-01-05T10:52:58.1015798+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a75a3f56-53f3-49b5-80d4-f1fd23308610" />
+    <UnitTestResult executionId="32170d05-c3e8-4baf-a484-941ebca4e2cb" testId="20a3698a-e80d-0bd3-7e2d-ebb33f469f28" testName="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldNotThrowException" computerName="b0cf5c89b820" duration="00:00:00.0007867" startTime="2026-01-05T10:52:58.0601184+00:00" endTime="2026-01-05T10:52:58.0601185+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="32170d05-c3e8-4baf-a484-941ebca4e2cb" />
+    <UnitTestResult executionId="bab613ea-566a-4cb3-a1f2-367e9c8921ba" testId="d82b8ffa-10d2-fb05-50e2-af188e62971a" testName="TourManagement.Application.Services.Tests.BookingServiceTests.GetAllAsync_ShouldReturnBookingDtos" computerName="b0cf5c89b820" duration="00:00:00.0125130" startTime="2026-01-05T10:52:58.1016653+00:00" endTime="2026-01-05T10:52:58.1016654+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bab613ea-566a-4cb3-a1f2-367e9c8921ba" />
+    <UnitTestResult executionId="5873145f-e6bf-4d51-9caa-47e385535da7" testId="bf09a741-2951-c591-303d-fea284741e56" testName="TourManagement.Application.Services.Tests.UserServiceTests.AuthenticateAsync_WithInvalidEmail_ShouldReturnNull" computerName="b0cf5c89b820" duration="00:00:00.0014979" startTime="2026-01-05T10:52:58.9231370+00:00" endTime="2026-01-05T10:52:58.9231371+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5873145f-e6bf-4d51-9caa-47e385535da7" />
+    <UnitTestResult executionId="467f2865-19e2-4cd0-8406-0a429ad31072" testId="38e68a4b-bad1-29f4-f54d-bfa3bd7f2249" testName="TourManagement.Application.Services.Tests.BookingServiceTests.Constructor_ShouldCreateInstance" computerName="b0cf5c89b820" duration="00:00:00.0001562" startTime="2026-01-05T10:52:58.1220567+00:00" endTime="2026-01-05T10:52:58.1220568+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="467f2865-19e2-4cd0-8406-0a429ad31072" />
+    <UnitTestResult executionId="0c7a0da6-dc43-499f-abc6-03f0f2a47ae4" testId="58e3194c-e2b9-e598-edb2-a33cb863cb3b" testName="TourManagement.Application.Services.Tests.TourServiceTests.CreateAsync_WithValidData_ShouldReturnTourDto" computerName="b0cf5c89b820" duration="00:00:00.0122582" startTime="2026-01-05T10:52:58.1083094+00:00" endTime="2026-01-05T10:52:58.1083096+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="0c7a0da6-dc43-499f-abc6-03f0f2a47ae4" />
+    <UnitTestResult executionId="bb031f3a-083c-4460-91ce-800731b317ed" testId="5cd58fe1-18af-98a9-94ad-0c2397855ebe" testName="TourManagement.Application.Services.Tests.BookingServiceTests.GetByUserIdAsync_ShouldReturnBookingDtos" computerName="b0cf5c89b820" duration="00:00:00.0022662" startTime="2026-01-05T10:52:58.1291849+00:00" endTime="2026-01-05T10:52:58.1291851+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb031f3a-083c-4460-91ce-800731b317ed" />
+    <UnitTestResult executionId="6bb442b8-7771-4ad5-b464-b17e5c620c73" testId="a8c372c5-e5bc-052c-e793-e867fb593d4d" testName="TourManagement.Application.Services.Tests.BookingServiceTests.CreateAsync_ShouldCalculateTotalPriceCorrectly" computerName="b0cf5c89b820" duration="00:00:00.0035270" startTime="2026-01-05T10:52:58.1145239+00:00" endTime="2026-01-05T10:52:58.1145239+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6bb442b8-7771-4ad5-b464-b17e5c620c73" />
+    <UnitTestResult executionId="1df74136-a137-4c0a-93b3-01fec25e220f" testId="418064ff-ade9-e934-5522-3317446ddb1f" testName="TourManagement.Application.Services.Tests.BookingServiceTests.UpdateAsync_WithValidData_ShouldUpdateBooking" computerName="b0cf5c89b820" duration="00:00:00.0024554" startTime="2026-01-05T10:52:58.1352387+00:00" endTime="2026-01-05T10:52:58.1352388+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1df74136-a137-4c0a-93b3-01fec25e220f" />
+    <UnitTestResult executionId="ffe2ce49-8b2e-4a6b-9fbb-d60deb4cd04e" testId="38eb716d-e5d1-2043-4420-5b11834ecc76" testName="TourManagement.Application.Services.Tests.UserServiceTests.RegisterAsync_WithValidData_ShouldReturnUserDto" computerName="b0cf5c89b820" duration="00:00:00.2682484" startTime="2026-01-05T10:52:58.3670529+00:00" endTime="2026-01-05T10:52:58.3670531+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ffe2ce49-8b2e-4a6b-9fbb-d60deb4cd04e" />
+    <UnitTestResult executionId="906d72f9-8ade-4147-80f7-fd4edd3e5048" testId="0a9bbfb2-9ed2-303f-3481-a7573248aa44" testName="TourManagement.Application.Services.Tests.UserServiceTests.DeleteAsync_WithInvalidId_ShouldStillCallRepository" computerName="b0cf5c89b820" duration="00:00:00.0026430" startTime="2026-01-05T10:52:58.1039345+00:00" endTime="2026-01-05T10:52:58.1039346+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="906d72f9-8ade-4147-80f7-fd4edd3e5048" />
+    <UnitTestResult executionId="5591b33e-ac1c-4c1a-907c-50cd2e6f8988" testId="2e02d760-9c48-8ed9-d5e0-f865c6b53471" testName="TourManagement.Application.Services.Tests.BookingServiceTests.DeleteAsync_WithInvalidId_ShouldStillCallRepository" computerName="b0cf5c89b820" duration="00:00:00.0010154" startTime="2026-01-05T10:52:58.1327337+00:00" endTime="2026-01-05T10:52:58.1327338+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5591b33e-ac1c-4c1a-907c-50cd2e6f8988" />
+    <UnitTestResult executionId="7db74de0-ea7c-4d1a-b31a-b3271499bd49" testId="f1309cdc-ed82-2d10-146b-c35f54c8c46c" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.User_ToUserDto_ShouldMap" computerName="b0cf5c89b820" duration="00:00:00.0082139" startTime="2026-01-05T10:52:58.1120625+00:00" endTime="2026-01-05T10:52:58.1120626+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7db74de0-ea7c-4d1a-b31a-b3271499bd49" />
+    <UnitTestResult executionId="535c7f27-1c64-4b27-8192-d728d6494e66" testId="20b117f1-229a-f51f-7c0a-a09108f31359" testName="TourManagement.Application.Services.Tests.UserServiceTests.RegisterAsync_WithExistingEmail_ShouldThrowException" computerName="b0cf5c89b820" duration="00:00:00.0015188" startTime="2026-01-05T10:52:58.9300938+00:00" endTime="2026-01-05T10:52:58.9300939+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="535c7f27-1c64-4b27-8192-d728d6494e66" />
+    <UnitTestResult executionId="b41b7025-38f0-4345-974d-c00261d4eb44" testId="fdd16fc0-2689-ad8d-d7c7-678b861905a7" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.UserRegisterDto_ToUser_ShouldIgnorePasswordHash" computerName="b0cf5c89b820" duration="00:00:00.0034648" startTime="2026-01-05T10:52:58.1247535+00:00" endTime="2026-01-05T10:52:58.1247536+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b41b7025-38f0-4345-974d-c00261d4eb44" />
+    <UnitTestResult executionId="eb439007-8e97-4d88-b0f8-422987a25205" testId="9d62ac0e-68f6-c106-8fd3-c40057619f3b" testName="TourManagement.Application.Services.Tests.BookingServiceTests.CreateAsync_WithValidData_ShouldReturnBookingDto" computerName="b0cf5c89b820" duration="00:00:00.0148436" startTime="2026-01-05T10:52:58.1109298+00:00" endTime="2026-01-05T10:52:58.1109299+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="eb439007-8e97-4d88-b0f8-422987a25205" />
+    <UnitTestResult executionId="abec75ff-6c78-4dee-80ef-d37746540a70" testId="211d7471-b8b2-2e02-f668-ee4f9f675dc1" testName="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterUserService" computerName="b0cf5c89b820" duration="00:00:00.0003940" startTime="2026-01-05T10:52:58.1012974+00:00" endTime="2026-01-05T10:52:58.1012976+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="abec75ff-6c78-4dee-80ef-d37746540a70">
+      <Output>
+        <ErrorInfo>
+          <Message>System.InvalidOperationException : Unable to resolve service for type 'TourManagement.Domain.Interfaces.Repositories.IUserRepository' while attempting to activate 'TourManagement.Application.Services.UserService'.</Message>
+          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+   at TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterUserService() in /modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/ServiceCollectionExtensionsTests.cs:line 38
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="457a9997-cc03-4566-98c7-af601e8a5d25" testId="4c5d6126-cf42-acbe-d89b-6c2fcae533a4" testName="TourManagement.Application.Services.Tests.BookingServiceTests.UpdateAsync_WithInvalidId_ShouldThrowException" computerName="b0cf5c89b820" duration="00:00:00.0984445" startTime="2026-01-05T10:52:58.1016087+00:00" endTime="2026-01-05T10:52:58.1016088+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="457a9997-cc03-4566-98c7-af601e8a5d25" />
+    <UnitTestResult executionId="3a863cd8-f8f8-4372-9e8e-7bf642e9f5f0" testId="55cc67d1-0eb9-a2a4-1721-6b1a79023c60" testName="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterBookingService" computerName="b0cf5c89b820" duration="00:00:00.0260909" startTime="2026-01-05T10:52:58.0307469+00:00" endTime="2026-01-05T10:52:58.0307836+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3a863cd8-f8f8-4372-9e8e-7bf642e9f5f0">
+      <Output>
+        <ErrorInfo>
+          <Message>System.InvalidOperationException : Unable to resolve service for type 'TourManagement.Domain.Interfaces.Repositories.IBookingRepository' while attempting to activate 'TourManagement.Application.Services.BookingService'.</Message>
+          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+   at TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterBookingService() in /modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/ServiceCollectionExtensionsTests.cs:line 53
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="35807a1f-5964-44b8-a8f7-d1af20cb99de" testId="9af0a07e-bf4d-585c-f2e1-864f49a8690d" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.TourCreateDto_ToTour_ShouldMap" computerName="b0cf5c89b820" duration="00:00:00.0045924" startTime="2026-01-05T10:52:58.1212026+00:00" endTime="2026-01-05T10:52:58.1212027+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="35807a1f-5964-44b8-a8f7-d1af20cb99de" />
+    <UnitTestResult executionId="590dfdca-b61e-4977-8912-3ff453cc726d" testId="5b2cbde2-043f-ef29-c8cf-8e58d36bb4ca" testName="TourManagement.Application.Services.Tests.UserServiceTests.UpdateAsync_WithInvalidId_ShouldThrowException" computerName="b0cf5c89b820" duration="00:00:00.0017362" startTime="2026-01-05T10:52:58.6407733+00:00" endTime="2026-01-05T10:52:58.6407734+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="590dfdca-b61e-4977-8912-3ff453cc726d" />
+    <UnitTestResult executionId="a5c7b241-42db-4049-9b95-a748fc36c1ad" testId="8bfc0abc-1b19-0bb7-571d-36fc4ef68e80" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.MappingProfile_ShouldMapAllTourProperties" computerName="b0cf5c89b820" duration="00:00:00.0023012" startTime="2026-01-05T10:52:58.1425833+00:00" endTime="2026-01-05T10:52:58.1425834+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a5c7b241-42db-4049-9b95-a748fc36c1ad" />
+    <UnitTestResult executionId="16a28e4c-2d88-4312-a6a5-c17a57109b8a" testId="99ac96d7-4d27-2a8e-ec17-97d58e21405b" testName="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterServicesAsScoped" computerName="b0cf5c89b820" duration="00:00:00.0051893" startTime="2026-01-05T10:52:58.1015196+00:00" endTime="2026-01-05T10:52:58.1015196+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="16a28e4c-2d88-4312-a6a5-c17a57109b8a" />
+    <UnitTestResult executionId="184115f4-a45c-465d-83c7-9b61fd554989" testId="83b7bab7-0ebe-5925-dfae-24de5b11d126" testName="TourManagement.Application.Services.Tests.UserServiceTests.DeleteAsync_ShouldCallRepository" computerName="b0cf5c89b820" duration="00:00:00.0010709" startTime="2026-01-05T10:52:58.9259230+00:00" endTime="2026-01-05T10:52:58.9259232+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="184115f4-a45c-465d-83c7-9b61fd554989" />
+    <UnitTestResult executionId="31ef8687-163a-4b4d-99a5-48276b7906a1" testId="cbda2434-af76-e3d5-d156-d0de7238c706" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.TourUpdateDto_ToTour_ShouldMap" computerName="b0cf5c89b820" duration="00:00:00.0041472" startTime="2026-01-05T10:52:58.1374083+00:00" endTime="2026-01-05T10:52:58.1374084+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="31ef8687-163a-4b4d-99a5-48276b7906a1" />
+    <UnitTestResult executionId="df437c8a-848f-4a70-b8e1-c7932f2c2468" testId="2542f1cf-f262-d030-20d8-e8fa9cb759ee" testName="TourManagement.Application.Services.Tests.TourServiceTests.GetByIdAsync_WithValidId_ShouldReturnTourDto" computerName="b0cf5c89b820" duration="00:00:00.0026529" startTime="2026-01-05T10:52:58.1169442+00:00" endTime="2026-01-05T10:52:58.1169443+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="df437c8a-848f-4a70-b8e1-c7932f2c2468" />
+    <UnitTestResult executionId="460cb7af-d73f-442e-b00c-9acbf1379d50" testId="e10fe2a1-40a0-bb86-445d-92c6c9035174" testName="TourManagement.Application.Services.Tests.UserServiceTests.GetAllAsync_WithNoUsers_ShouldReturnEmptyList" computerName="b0cf5c89b820" duration="00:00:00.0015253" startTime="2026-01-05T10:52:58.9247469+00:00" endTime="2026-01-05T10:52:58.9247470+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="460cb7af-d73f-442e-b00c-9acbf1379d50" />
+    <UnitTestResult executionId="8e70a26b-bf3b-4167-9ef9-156de7026258" testId="8f0a506c-abf9-5d08-39a7-815a795e3eb4" testName="TourManagement.Application.Services.Tests.BookingServiceTests.GetByIdAsync_WithValidId_ShouldReturnBookingDto" computerName="b0cf5c89b820" duration="00:00:00.0021086" startTime="2026-01-05T10:52:58.1242440+00:00" endTime="2026-01-05T10:52:58.1242441+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8e70a26b-bf3b-4167-9ef9-156de7026258" />
+    <UnitTestResult executionId="ac511911-de71-4eac-bde7-4b58233ace71" testId="0df55dc8-1131-e980-3e22-50b3e3f69780" testName="TourManagement.Application.Services.Tests.UserServiceTests.AuthenticateAsync_WithInvalidPassword_ShouldReturnNull" computerName="b0cf5c89b820" duration="00:00:00.2805508" startTime="2026-01-05T10:52:58.9215997+00:00" endTime="2026-01-05T10:52:58.9216000+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ac511911-de71-4eac-bde7-4b58233ace71" />
+    <UnitTestResult executionId="a118da66-b989-4671-b62e-f778e5ee635d" testId="cd72448b-8e31-fc3e-e1ef-8da02db16e36" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.MappingProfile_ShouldMapAllUserProperties" computerName="b0cf5c89b820" duration="00:00:00.0026695" startTime="2026-01-05T10:52:58.1453013+00:00" endTime="2026-01-05T10:52:58.1453014+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a118da66-b989-4671-b62e-f778e5ee635d" />
+    <UnitTestResult executionId="c674e26f-f7f9-446a-9944-6d1271b9aee9" testId="94bc382c-ed72-3200-a559-df4a9d1d32c6" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.Booking_ToBookingDto_ShouldMapWithUserName" computerName="b0cf5c89b820" duration="00:00:00.0083471" startTime="2026-01-05T10:52:58.1331868+00:00" endTime="2026-01-05T10:52:58.1331869+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c674e26f-f7f9-446a-9944-6d1271b9aee9" />
+    <UnitTestResult executionId="e5d7615e-6fa3-4efd-9a2a-4d0d3a6eea6e" testId="a5845b6a-09a1-057a-2413-9f2124b55fff" testName="TourManagement.Application.Services.Tests.UserServiceTests.Constructor_ShouldCreateInstance" computerName="b0cf5c89b820" duration="00:00:00.0001161" startTime="2026-01-05T10:52:58.3687963+00:00" endTime="2026-01-05T10:52:58.3687964+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e5d7615e-6fa3-4efd-9a2a-4d0d3a6eea6e" />
+    <UnitTestResult executionId="b78f5148-ccb7-43d8-a31b-4b152c9d955f" testId="aa275bed-ee7b-54ac-ed5d-5e9f51e9672d" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.UserUpdateDto_ToUser_ShouldMap" computerName="b0cf5c89b820" duration="00:00:00.0051234" startTime="2026-01-05T10:52:58.1039649+00:00" endTime="2026-01-05T10:52:58.1039649+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b78f5148-ccb7-43d8-a31b-4b152c9d955f" />
+    <UnitTestResult executionId="4faf25a7-8c9d-4c0d-9b98-81d079969c83" testId="451519e0-58d8-db47-1d36-a492b8a453ac" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.Tour_ToTourDto_ShouldMap" computerName="b0cf5c89b820" duration="00:00:00.0027559" startTime="2026-01-05T10:52:58.1402359+00:00" endTime="2026-01-05T10:52:58.1402360+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4faf25a7-8c9d-4c0d-9b98-81d079969c83" />
+    <UnitTestResult executionId="c3cb7487-50f3-4530-8e23-53f87d55f661" testId="cf6e824d-a149-d044-7b5d-4347604a54e2" testName="TourManagement.Application.Services.Tests.TourServiceTests.GetAllAsync_ShouldReturnTourDtos" computerName="b0cf5c89b820" duration="00:00:00.0020113" startTime="2026-01-05T10:52:58.1294128+00:00" endTime="2026-01-05T10:52:58.1294129+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c3cb7487-50f3-4530-8e23-53f87d55f661" />
+    <UnitTestResult executionId="e6bab2d9-7011-49b5-b956-b180b9d3f0af" testId="1ddfab4d-83f7-7739-7fa2-9198447617a4" testName="TourManagement.Application.Services.Tests.BookingServiceTests.GetByIdAsync_WithInvalidId_ShouldReturnNull" computerName="b0cf5c89b820" duration="00:00:00.0016548" startTime="2026-01-05T10:52:58.1162553+00:00" endTime="2026-01-05T10:52:58.1162554+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e6bab2d9-7011-49b5-b956-b180b9d3f0af" />
+    <UnitTestResult executionId="7347b09d-9031-41f3-809d-2eda05565ec1" testId="07cfc76f-b5c3-1509-c254-62171b0ff16e" testName="TourManagement.Application.Services.Tests.TourServiceTests.UpdateAsync_WithValidData_ShouldUpdateTour" computerName="b0cf5c89b820" duration="00:00:00.0058026" startTime="2026-01-05T10:52:58.1141973+00:00" endTime="2026-01-05T10:52:58.1141974+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7347b09d-9031-41f3-809d-2eda05565ec1" />
+    <UnitTestResult executionId="ff9dd73a-c656-47ff-a2c3-9fc9d96f21a8" testId="1e381ffa-118c-b451-d2ae-89a1380da412" testName="TourManagement.Application.Services.Tests.UserServiceTests.AuthenticateAsync_WithValidCredentials_ShouldReturnUserDto" computerName="b0cf5c89b820" duration="00:00:00.2682892" startTime="2026-01-05T10:52:58.6389421+00:00" endTime="2026-01-05T10:52:58.6389424+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ff9dd73a-c656-47ff-a2c3-9fc9d96f21a8" />
+    <UnitTestResult executionId="3d8d4415-0697-43cd-af48-09d1d6279a76" testId="7da4d277-61c3-3cb8-9993-56b9418d9ec4" testName="TourManagement.Application.Services.Tests.TourServiceTests.SearchAsync_WithEmptyTerm_ShouldCallRepository" computerName="b0cf5c89b820" duration="00:00:00.0019340" startTime="2026-01-05T10:52:58.1273211+00:00" endTime="2026-01-05T10:52:58.1273212+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="3d8d4415-0697-43cd-af48-09d1d6279a76" />
+    <UnitTestResult executionId="6fff9905-af7a-4996-a6a6-d73d86b76b21" testId="7415f515-1e94-97f0-d6fe-aff7909c1f7a" testName="TourManagement.Application.Services.Tests.TourServiceTests.UpdateAsync_WithInvalidId_ShouldThrowException" computerName="b0cf5c89b820" duration="00:00:00.0012634" startTime="2026-01-05T10:52:58.1182654+00:00" endTime="2026-01-05T10:52:58.1182654+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6fff9905-af7a-4996-a6a6-d73d86b76b21" />
+    <UnitTestResult executionId="01b0a97c-2f7b-45eb-9191-c30d2e02923f" testId="802fd035-3bd1-b5d0-4209-9d6f485f6ef5" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.MappingProfile_ShouldBeValid" computerName="b0cf5c89b820" duration="00:00:00.0272444" startTime="2026-01-05T10:52:58.1038744+00:00" endTime="2026-01-05T10:52:58.1038744+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="01b0a97c-2f7b-45eb-9191-c30d2e02923f">
+      <Output>
+        <ErrorInfo>
+          <Message>AutoMapper.AutoMapperConfigurationException : 
+Unmapped members were found. Review the types and members below.
+Add a custom mapping expression, ignore, add a custom resolver, or modify the source/destination type
+For no matching constructor, add a no-arg ctor, add optional arguments, or map all of the constructor parameters
+================================================================================
+TourCreateDto -&gt; Tour (Destination member list)
+TourManagement.Domain.DTOs.TourCreateDto -&gt; TourManagement.Domain.Entities.Tour (Destination member list)
+
+Unmapped properties:
+TourId
+CreatedDate
+ModifiedDate
+IsActive
+Bookings
+================================================================================
+TourUpdateDto -&gt; Tour (Destination member list)
+TourManagement.Domain.DTOs.TourUpdateDto -&gt; TourManagement.Domain.Entities.Tour (Destination member list)
+
+Unmapped properties:
+TourId
+CreatedDate
+ModifiedDate
+Bookings
+==================================================================================
+UserRegisterDto -&gt; User (Destination member list)
+TourManagement.Domain.DTOs.UserRegisterDto -&gt; TourManagement.Domain.Entities.User (Destination member list)
+
+Unmapped properties:
+UserId
+CreatedDate
+ModifiedDate
+IsActive
+Bookings
+================================================================================
+UserUpdateDto -&gt; User (Destination member list)
+TourManagement.Domain.DTOs.UserUpdateDto -&gt; TourManagement.Domain.Entities.User (Destination member list)
+
+Unmapped properties:
+UserId
+Email
+PasswordHash
+CreatedDate
+ModifiedDate
+IsActive
+Bookings
+======================================================================================
+BookingCreateDto -&gt; Booking (Destination member list)
+TourManagement.Domain.DTOs.BookingCreateDto -&gt; TourManagement.Domain.Entities.Booking (Destination member list)
+
+Unmapped properties:
+BookingId
+TotalPrice
+Status
+CreatedDate
+ModifiedDate
+IsActive
+User
+Tour
+======================================================================================
+BookingUpdateDto -&gt; Booking (Destination member list)
+TourManagement.Domain.DTOs.BookingUpdateDto -&gt; TourManagement.Domain.Entities.Booking (Destination member list)
+
+Unmapped properties:
+BookingId
+UserId
+TourId
+TotalPrice
+CreatedDate
+ModifiedDate
+IsActive
+User
+Tour
+</Message>
+          <StackTrace>   at TourManagement.Application.Mappings.Tests.MappingProfileTests.MappingProfile_ShouldBeValid() in /modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/MappingProfileTests.cs:line 33
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="8dbaf96f-a12e-44dc-a1e1-3f90cd5b11c4" testId="b5cb90a0-eba1-7bd8-dc80-91af0222f97c" testName="TourManagement.Application.Services.Tests.TourServiceTests.DeleteAsync_ShouldCallRepository" computerName="b0cf5c89b820" duration="00:00:00.0012479" startTime="2026-01-05T10:52:58.1307418+00:00" endTime="2026-01-05T10:52:58.1307419+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8dbaf96f-a12e-44dc-a1e1-3f90cd5b11c4" />
+    <UnitTestResult executionId="1008286d-8d4a-4aee-a46e-a9a92a7bbc64" testId="b7f9c58f-598a-cef9-343e-fbda52c37629" testName="TourManagement.Application.Services.Tests.BookingServiceTests.GetByUserIdAsync_WithNoBookings_ShouldReturnEmptyList" computerName="b0cf5c89b820" duration="00:00:00.0025081" startTime="2026-01-05T10:52:58.1268120+00:00" endTime="2026-01-05T10:52:58.1268121+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1008286d-8d4a-4aee-a46e-a9a92a7bbc64" />
+    <UnitTestResult executionId="ed73b7ea-1391-4753-9b33-6f8fef2153e3" testId="ca5ad3ba-ae8c-7ebe-85c4-4d9ad1dc4381" testName="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterTourService" computerName="b0cf5c89b820" duration="00:00:00.0004617" startTime="2026-01-05T10:52:58.0599683+00:00" endTime="2026-01-05T10:52:58.0599684+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ed73b7ea-1391-4753-9b33-6f8fef2153e3">
+      <Output>
+        <ErrorInfo>
+          <Message>System.InvalidOperationException : Unable to resolve service for type 'TourManagement.Domain.Interfaces.Repositories.ITourRepository' while attempting to activate 'TourManagement.Application.Services.TourService'.</Message>
+          <StackTrace>   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+   at TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterTourService() in /modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/ServiceCollectionExtensionsTests.cs:line 23
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="bb1835af-8928-4dc1-a6bb-3777b288759c" testId="eeac4a32-7b05-45d4-a43f-d0c5d635daaa" testName="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldReturnServiceCollection" computerName="b0cf5c89b820" duration="00:00:00.0015002" startTime="2026-01-05T10:52:58.0369287+00:00" endTime="2026-01-05T10:52:58.0369289+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bb1835af-8928-4dc1-a6bb-3777b288759c" />
+    <UnitTestResult executionId="c212a5c6-bf8b-4fa4-9f9c-cc4763719eff" testId="de064db1-4bc0-8494-8cd9-364c7b116d47" testName="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterAutoMapper" computerName="b0cf5c89b820" duration="00:00:00.0329135" startTime="2026-01-05T10:52:58.0577886+00:00" endTime="2026-01-05T10:52:58.0577887+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c212a5c6-bf8b-4fa4-9f9c-cc4763719eff" />
+    <UnitTestResult executionId="508c928d-f816-49af-84d3-1fe323336bfa" testId="276c6019-0b58-ced7-ddb3-6a7646620e86" testName="TourManagement.Application.Services.Tests.BookingServiceTests.CreateAsync_WithInvalidTourId_ShouldThrowException" computerName="b0cf5c89b820" duration="00:00:00.0011961" startTime="2026-01-05T10:52:58.1175193+00:00" endTime="2026-01-05T10:52:58.1175193+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="508c928d-f816-49af-84d3-1fe323336bfa" />
+    <UnitTestResult executionId="f91e381e-c6aa-425f-a10c-359226ef7e6f" testId="558f3120-52d2-4638-790a-72c0f9a72efd" testName="TourManagement.Application.Mappings.Tests.MappingProfileTests.UserRegisterDto_ToUser_ShouldMap" computerName="b0cf5c89b820" duration="00:00:00.0043803" startTime="2026-01-05T10:52:58.1165174+00:00" endTime="2026-01-05T10:52:58.1165175+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f91e381e-c6aa-425f-a10c-359226ef7e6f" />
+    <UnitTestResult executionId="486f8eba-4ecb-4e1d-ba18-305bae56297b" testId="41634d67-8825-4716-61d0-14cb4fd19ed5" testName="TourManagement.Application.Services.Tests.BookingServiceTests.DeleteAsync_ShouldCallRepository" computerName="b0cf5c89b820" duration="00:00:00.0023958" startTime="2026-01-05T10:52:58.1316480+00:00" endTime="2026-01-05T10:52:58.1316481+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="486f8eba-4ecb-4e1d-ba18-305bae56297b" />
+  </Results>
+  <TestDefinitions>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.GetByIdAsync_WithValidId_ShouldReturnTourDto" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="2542f1cf-f262-d030-20d8-e8fa9cb759ee">
+      <Execution id="df437c8a-848f-4a70-b8e1-c7932f2c2468" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="GetByIdAsync_WithValidId_ShouldReturnTourDto" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.UpdateAsync_WithValidData_ShouldUpdateBooking" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="418064ff-ade9-e934-5522-3317446ddb1f">
+      <Execution id="1df74136-a137-4c0a-93b3-01fec25e220f" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="UpdateAsync_WithValidData_ShouldUpdateBooking" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.DeleteAsync_WithInvalidId_ShouldStillCallRepository" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="0a9bbfb2-9ed2-303f-3481-a7573248aa44">
+      <Execution id="906d72f9-8ade-4147-80f7-fd4edd3e5048" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="DeleteAsync_WithInvalidId_ShouldStillCallRepository" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.GetByIdAsync_WithValidId_ShouldReturnUserDto" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="90941d4d-e0f4-10a4-9fef-26f12cc167da">
+      <Execution id="0eeb78d2-886c-4854-8284-876272774861" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="GetByIdAsync_WithValidId_ShouldReturnUserDto" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.MappingProfile_ShouldBeValid" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="802fd035-3bd1-b5d0-4209-9d6f485f6ef5">
+      <Execution id="01b0a97c-2f7b-45eb-9191-c30d2e02923f" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="MappingProfile_ShouldBeValid" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.RegisterAsync_WithExistingEmail_ShouldThrowException" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="20b117f1-229a-f51f-7c0a-a09108f31359">
+      <Execution id="535c7f27-1c64-4b27-8192-d728d6494e66" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="RegisterAsync_WithExistingEmail_ShouldThrowException" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.DeleteAsync_ShouldCallRepository" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="83b7bab7-0ebe-5925-dfae-24de5b11d126">
+      <Execution id="184115f4-a45c-465d-83c7-9b61fd554989" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="DeleteAsync_ShouldCallRepository" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.UpdateAsync_WithInvalidId_ShouldThrowException" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="5b2cbde2-043f-ef29-c8cf-8e58d36bb4ca">
+      <Execution id="590dfdca-b61e-4977-8912-3ff453cc726d" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="UpdateAsync_WithInvalidId_ShouldThrowException" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.CreateAsync_ShouldCalculateTotalPriceCorrectly" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="a8c372c5-e5bc-052c-e793-e867fb593d4d">
+      <Execution id="6bb442b8-7771-4ad5-b464-b17e5c620c73" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="CreateAsync_ShouldCalculateTotalPriceCorrectly" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.MappingProfile_ShouldMapAllUserProperties" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="cd72448b-8e31-fc3e-e1ef-8da02db16e36">
+      <Execution id="a118da66-b989-4671-b62e-f778e5ee635d" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="MappingProfile_ShouldMapAllUserProperties" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterAutoMapper" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="de064db1-4bc0-8494-8cd9-364c7b116d47">
+      <Execution id="c212a5c6-bf8b-4fa4-9f9c-cc4763719eff" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests" name="AddApplicationServices_ShouldRegisterAutoMapper" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.UserRegisterDto_ToUser_ShouldMap" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="558f3120-52d2-4638-790a-72c0f9a72efd">
+      <Execution id="f91e381e-c6aa-425f-a10c-359226ef7e6f" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="UserRegisterDto_ToUser_ShouldMap" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.CreateAsync_WithValidData_ShouldReturnTourDto" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="58e3194c-e2b9-e598-edb2-a33cb863cb3b">
+      <Execution id="0c7a0da6-dc43-499f-abc6-03f0f2a47ae4" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="CreateAsync_WithValidData_ShouldReturnTourDto" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.Constructor_ShouldCreateInstance" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="38e68a4b-bad1-29f4-f54d-bfa3bd7f2249">
+      <Execution id="467f2865-19e2-4cd0-8406-0a429ad31072" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="Constructor_ShouldCreateInstance" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterUserService" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="211d7471-b8b2-2e02-f668-ee4f9f675dc1">
+      <Execution id="abec75ff-6c78-4dee-80ef-d37746540a70" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests" name="AddApplicationServices_ShouldRegisterUserService" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.UserUpdateDto_ToUser_ShouldMap" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="aa275bed-ee7b-54ac-ed5d-5e9f51e9672d">
+      <Execution id="b78f5148-ccb7-43d8-a31b-4b152c9d955f" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="UserUpdateDto_ToUser_ShouldMap" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.GetByIdAsync_WithInvalidId_ShouldReturnNull" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="1ddfab4d-83f7-7739-7fa2-9198447617a4">
+      <Execution id="e6bab2d9-7011-49b5-b956-b180b9d3f0af" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="GetByIdAsync_WithInvalidId_ShouldReturnNull" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.GetByIdAsync_WithInvalidId_ShouldReturnNull" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="581201f0-4472-c089-f1ca-ee8d9fd97236">
+      <Execution id="0b3716a4-92b5-456b-8a7c-e371320854fe" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="GetByIdAsync_WithInvalidId_ShouldReturnNull" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.GetByIdAsync_WithValidId_ShouldReturnBookingDto" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="8f0a506c-abf9-5d08-39a7-815a795e3eb4">
+      <Execution id="8e70a26b-bf3b-4167-9ef9-156de7026258" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="GetByIdAsync_WithValidId_ShouldReturnBookingDto" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.SearchAsync_WithMatchingTerm_ShouldReturnTourDtos" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="c0226ce7-8a1f-014f-581d-ee6fa2ce1772">
+      <Execution id="1b3e2f24-e3cf-4bf1-8d83-65146ac06e1e" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="SearchAsync_WithMatchingTerm_ShouldReturnTourDtos" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.GetAllAsync_WithNoBookings_ShouldReturnEmptyList" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="e2c20f84-7cfc-af2a-a997-54f1fcb1347a">
+      <Execution id="0b6f7e08-ebbf-4e0d-8ff7-a14f9d36c0cf" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="GetAllAsync_WithNoBookings_ShouldReturnEmptyList" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.SearchAsync_WithEmptyTerm_ShouldCallRepository" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="7da4d277-61c3-3cb8-9993-56b9418d9ec4">
+      <Execution id="3d8d4415-0697-43cd-af48-09d1d6279a76" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="SearchAsync_WithEmptyTerm_ShouldCallRepository" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterServicesAsScoped" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="99ac96d7-4d27-2a8e-ec17-97d58e21405b">
+      <Execution id="16a28e4c-2d88-4312-a6a5-c17a57109b8a" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests" name="AddApplicationServices_ShouldRegisterServicesAsScoped" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.RegisterAsync_WithValidData_ShouldReturnUserDto" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="38eb716d-e5d1-2043-4420-5b11834ecc76">
+      <Execution id="ffe2ce49-8b2e-4a6b-9fbb-d60deb4cd04e" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="RegisterAsync_WithValidData_ShouldReturnUserDto" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.GetAllAsync_WithNoUsers_ShouldReturnEmptyList" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="e10fe2a1-40a0-bb86-445d-92c6c9035174">
+      <Execution id="460cb7af-d73f-442e-b00c-9acbf1379d50" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="GetAllAsync_WithNoUsers_ShouldReturnEmptyList" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.SearchAsync_WithNoMatches_ShouldReturnEmptyList" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="62067d3b-3401-25f8-baac-63b4cffa40e7">
+      <Execution id="b0048b43-ce2f-44b4-90db-416cc35c6ac0" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="SearchAsync_WithNoMatches_ShouldReturnEmptyList" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.GetAllAsync_ShouldReturnUserDtos" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="5f64380f-ed3f-1e2e-697d-4beaa938752f">
+      <Execution id="75cb9316-3a47-4003-9ef2-289628b0fe76" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="GetAllAsync_ShouldReturnUserDtos" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.AuthenticateAsync_WithValidCredentials_ShouldReturnUserDto" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="1e381ffa-118c-b451-d2ae-89a1380da412">
+      <Execution id="ff9dd73a-c656-47ff-a2c3-9fc9d96f21a8" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="AuthenticateAsync_WithValidCredentials_ShouldReturnUserDto" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.GetAllAsync_WithNoTours_ShouldReturnEmptyList" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="54d808a3-18de-8fce-3e81-1c85d66d8550">
+      <Execution id="018e6519-689f-4f02-b6a3-8d4654d7dc79" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="GetAllAsync_WithNoTours_ShouldReturnEmptyList" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.UpdateAsync_WithValidData_ShouldUpdateUser" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="d964cb3d-842e-7e96-833e-93c507c8cce4">
+      <Execution id="953c3480-bec9-40ea-b525-55cd7b15ef9c" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="UpdateAsync_WithValidData_ShouldUpdateUser" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.AuthenticateAsync_WithInvalidEmail_ShouldReturnNull" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="bf09a741-2951-c591-303d-fea284741e56">
+      <Execution id="5873145f-e6bf-4d51-9caa-47e385535da7" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="AuthenticateAsync_WithInvalidEmail_ShouldReturnNull" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterBookingService" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="55cc67d1-0eb9-a2a4-1721-6b1a79023c60">
+      <Execution id="3a863cd8-f8f8-4372-9e8e-7bf642e9f5f0" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests" name="AddApplicationServices_ShouldRegisterBookingService" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.CreateAsync_WithInvalidTourId_ShouldThrowException" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="276c6019-0b58-ced7-ddb3-6a7646620e86">
+      <Execution id="508c928d-f816-49af-84d3-1fe323336bfa" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="CreateAsync_WithInvalidTourId_ShouldThrowException" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.TourCreateDto_ToTour_ShouldMap" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="9af0a07e-bf4d-585c-f2e1-864f49a8690d">
+      <Execution id="35807a1f-5964-44b8-a8f7-d1af20cb99de" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="TourCreateDto_ToTour_ShouldMap" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.User_ToUserDto_ShouldMap" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="f1309cdc-ed82-2d10-146b-c35f54c8c46c">
+      <Execution id="7db74de0-ea7c-4d1a-b31a-b3271499bd49" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="User_ToUserDto_ShouldMap" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.AuthenticateAsync_WithInvalidPassword_ShouldReturnNull" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="0df55dc8-1131-e980-3e22-50b3e3f69780">
+      <Execution id="ac511911-de71-4eac-bde7-4b58233ace71" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="AuthenticateAsync_WithInvalidPassword_ShouldReturnNull" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldNotThrowException" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="20a3698a-e80d-0bd3-7e2d-ebb33f469f28">
+      <Execution id="32170d05-c3e8-4baf-a484-941ebca4e2cb" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests" name="AddApplicationServices_ShouldNotThrowException" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.GetByUserIdAsync_WithNoBookings_ShouldReturnEmptyList" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="b7f9c58f-598a-cef9-343e-fbda52c37629">
+      <Execution id="1008286d-8d4a-4aee-a46e-a9a92a7bbc64" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="GetByUserIdAsync_WithNoBookings_ShouldReturnEmptyList" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.Booking_ToBookingDto_ShouldMapWithUserName" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="94bc382c-ed72-3200-a559-df4a9d1d32c6">
+      <Execution id="c674e26f-f7f9-446a-9944-6d1271b9aee9" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="Booking_ToBookingDto_ShouldMapWithUserName" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.CreateAsync_WithValidData_ShouldReturnBookingDto" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="9d62ac0e-68f6-c106-8fd3-c40057619f3b">
+      <Execution id="eb439007-8e97-4d88-b0f8-422987a25205" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="CreateAsync_WithValidData_ShouldReturnBookingDto" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.UpdateAsync_WithInvalidId_ShouldThrowException" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="7415f515-1e94-97f0-d6fe-aff7909c1f7a">
+      <Execution id="6fff9905-af7a-4996-a6a6-d73d86b76b21" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="UpdateAsync_WithInvalidId_ShouldThrowException" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.DeleteAsync_WithInvalidId_ShouldStillCallRepository" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="2e02d760-9c48-8ed9-d5e0-f865c6b53471">
+      <Execution id="5591b33e-ac1c-4c1a-907c-50cd2e6f8988" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="DeleteAsync_WithInvalidId_ShouldStillCallRepository" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.DeleteAsync_WithInvalidId_ShouldStillCallRepository" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="62206e8c-ad9e-048b-b9e2-0738f4d48237">
+      <Execution id="063f91b4-c9ce-4a36-a9f1-75c66f693da5" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="DeleteAsync_WithInvalidId_ShouldStillCallRepository" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.Constructor_ShouldCreateInstance" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="0ca7e743-0467-fa0a-e87b-a9b117f7f481">
+      <Execution id="ca5a8bdd-deba-4cb8-970b-1c316115eadf" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="Constructor_ShouldCreateInstance" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.TourUpdateDto_ToTour_ShouldMap" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="cbda2434-af76-e3d5-d156-d0de7238c706">
+      <Execution id="31ef8687-163a-4b4d-99a5-48276b7906a1" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="TourUpdateDto_ToTour_ShouldMap" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.GetAllAsync_ShouldReturnTourDtos" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="cf6e824d-a149-d044-7b5d-4347604a54e2">
+      <Execution id="c3cb7487-50f3-4530-8e23-53f87d55f661" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="GetAllAsync_ShouldReturnTourDtos" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.UserServiceTests.Constructor_ShouldCreateInstance" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="a5845b6a-09a1-057a-2413-9f2124b55fff">
+      <Execution id="e5d7615e-6fa3-4efd-9a2a-4d0d3a6eea6e" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.UserServiceTests" name="Constructor_ShouldCreateInstance" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.BookingCreateDto_ToBooking_ShouldMap" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="bf288483-32bb-73df-a29b-549b44cab3ac">
+      <Execution id="a75a3f56-53f3-49b5-80d4-f1fd23308610" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="BookingCreateDto_ToBooking_ShouldMap" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterTourService" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="ca5ad3ba-ae8c-7ebe-85c4-4d9ad1dc4381">
+      <Execution id="ed73b7ea-1391-4753-9b33-6f8fef2153e3" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests" name="AddApplicationServices_ShouldRegisterTourService" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.Tour_ToTourDto_ShouldMap" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="451519e0-58d8-db47-1d36-a492b8a453ac">
+      <Execution id="4faf25a7-8c9d-4c0d-9b98-81d079969c83" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="Tour_ToTourDto_ShouldMap" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.BookingUpdateDto_ToBooking_ShouldMap" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="925fc3b4-fa6d-29af-618f-ea7a1ed3bc32">
+      <Execution id="fb6214c8-2100-4de4-879e-6643dc2b2b89" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="BookingUpdateDto_ToBooking_ShouldMap" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.GetByUserIdAsync_ShouldReturnBookingDtos" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="5cd58fe1-18af-98a9-94ad-0c2397855ebe">
+      <Execution id="bb031f3a-083c-4460-91ce-800731b317ed" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="GetByUserIdAsync_ShouldReturnBookingDtos" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.UpdateAsync_WithValidData_ShouldUpdateTour" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="07cfc76f-b5c3-1509-c254-62171b0ff16e">
+      <Execution id="7347b09d-9031-41f3-809d-2eda05565ec1" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="UpdateAsync_WithValidData_ShouldUpdateTour" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.GetAllAsync_ShouldReturnBookingDtos" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="d82b8ffa-10d2-fb05-50e2-af188e62971a">
+      <Execution id="bab613ea-566a-4cb3-a1f2-367e9c8921ba" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="GetAllAsync_ShouldReturnBookingDtos" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldReturnServiceCollection" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="eeac4a32-7b05-45d4-a43f-d0c5d635daaa">
+      <Execution id="bb1835af-8928-4dc1-a6bb-3777b288759c" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests" name="AddApplicationServices_ShouldReturnServiceCollection" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.UpdateAsync_WithInvalidId_ShouldThrowException" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="4c5d6126-cf42-acbe-d89b-6c2fcae533a4">
+      <Execution id="457a9997-cc03-4566-98c7-af601e8a5d25" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="UpdateAsync_WithInvalidId_ShouldThrowException" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.BookingServiceTests.DeleteAsync_ShouldCallRepository" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="41634d67-8825-4716-61d0-14cb4fd19ed5">
+      <Execution id="486f8eba-4ecb-4e1d-ba18-305bae56297b" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.BookingServiceTests" name="DeleteAsync_ShouldCallRepository" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.MappingProfile_ShouldMapAllTourProperties" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="8bfc0abc-1b19-0bb7-571d-36fc4ef68e80">
+      <Execution id="a5c7b241-42db-4049-9b95-a748fc36c1ad" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="MappingProfile_ShouldMapAllTourProperties" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.GetByIdAsync_WithInvalidId_ShouldReturnNull" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="8829e673-a713-8733-9e6c-3ab49760ddb0">
+      <Execution id="3b4fee8c-e14f-4061-8570-bda90e497098" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="GetByIdAsync_WithInvalidId_ShouldReturnNull" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Mappings.Tests.MappingProfileTests.UserRegisterDto_ToUser_ShouldIgnorePasswordHash" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="fdd16fc0-2689-ad8d-d7c7-678b861905a7">
+      <Execution id="b41b7025-38f0-4345-974d-c00261d4eb44" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Mappings.Tests.MappingProfileTests" name="UserRegisterDto_ToUser_ShouldIgnorePasswordHash" />
+    </UnitTest>
+    <UnitTest name="TourManagement.Application.Services.Tests.TourServiceTests.DeleteAsync_ShouldCallRepository" storage="/modernize-data/studio-data/tnt1001/app2730/transformed-code/866/studio-workspace/tms20/tests/tourmanagement.application.tests/bin/debug/net8.0/tourmanagement.application.tests.dll" id="b5cb90a0-eba1-7bd8-dc80-91af0222f97c">
+      <Execution id="8dbaf96f-a12e-44dc-a1e1-3f90cd5b11c4" />
+      <TestMethod codeBase="/modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/bin/Debug/net8.0/TourManagement.Application.Tests.dll" adapterTypeName="executor://xunit/VsTestRunner2/netcoreapp" className="TourManagement.Application.Services.Tests.TourServiceTests" name="DeleteAsync_ShouldCallRepository" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestEntries>
+    <TestEntry testId="e2c20f84-7cfc-af2a-a997-54f1fcb1347a" executionId="0b6f7e08-ebbf-4e0d-8ff7-a14f9d36c0cf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0ca7e743-0467-fa0a-e87b-a9b117f7f481" executionId="ca5a8bdd-deba-4cb8-970b-1c316115eadf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="54d808a3-18de-8fce-3e81-1c85d66d8550" executionId="018e6519-689f-4f02-b6a3-8d4654d7dc79" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="62206e8c-ad9e-048b-b9e2-0738f4d48237" executionId="063f91b4-c9ce-4a36-a9f1-75c66f693da5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="581201f0-4472-c089-f1ca-ee8d9fd97236" executionId="0b3716a4-92b5-456b-8a7c-e371320854fe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8829e673-a713-8733-9e6c-3ab49760ddb0" executionId="3b4fee8c-e14f-4061-8570-bda90e497098" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d964cb3d-842e-7e96-833e-93c507c8cce4" executionId="953c3480-bec9-40ea-b525-55cd7b15ef9c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="90941d4d-e0f4-10a4-9fef-26f12cc167da" executionId="0eeb78d2-886c-4854-8284-876272774861" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="62067d3b-3401-25f8-baac-63b4cffa40e7" executionId="b0048b43-ce2f-44b4-90db-416cc35c6ac0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5f64380f-ed3f-1e2e-697d-4beaa938752f" executionId="75cb9316-3a47-4003-9ef2-289628b0fe76" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0226ce7-8a1f-014f-581d-ee6fa2ce1772" executionId="1b3e2f24-e3cf-4bf1-8d83-65146ac06e1e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="925fc3b4-fa6d-29af-618f-ea7a1ed3bc32" executionId="fb6214c8-2100-4de4-879e-6643dc2b2b89" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf288483-32bb-73df-a29b-549b44cab3ac" executionId="a75a3f56-53f3-49b5-80d4-f1fd23308610" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="20a3698a-e80d-0bd3-7e2d-ebb33f469f28" executionId="32170d05-c3e8-4baf-a484-941ebca4e2cb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="d82b8ffa-10d2-fb05-50e2-af188e62971a" executionId="bab613ea-566a-4cb3-a1f2-367e9c8921ba" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="bf09a741-2951-c591-303d-fea284741e56" executionId="5873145f-e6bf-4d51-9caa-47e385535da7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="38e68a4b-bad1-29f4-f54d-bfa3bd7f2249" executionId="467f2865-19e2-4cd0-8406-0a429ad31072" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="58e3194c-e2b9-e598-edb2-a33cb863cb3b" executionId="0c7a0da6-dc43-499f-abc6-03f0f2a47ae4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5cd58fe1-18af-98a9-94ad-0c2397855ebe" executionId="bb031f3a-083c-4460-91ce-800731b317ed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a8c372c5-e5bc-052c-e793-e867fb593d4d" executionId="6bb442b8-7771-4ad5-b464-b17e5c620c73" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="418064ff-ade9-e934-5522-3317446ddb1f" executionId="1df74136-a137-4c0a-93b3-01fec25e220f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="38eb716d-e5d1-2043-4420-5b11834ecc76" executionId="ffe2ce49-8b2e-4a6b-9fbb-d60deb4cd04e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0a9bbfb2-9ed2-303f-3481-a7573248aa44" executionId="906d72f9-8ade-4147-80f7-fd4edd3e5048" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2e02d760-9c48-8ed9-d5e0-f865c6b53471" executionId="5591b33e-ac1c-4c1a-907c-50cd2e6f8988" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="f1309cdc-ed82-2d10-146b-c35f54c8c46c" executionId="7db74de0-ea7c-4d1a-b31a-b3271499bd49" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="20b117f1-229a-f51f-7c0a-a09108f31359" executionId="535c7f27-1c64-4b27-8192-d728d6494e66" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="fdd16fc0-2689-ad8d-d7c7-678b861905a7" executionId="b41b7025-38f0-4345-974d-c00261d4eb44" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9d62ac0e-68f6-c106-8fd3-c40057619f3b" executionId="eb439007-8e97-4d88-b0f8-422987a25205" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="211d7471-b8b2-2e02-f668-ee4f9f675dc1" executionId="abec75ff-6c78-4dee-80ef-d37746540a70" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4c5d6126-cf42-acbe-d89b-6c2fcae533a4" executionId="457a9997-cc03-4566-98c7-af601e8a5d25" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="55cc67d1-0eb9-a2a4-1721-6b1a79023c60" executionId="3a863cd8-f8f8-4372-9e8e-7bf642e9f5f0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="9af0a07e-bf4d-585c-f2e1-864f49a8690d" executionId="35807a1f-5964-44b8-a8f7-d1af20cb99de" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="5b2cbde2-043f-ef29-c8cf-8e58d36bb4ca" executionId="590dfdca-b61e-4977-8912-3ff453cc726d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8bfc0abc-1b19-0bb7-571d-36fc4ef68e80" executionId="a5c7b241-42db-4049-9b95-a748fc36c1ad" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="99ac96d7-4d27-2a8e-ec17-97d58e21405b" executionId="16a28e4c-2d88-4312-a6a5-c17a57109b8a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="83b7bab7-0ebe-5925-dfae-24de5b11d126" executionId="184115f4-a45c-465d-83c7-9b61fd554989" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cbda2434-af76-e3d5-d156-d0de7238c706" executionId="31ef8687-163a-4b4d-99a5-48276b7906a1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="2542f1cf-f262-d030-20d8-e8fa9cb759ee" executionId="df437c8a-848f-4a70-b8e1-c7932f2c2468" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e10fe2a1-40a0-bb86-445d-92c6c9035174" executionId="460cb7af-d73f-442e-b00c-9acbf1379d50" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="8f0a506c-abf9-5d08-39a7-815a795e3eb4" executionId="8e70a26b-bf3b-4167-9ef9-156de7026258" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="0df55dc8-1131-e980-3e22-50b3e3f69780" executionId="ac511911-de71-4eac-bde7-4b58233ace71" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cd72448b-8e31-fc3e-e1ef-8da02db16e36" executionId="a118da66-b989-4671-b62e-f778e5ee635d" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="94bc382c-ed72-3200-a559-df4a9d1d32c6" executionId="c674e26f-f7f9-446a-9944-6d1271b9aee9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a5845b6a-09a1-057a-2413-9f2124b55fff" executionId="e5d7615e-6fa3-4efd-9a2a-4d0d3a6eea6e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="aa275bed-ee7b-54ac-ed5d-5e9f51e9672d" executionId="b78f5148-ccb7-43d8-a31b-4b152c9d955f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="451519e0-58d8-db47-1d36-a492b8a453ac" executionId="4faf25a7-8c9d-4c0d-9b98-81d079969c83" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="cf6e824d-a149-d044-7b5d-4347604a54e2" executionId="c3cb7487-50f3-4530-8e23-53f87d55f661" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1ddfab4d-83f7-7739-7fa2-9198447617a4" executionId="e6bab2d9-7011-49b5-b956-b180b9d3f0af" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="07cfc76f-b5c3-1509-c254-62171b0ff16e" executionId="7347b09d-9031-41f3-809d-2eda05565ec1" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1e381ffa-118c-b451-d2ae-89a1380da412" executionId="ff9dd73a-c656-47ff-a2c3-9fc9d96f21a8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7da4d277-61c3-3cb8-9993-56b9418d9ec4" executionId="3d8d4415-0697-43cd-af48-09d1d6279a76" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7415f515-1e94-97f0-d6fe-aff7909c1f7a" executionId="6fff9905-af7a-4996-a6a6-d73d86b76b21" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="802fd035-3bd1-b5d0-4209-9d6f485f6ef5" executionId="01b0a97c-2f7b-45eb-9191-c30d2e02923f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b5cb90a0-eba1-7bd8-dc80-91af0222f97c" executionId="8dbaf96f-a12e-44dc-a1e1-3f90cd5b11c4" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b7f9c58f-598a-cef9-343e-fbda52c37629" executionId="1008286d-8d4a-4aee-a46e-a9a92a7bbc64" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="ca5ad3ba-ae8c-7ebe-85c4-4d9ad1dc4381" executionId="ed73b7ea-1391-4753-9b33-6f8fef2153e3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eeac4a32-7b05-45d4-a43f-d0c5d635daaa" executionId="bb1835af-8928-4dc1-a6bb-3777b288759c" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="de064db1-4bc0-8494-8cd9-364c7b116d47" executionId="c212a5c6-bf8b-4fa4-9f9c-cc4763719eff" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="276c6019-0b58-ced7-ddb3-6a7646620e86" executionId="508c928d-f816-49af-84d3-1fe323336bfa" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="558f3120-52d2-4638-790a-72c0f9a72efd" executionId="f91e381e-c6aa-425f-a10c-359226ef7e6f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="41634d67-8825-4716-61d0-14cb4fd19ed5" executionId="486f8eba-4ecb-4e1d-ba18-305bae56297b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <ResultSummary outcome="Failed">
+    <Counters total="61" executed="61" passed="57" failed="4" error="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <Output>
+      <StdOut>[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.5.3.1+6b60a9e56a (64-bit .NET 8.0.22)
+[xUnit.net 00:00:00.07]   Discovering: TourManagement.Application.Tests
+[xUnit.net 00:00:00.10]   Discovered:  TourManagement.Application.Tests
+[xUnit.net 00:00:00.10]   Starting:    TourManagement.Application.Tests
+[xUnit.net 00:00:00.18]       System.InvalidOperationException : Unable to resolve service for type 'TourManagement.Domain.Interfaces.Repositories.IBookingRepository' while attempting to activate 'TourManagement.Application.Services.BookingService'.
+[xUnit.net 00:00:00.18]       Stack Trace:
+[xUnit.net 00:00:00.18]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+[xUnit.net 00:00:00.18]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.18]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+[xUnit.net 00:00:00.18]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+[xUnit.net 00:00:00.18]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.18]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.19]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.19]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:00.19]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:00.19]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:00.19]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+[xUnit.net 00:00:00.19]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+[xUnit.net 00:00:00.19]         /modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/ServiceCollectionExtensionsTests.cs(53,0): at TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterBookingService()
+[xUnit.net 00:00:00.19]            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+[xUnit.net 00:00:00.19]            at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.22]       System.InvalidOperationException : Unable to resolve service for type 'TourManagement.Domain.Interfaces.Repositories.ITourRepository' while attempting to activate 'TourManagement.Application.Services.TourService'.
+[xUnit.net 00:00:00.22]       Stack Trace:
+[xUnit.net 00:00:00.22]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+[xUnit.net 00:00:00.22]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.22]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+[xUnit.net 00:00:00.22]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+[xUnit.net 00:00:00.22]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.22]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.22]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.22]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:00.22]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:00.22]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:00.22]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+[xUnit.net 00:00:00.22]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+[xUnit.net 00:00:00.22]         /modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/ServiceCollectionExtensionsTests.cs(23,0): at TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterTourService()
+[xUnit.net 00:00:00.22]            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+[xUnit.net 00:00:00.22]            at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.26]       System.InvalidOperationException : Unable to resolve service for type 'TourManagement.Domain.Interfaces.Repositories.IUserRepository' while attempting to activate 'TourManagement.Application.Services.UserService'.
+[xUnit.net 00:00:00.26]       Stack Trace:
+[xUnit.net 00:00:00.26]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateArgumentCallSites(ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain, ParameterInfo[] parameters, Boolean throwIfCallSiteNotFound)
+[xUnit.net 00:00:00.26]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateConstructorCallSite(ResultCache lifetime, ServiceIdentifier serviceIdentifier, Type implementationType, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.26]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+[xUnit.net 00:00:00.26]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceDescriptor descriptor, ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain, Int32 slot)
+[xUnit.net 00:00:00.26]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.TryCreateExact(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.26]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.CreateCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.26]            at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteFactory.GetCallSite(ServiceIdentifier serviceIdentifier, CallSiteChain callSiteChain)
+[xUnit.net 00:00:00.26]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+[xUnit.net 00:00:00.26]            at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+[xUnit.net 00:00:00.26]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+[xUnit.net 00:00:00.26]            at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType)
+[xUnit.net 00:00:00.26]            at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetService[T](IServiceProvider provider)
+[xUnit.net 00:00:00.26]         /modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/ServiceCollectionExtensionsTests.cs(38,0): at TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterUserService()
+[xUnit.net 00:00:00.26]            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+[xUnit.net 00:00:00.26]            at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.26]       AutoMapper.AutoMapperConfigurationException : 
+[xUnit.net 00:00:00.26]       Unmapped members were found. Review the types and members below.
+[xUnit.net 00:00:00.26]       Add a custom mapping expression, ignore, add a custom resolver, or modify the source/destination type
+[xUnit.net 00:00:00.26]       For no matching constructor, add a no-arg ctor, add optional arguments, or map all of the constructor parameters
+[xUnit.net 00:00:00.26]       ================================================================================
+[xUnit.net 00:00:00.26]       TourCreateDto -&gt; Tour (Destination member list)
+[xUnit.net 00:00:00.26]       TourManagement.Domain.DTOs.TourCreateDto -&gt; TourManagement.Domain.Entities.Tour (Destination member list)
+[xUnit.net 00:00:00.26]       
+[xUnit.net 00:00:00.26]       Unmapped properties:
+[xUnit.net 00:00:00.26]       TourId
+[xUnit.net 00:00:00.26]       CreatedDate
+[xUnit.net 00:00:00.26]       ModifiedDate
+[xUnit.net 00:00:00.26]       IsActive
+[xUnit.net 00:00:00.26]       Bookings
+[xUnit.net 00:00:00.26]       ================================================================================
+[xUnit.net 00:00:00.26]       TourUpdateDto -&gt; Tour (Destination member list)
+[xUnit.net 00:00:00.26]       TourManagement.Domain.DTOs.TourUpdateDto -&gt; TourManagement.Domain.Entities.Tour (Destination member list)
+[xUnit.net 00:00:00.26]       
+[xUnit.net 00:00:00.26]       Unmapped properties:
+[xUnit.net 00:00:00.26]       TourId
+[xUnit.net 00:00:00.26]       CreatedDate
+[xUnit.net 00:00:00.26]       ModifiedDate
+[xUnit.net 00:00:00.26]       Bookings
+[xUnit.net 00:00:00.26]       ==================================================================================
+[xUnit.net 00:00:00.26]       UserRegisterDto -&gt; User (Destination member list)
+[xUnit.net 00:00:00.26]       TourManagement.Domain.DTOs.UserRegisterDto -&gt; TourManagement.Domain.Entities.User (Destination member list)
+[xUnit.net 00:00:00.26]       
+[xUnit.net 00:00:00.26]       Unmapped properties:
+[xUnit.net 00:00:00.26]       UserId
+[xUnit.net 00:00:00.26]       CreatedDate
+[xUnit.net 00:00:00.26]       ModifiedDate
+[xUnit.net 00:00:00.26]       IsActive
+[xUnit.net 00:00:00.26]       Bookings
+[xUnit.net 00:00:00.26]       ================================================================================
+[xUnit.net 00:00:00.26]       UserUpdateDto -&gt; User (Destination member list)
+[xUnit.net 00:00:00.26]       TourManagement.Domain.DTOs.UserUpdateDto -&gt; TourManagement.Domain.Entities.User (Destination member list)
+[xUnit.net 00:00:00.26]       
+[xUnit.net 00:00:00.26]       Unmapped properties:
+[xUnit.net 00:00:00.26]       UserId
+[xUnit.net 00:00:00.26]       Email
+[xUnit.net 00:00:00.26]       PasswordHash
+[xUnit.net 00:00:00.26]       CreatedDate
+[xUnit.net 00:00:00.26]       ModifiedDate
+[xUnit.net 00:00:00.26]       IsActive
+[xUnit.net 00:00:00.26]       Bookings
+[xUnit.net 00:00:00.26]       ======================================================================================
+[xUnit.net 00:00:00.26]       BookingCreateDto -&gt; Booking (Destination member list)
+[xUnit.net 00:00:00.26]       TourManagement.Domain.DTOs.BookingCreateDto -&gt; TourManagement.Domain.Entities.Booking (Destination member list)
+[xUnit.net 00:00:00.26]       
+[xUnit.net 00:00:00.26]       Unmapped properties:
+[xUnit.net 00:00:00.26]       BookingId
+[xUnit.net 00:00:00.26]       TotalPrice
+[xUnit.net 00:00:00.26]       Status
+[xUnit.net 00:00:00.26]       CreatedDate
+[xUnit.net 00:00:00.26]       ModifiedDate
+[xUnit.net 00:00:00.26]       IsActive
+[xUnit.net 00:00:00.26]       User
+[xUnit.net 00:00:00.26]       Tour
+[xUnit.net 00:00:00.26]       ======================================================================================
+[xUnit.net 00:00:00.26]       BookingUpdateDto -&gt; Booking (Destination member list)
+[xUnit.net 00:00:00.26]       TourManagement.Domain.DTOs.BookingUpdateDto -&gt; TourManagement.Domain.Entities.Booking (Destination member list)
+[xUnit.net 00:00:00.26]       
+[xUnit.net 00:00:00.26]       Unmapped properties:
+[xUnit.net 00:00:00.26]       BookingId
+[xUnit.net 00:00:00.26]       UserId
+[xUnit.net 00:00:00.26]       TourId
+[xUnit.net 00:00:00.26]       TotalPrice
+[xUnit.net 00:00:00.26]       CreatedDate
+[xUnit.net 00:00:00.26]       ModifiedDate
+[xUnit.net 00:00:00.26]       IsActive
+[xUnit.net 00:00:00.26]       User
+[xUnit.net 00:00:00.26]       Tour
+[xUnit.net 00:00:00.26]       
+[xUnit.net 00:00:00.26]       Stack Trace:
+[xUnit.net 00:00:00.26]         /modernize-data/studio-data/TNT1001/APP2730/transformed-code/866/studio-workspace/TMS20/Tests/TourManagement.Application.Tests/MappingProfileTests.cs(33,0): at TourManagement.Application.Mappings.Tests.MappingProfileTests.MappingProfile_ShouldBeValid()
+[xUnit.net 00:00:00.26]            at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+[xUnit.net 00:00:00.26]            at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:01.09]   Finished:    TourManagement.Application.Tests
+</StdOut>
+    </Output>
+    <RunInfos>
+      <RunInfo computerName="b0cf5c89b820" outcome="Error" timestamp="2026-01-05T10:52:58.0269330+00:00">
+        <Text>[xUnit.net 00:00:00.18]     TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterBookingService [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="b0cf5c89b820" outcome="Error" timestamp="2026-01-05T10:52:58.0590150+00:00">
+        <Text>[xUnit.net 00:00:00.22]     TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterTourService [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="b0cf5c89b820" outcome="Error" timestamp="2026-01-05T10:52:58.1397841+00:00">
+        <Text>[xUnit.net 00:00:00.26]     TourManagement.Application.Extensions.Tests.ServiceCollectionExtensionsTests.AddApplicationServices_ShouldRegisterUserService [FAIL]</Text>
+      </RunInfo>
+      <RunInfo computerName="b0cf5c89b820" outcome="Error" timestamp="2026-01-05T10:52:58.1410235+00:00">
+        <Text>[xUnit.net 00:00:00.26]     TourManagement.Application.Mappings.Tests.MappingProfileTests.MappingProfile_ShouldBeValid [FAIL]</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+</TestRun>
