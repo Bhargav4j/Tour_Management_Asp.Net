@@ -1,0 +1,60 @@
+# Build artifacts
+bin/
+obj/
+*.user
+*.suo
+*.cache
+
+# IDE directories
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+README*
+LICENSE*
+
+# Test results
+TestResults/
+*.trx
+*.coverage
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Logs
+logs/
+*.log
+
+# Development settings
+launchSettings.json
+appsettings.Development.json
+
+# Docker
+.dockerignore
+Dockerfile*
+docker-compose*
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+azure-pipelines.yml
+
+# Temporary files
+*.tmp
+*.temp

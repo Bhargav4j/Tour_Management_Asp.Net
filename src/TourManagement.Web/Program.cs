@@ -11,7 +11,6 @@ Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
     .WriteTo.Console()
-    .WriteTo.File("logs/tourmanagement-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 builder.Host.UseSerilog();
@@ -21,7 +20,18 @@ builder.Services.AddRazorPages();
 builder.Services.AddHttpContextAccessor();
 
 // Add session support
-builder.Services.AddDistributedMemoryCache();
+var redisConnection = builder.Configuration.GetConnectionString("RedisConnection");
+if (!string.IsNullOrEmpty(redisConnection))
+{
+    builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = redisConnection;
+    });
+}
+else
+{
+    builder.Services.AddDistributedMemoryCache();
+}
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -32,6 +42,10 @@ builder.Services.AddSession(options =>
 // Register application and infrastructure services
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
+
+// Add health checks
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<TourManagementDbContext>();
 
 var app = builder.Build();
 
@@ -52,6 +66,10 @@ app.UseSession();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+// Map health check endpoints
+app.MapHealthChecks("/health");
+app.MapHealthChecks("/ready");
 
 // Apply migrations and seed database
 using (var scope = app.Services.CreateScope())
