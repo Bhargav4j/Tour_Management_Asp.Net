@@ -1,0 +1,55 @@
+@page
+@model MyBookingsModel
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<h2>My Bookings</h2>
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+@if (Model.Bookings.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Tour Name</th>
+                    <th>Place</th>
+                    <th>Days</th>
+                    <th>Price</th>
+                    <th>Booking Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model.Bookings)
+                {
+                    <tr>
+                        <td>@booking.BookingId</td>
+                        <td>@booking.Tour.TourName</td>
+                        <td>@booking.Tour.Place</td>
+                        <td>@booking.Tour.Days</td>
+                        <td>$@booking.Tour.Price.ToString("N2")</td>
+                        <td>@booking.BookingDate.ToString("MM/dd/yyyy")</td>
+                        <td>@booking.Status</td>
+                        <td>
+                            <a asp-page="/Tours/Details" asp-route-id="@booking.TourId" class="btn btn-sm btn-info">View Tour</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        You don't have any bookings yet. <a asp-page="/Tours/Index">Browse tours</a> to make a booking.
+    </div>
+}

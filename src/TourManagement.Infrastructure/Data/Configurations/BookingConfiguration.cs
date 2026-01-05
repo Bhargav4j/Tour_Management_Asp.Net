@@ -1,0 +1,56 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using TourManagement.Domain.Entities;
+
+namespace TourManagement.Infrastructure.Data.Configurations;
+
+/// <summary>
+/// Entity Framework configuration for Booking entity
+/// </summary>
+public class BookingConfiguration : IEntityTypeConfiguration<Booking>
+{
+    public void Configure(EntityTypeBuilder<Booking> builder)
+    {
+        builder.ToTable("booking");
+
+        builder.HasKey(b => b.BookingId);
+
+        builder.Property(b => b.BookingId)
+            .HasColumnName("TOUR_ID")
+            .ValueGeneratedOnAdd();
+
+        builder.Property(b => b.TourId)
+            .HasColumnName("TourId")
+            .IsRequired();
+
+        builder.Property(b => b.Email)
+            .HasColumnName("Email")
+            .HasMaxLength(50)
+            .IsRequired();
+
+        builder.Property(b => b.BookingDate)
+            .HasColumnName("BookingDate")
+            .IsRequired();
+
+        builder.Property(b => b.Status)
+            .HasColumnName("Status")
+            .HasMaxLength(50)
+            .HasDefaultValue("Pending");
+
+        builder.Property(b => b.CreatedDate)
+            .HasDefaultValueSql("GETUTCDATE()");
+
+        builder.Property(b => b.IsActive)
+            .HasDefaultValue(true);
+
+        builder.HasOne(b => b.Tour)
+            .WithMany(t => t.Bookings)
+            .HasForeignKey(b => b.TourId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasOne(b => b.User)
+            .WithMany(u => u.Bookings)
+            .HasForeignKey(b => b.Email)
+            .OnDelete(DeleteBehavior.Restrict);
+    }
+}

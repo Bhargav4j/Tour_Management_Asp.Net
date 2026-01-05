@@ -1,0 +1,55 @@
+@page
+@model CreateBookingModel
+@{
+    ViewData["Title"] = "Book Tour";
+}
+
+<h2>Book Tour</h2>
+
+@if (Model.Tour != null)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Tour.TourName</h5>
+            <p class="card-text">
+                <strong>Place:</strong> @Model.Tour.Place<br />
+                <strong>Days:</strong> @Model.Tour.Days<br />
+                <strong>Price:</strong> $@Model.Tour.Price.ToString("N2")
+            </p>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+    {
+        <div class="alert alert-danger">@Model.ErrorMessage</div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.SuccessMessage))
+    {
+        <div class="alert alert-success">@Model.SuccessMessage</div>
+    }
+
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <form method="post">
+            <input type="hidden" asp-for="TourId" />
+            <div class="mb-3">
+                <p>You are booking this tour as: <strong>@User.Identity.Name</strong></p>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Confirm Booking</button>
+                <a asp-page="/Tours/Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            Please <a asp-page="/Account/Login">login</a> to book this tour.
+        </div>
+    }
+}
+else
+{
+    <div class="alert alert-warning">Tour not found.</div>
+}
