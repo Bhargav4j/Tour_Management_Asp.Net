@@ -1,0 +1,14 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Tour Management</h1>
+    <p>Discover amazing tours and book your next adventure!</p>
+    <p>
+        <a asp-page="/Tours/Index" class="btn btn-primary btn-lg">Browse Tours</a>
+        <a asp-page="/Account/Register" class="btn btn-outline-primary btn-lg">Register Now</a>
+    </p>
+</div>

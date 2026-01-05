@@ -1,0 +1,39 @@
+@page "{id:int}"
+@model DetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+<h2>Tour Details</h2>
+<hr />
+
+@if (Model.Tour != null)
+{
+    <div class="row">
+        <div class="col-md-8">
+            @if (!string.IsNullOrEmpty(Model.Tour.PictureFileName))
+            {
+                <img src="~/images/tours/@Model.Tour.PictureFileName" class="img-fluid mb-3" alt="@Model.Tour.TourName" />
+            }
+            <h3>@Model.Tour.TourName</h3>
+            <p><strong>Location:</strong> @Model.Tour.Place</p>
+            <p><strong>Duration:</strong> @Model.Tour.Days days</p>
+            <p><strong>Price:</strong> $@Model.Tour.Price.ToString("F2")</p>
+            <p><strong>Locations Covered:</strong> @Model.Tour.Locations</p>
+            <hr />
+            <h4>Tour Information</h4>
+            <p>@Model.Tour.TourInfo</p>
+            <div class="mt-4">
+                <a asp-page="/Bookings/Create" asp-route-tourId="@Model.Tour.TourId" class="btn btn-success btn-lg">Book This Tour</a>
+                <a asp-page="/Tours/Index" class="btn btn-secondary">Back to Tours</a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        <p>Tour not found.</p>
+        <a asp-page="/Tours/Index" class="btn btn-primary">Back to Tours</a>
+    </div>
+}

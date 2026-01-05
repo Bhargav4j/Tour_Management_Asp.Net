@@ -1,0 +1,67 @@
+@page
+@model BookingsIndexModel
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<h2>My Bookings</h2>
+<hr />
+
+@if (!string.IsNullOrEmpty(TempData["SuccessMessage"] as string))
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (Model.Bookings != null && Model.Bookings.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Tour Name</th>
+                <th>Booking Date</th>
+                <th>Number of People</th>
+                <th>Total Price</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model.Bookings)
+            {
+                <tr>
+                    <td>@booking.TourName</td>
+                    <td>@booking.BookingDate.ToString("yyyy-MM-dd")</td>
+                    <td>@booking.NumberOfPeople</td>
+                    <td>$@booking.TotalPrice.ToString("F2")</td>
+                    <td>
+                        @if (booking.Status == "Confirmed")
+                        {
+                            <span class="badge bg-success">@booking.Status</span>
+                        }
+                        else if (booking.Status == "Pending")
+                        {
+                            <span class="badge bg-warning">@booking.Status</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">@booking.Status</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-page="/Tours/Details" asp-route-id="@booking.TourId" class="btn btn-sm btn-primary">View Tour</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        <p>You have no bookings yet.</p>
+        <a asp-page="/Tours/Index" class="btn btn-primary">Browse Tours</a>
+    </div>
+}
