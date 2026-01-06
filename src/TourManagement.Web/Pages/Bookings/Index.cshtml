@@ -1,0 +1,73 @@
+@page
+@using System.Security.Claims
+@model BookingsIndexModel
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (Model.Bookings == null || !Model.Bookings.Any())
+{
+    <div class="alert alert-info">You have no bookings yet.</div>
+    <a asp-page="/Tours/Index" class="btn btn-primary">Browse Tours</a>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Tour Name</th>
+                <th>Booking Date</th>
+                <th>Number of People</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model.Bookings)
+            {
+                <tr>
+                    <td>@booking.BookingId</td>
+                    <td>@booking.Tour.TourName</td>
+                    <td>@booking.BookingDate.ToString("MMM dd, yyyy")</td>
+                    <td>@booking.NumberOfPeople</td>
+                    <td>$@booking.TotalAmount.ToString("N2")</td>
+                    <td>
+                        @if (booking.Status == "Confirmed")
+                        {
+                            <span class="badge bg-success">@booking.Status</span>
+                        }
+                        else if (booking.Status == "Cancelled")
+                        {
+                            <span class="badge bg-danger">@booking.Status</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-warning">@booking.Status</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-page="/Bookings/Details" asp-route-id="@booking.BookingId" class="btn btn-sm btn-info">Details</a>
+                        @if (booking.Status != "Cancelled")
+                        {
+                            <form method="post" asp-page-handler="Cancel" asp-route-id="@booking.BookingId" style="display: inline;">
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to cancel this booking?');">Cancel</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

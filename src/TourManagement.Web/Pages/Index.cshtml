@@ -1,0 +1,43 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Tour Management</h1>
+    <p class="lead">Discover amazing tours and book your next adventure</p>
+    <p>
+        <a asp-page="/Tours/Index" class="btn btn-primary btn-lg">Browse Tours</a>
+    </p>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Explore Destinations</h5>
+                <p class="card-text">Browse through our collection of exciting tour packages to destinations around the world.</p>
+                <a asp-page="/Tours/Index" class="btn btn-outline-primary">View Tours</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Easy Booking</h5>
+                <p class="card-text">Book your favorite tours with just a few clicks. Simple and secure booking process.</p>
+                <a asp-page="/Account/Register" class="btn btn-outline-primary">Sign Up</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Manage Bookings</h5>
+                <p class="card-text">View and manage all your tour bookings in one convenient place.</p>
+                <a asp-page="/Account/Login" class="btn btn-outline-primary">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
