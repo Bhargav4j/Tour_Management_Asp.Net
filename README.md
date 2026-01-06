@@ -1,29 +1,55 @@
-# Tour_Management_Project
- simple asp.net application for booking of tours.
- 
-# Admin
-* Add Tour
-* Manage Tour 
-* See Bookings
-<img width="752" alt="image" src="https://user-images.githubusercontent.com/81226571/196478877-2a66ec3b-1a71-48ce-ab20-6013890ae19d.png">
-<img width="760" alt="image" src="https://user-images.githubusercontent.com/81226571/196479030-a0cbc14c-6085-4d7c-8de5-86414aa8be7f.png">
+# Tour Management System - .NET 8
 
-# User
-- Manage Profile
-- Book Tour
-- See his booking
-<img width="745" alt="image" src="https://user-images.githubusercontent.com/81226571/196478761-6a7d261a-1769-4c56-9052-b3e4a77722e5.png">
+A modern tour booking and management system migrated from ASP.NET Web Forms to .NET 8 with clean architecture.
 
-## How to run?
-- Fork Project 
-- clone repository( git clone https://github.com/jaygajera17/Tour_Management_Asp.Net)
-- open app_data folder
-- right click on database file (.mdf) click modify connection.
-- you can also config your own database by step mention in [database.txt](https://github.com/jaygajera17/Tour_Management_Asp.Net/blob/main/Database.txt) file.
+## Architecture
 
-## Important Links
-- 𝗬𝗼𝘂𝘁𝘂𝗯𝗲 𝗽𝗿𝗼𝗷𝗲𝗰𝘁 𝘃𝗶𝗱𝗲𝗼 𝗪𝗼𝗿𝗸𝗶𝗻𝗴 𝗗𝗲𝗺𝗼  ::---  [  click here  ](https://youtu.be/r-UfxsVzndk) [![youtube][youtube-shield]][youtube-url]
+This application follows clean architecture principles with four main layers:
 
+### Domain Layer (TourManagement.Domain)
+- **Entities**: Core business entities (Tour, Booking, User)
+- **Interfaces**: Repository and service interfaces
+- **No Dependencies**: Pure domain logic
 
-[youtube-shield]:https://img.shields.io/youtube/views/r-UfxsVzndk?style=social
-[youtube-url]:  https://youtu.be/r-UfxsVzndk
+### Application Layer (TourManagement.Application)
+- **Services**: Business logic implementation
+- **Dependencies**: Domain layer, Microsoft.Extensions.Logging
+
+### Infrastructure Layer (TourManagement.Infrastructure)
+- **Data**: Entity Framework Core DbContext and configurations
+- **Repositories**: Data access implementations
+- **Dependencies**: Domain, Application, EF Core 8.0
+
+### Web Layer (TourManagement.Web)
+- **Razor Pages**: Modern ASP.NET Core UI
+- **Dependencies**: Infrastructure, Application
+
+## Technologies
+
+- **.NET 8.0**: Target framework
+- **Entity Framework Core 8.0**: ORM and data access
+- **SQL Server**: Database (LocalDB for development)
+- **Razor Pages**: Web UI framework
+- **Serilog**: Structured logging
+- **BCrypt.Net**: Password hashing
+
+## Getting Started
+
+### Prerequisites
+- .NET 8 SDK
+- SQL Server or LocalDB
+
+### Setup
+
+1. Update connection string in appsettings.json
+2. Create database: dotnet ef database update --project src/TourManagement.Infrastructure
+3. Run: dotnet run --project src/TourManagement.Web
+
+## Migration from Web Forms
+
+Key changes:
+- Web.config → appsettings.json
+- ADO.NET → Entity Framework Core
+- ASPX pages → Razor Pages
+- Plain text passwords → BCrypt hashed
+- SQL concatenation → Parameterized queries
