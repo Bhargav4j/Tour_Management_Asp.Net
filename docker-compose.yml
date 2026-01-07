@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  tourmanagement-app:
+    image: tourmanagement-app:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tourmanagement-app
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - DB_SERVER=${DB_SERVER}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - TZ=UTC
+    volumes:
+      - ./logs:/app/logs
+      - ./appsettings:/app/appsettings:ro
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["NONE"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  logs:
+  appsettings:

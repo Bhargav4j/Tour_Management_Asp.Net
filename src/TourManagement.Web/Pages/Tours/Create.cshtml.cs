@@ -87,7 +87,7 @@ public class CreateTourModel : PageModel
                 }
 
                 imageFileName = $"{Guid.NewGuid()}{extension}";
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "tours");
+                var uploadsFolder = Path.Combine("/app/wwwroot/uploads", "tours");
                 Directory.CreateDirectory(uploadsFolder);
                 var filePath = Path.Combine(uploadsFolder, imageFileName);
 

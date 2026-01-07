@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Serilog;
 using TourManagement.Application.Extensions;
+using TourManagement.Infrastructure.Data;
 using TourManagement.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +11,6 @@ Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
     .WriteTo.Console()
-    .WriteTo.File("logs/tourmanagement-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 builder.Host.UseSerilog();
@@ -33,6 +34,9 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddHttpContextAccessor();
 
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<TourManagementDbContext>();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -48,6 +52,9 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapHealthChecks("/health");
+app.MapHealthChecks("/ready");
 
 app.MapRazorPages();
 
