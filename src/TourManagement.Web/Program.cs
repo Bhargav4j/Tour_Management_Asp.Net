@@ -9,7 +9,6 @@ Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
     .WriteTo.Console()
-    .WriteTo.File("logs/tourmanagement-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 builder.Host.UseSerilog();
@@ -20,6 +19,10 @@ builder.Services.AddRazorPages();
 // Add custom services
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
+
+// Add health checks
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<TourManagement.Infrastructure.Data.TourManagementDbContext>();
 
 // Add HTTP context accessor
 builder.Services.AddHttpContextAccessor();
@@ -50,6 +53,8 @@ app.UseRouting();
 app.UseAuthorization();
 app.UseSession();
 
+app.MapHealthChecks("/health");
+app.MapHealthChecks("/ready");
 app.MapRazorPages();
 
 try

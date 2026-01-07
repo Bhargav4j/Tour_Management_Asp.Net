@@ -51,7 +51,8 @@ public class CreateModel : PageModel
             // Handle file upload
             if (TourInput.PictureFile != null && TourInput.PictureFile.Length > 0)
             {
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "images");
+                var uploadPath = Environment.GetEnvironmentVariable("UPLOAD_PATH") ?? "/app/wwwroot/images";
+                var uploadsFolder = Path.Combine(uploadPath);
                 Directory.CreateDirectory(uploadsFolder);
 
                 var uniqueFileName = $"{Guid.NewGuid()}_{TourInput.PictureFile.FileName}";
