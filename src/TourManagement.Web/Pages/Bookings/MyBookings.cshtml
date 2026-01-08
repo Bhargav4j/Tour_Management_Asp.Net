@@ -1,0 +1,43 @@
+@page
+@model MyBookingsModel
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<h2>My Bookings</h2>
+
+@if (Model.Bookings != null && Model.Bookings.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tour Name</th>
+                    <th>Place</th>
+                    <th>Email</th>
+                    <th>Booking Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model.Bookings)
+                {
+                    <tr>
+                        <td>@booking.TourName</td>
+                        <td>@booking.Place</td>
+                        <td>@booking.Email</td>
+                        <td>@booking.BookingDate.ToString("MMM dd, yyyy")</td>
+                        <td>
+                            <a asp-page="/Tours/Details" asp-route-id="@booking.TourId" class="btn btn-sm btn-info">View Tour</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-info">You have no bookings yet.</div>
+    <a asp-page="/Tours/Index" class="btn btn-primary">Browse Tours</a>
+}
