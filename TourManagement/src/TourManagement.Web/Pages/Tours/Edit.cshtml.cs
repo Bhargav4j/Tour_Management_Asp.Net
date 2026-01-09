@@ -130,7 +130,8 @@ public class EditModel : PageModel
 
             if (ImageFile != null && ImageFile.Length > 0)
             {
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "images", "tours");
+                var uploadPath = Environment.GetEnvironmentVariable("UPLOAD_PATH") ?? Path.Combine(_environment.WebRootPath, "images", "tours");
+                var uploadsFolder = uploadPath;
                 Directory.CreateDirectory(uploadsFolder);
 
                 if (!string.IsNullOrEmpty(existingTour.ImageFileName))

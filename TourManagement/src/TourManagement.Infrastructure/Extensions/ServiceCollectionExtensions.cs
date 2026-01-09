@@ -17,7 +17,8 @@ public static class ServiceCollectionExtensions
         IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection")
-            ?? "Host=localhost;Port=5432;Database=tourmanagementdb;Username=postgres;Password=postgres";
+            ?? Environment.GetEnvironmentVariable("DATABASE_URL")
+            ?? throw new InvalidOperationException("Database connection string not found. Set ConnectionStrings:DefaultConnection or DATABASE_URL environment variable.");
 
         services.AddDbContext<TourManagementDbContext>(options =>
         {

@@ -71,7 +71,8 @@ public class DeleteModel : PageModel
             var existingTour = await _tourService.GetTourByIdAsync(Tour.Id, cancellationToken);
             if (existingTour != null && !string.IsNullOrEmpty(existingTour.ImageFileName))
             {
-                var imagePath = Path.Combine(_environment.WebRootPath, "images", "tours", existingTour.ImageFileName);
+                var uploadPath = Environment.GetEnvironmentVariable("UPLOAD_PATH") ?? Path.Combine(_environment.WebRootPath, "images", "tours");
+                var imagePath = Path.Combine(uploadPath, existingTour.ImageFileName);
                 if (System.IO.File.Exists(imagePath))
                 {
                     System.IO.File.Delete(imagePath);
