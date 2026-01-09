@@ -1,0 +1,73 @@
+@page
+@model TourManagement.Web.Pages.Bookings.IndexModel
+@{
+    ViewData["Title"] = Model.IsAdmin ? "All Bookings" : "My Bookings";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>@ViewData["Title"]</h1>
+</div>
+
+@if (Model.Bookings != null && Model.Bookings.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Booking Date</th>
+                    <th>Tour Name</th>
+                    <th>Place</th>
+                    @if (Model.IsAdmin)
+                    {
+                        <th>User Email</th>
+                    }
+                    <th>Number of People</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model.Bookings)
+                {
+                    <tr>
+                        <td>@booking.BookingDate.ToString("yyyy-MM-dd")</td>
+                        <td>@booking.Tour?.TourName</td>
+                        <td>@booking.Tour?.Place</td>
+                        @if (Model.IsAdmin)
+                        {
+                            <td>@booking.User?.Email</td>
+                        }
+                        <td>@booking.NumberOfPeople</td>
+                        <td>$@booking.TotalAmount.ToString("N2")</td>
+                        <td>
+                            <span class="badge bg-@(booking.Status == "Confirmed" ? "success" : booking.Status == "Pending" ? "warning" : "secondary")">
+                                @booking.Status
+                            </span>
+                        </td>
+                        <td>
+                            <a asp-page="./Details" asp-route-id="@booking.Id" class="btn btn-sm btn-info">Details</a>
+                            @if (booking.Status == "Pending")
+                            {
+                                <a asp-page="./Delete" asp-route-id="@booking.Id" class="btn btn-sm btn-danger">Cancel</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        @if (Model.IsAdmin)
+        {
+            <text>No bookings found.</text>
+        }
+        else
+        {
+            <text>You don't have any bookings yet. <a asp-page="/Tours/Index">Browse Tours</a></text>
+        }
+    </div>
+}

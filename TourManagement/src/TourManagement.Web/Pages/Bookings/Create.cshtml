@@ -1,0 +1,72 @@
+@page
+@model TourManagement.Web.Pages.Bookings.CreateModel
+@{
+    ViewData["Title"] = "Book Tour";
+}
+
+<h1>Book Tour</h1>
+
+@if (Model.Tour != null)
+{
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>@Model.Tour.TourName</h3>
+            <p><strong>Place:</strong> @Model.Tour.Place</p>
+            <p><strong>Duration:</strong> @Model.Tour.Days days</p>
+            <p><strong>Price per person:</strong> $@Model.Tour.Price.ToString("N2")</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <input type="hidden" asp-for="TourId" />
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="BookingDate" class="form-label"></label>
+                    <input asp-for="BookingDate" class="form-control" type="date" />
+                    <span asp-validation-for="BookingDate" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="NumberOfPeople" class="form-label"></label>
+                    <input asp-for="NumberOfPeople" class="form-control" type="number" min="1" max="50" />
+                    <span asp-validation-for="NumberOfPeople" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Notes" class="form-label"></label>
+                    <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Notes" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <p><strong>Total Amount:</strong> <span id="totalAmount">$0.00</span></p>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success">Confirm Booking</button>
+                    <a asp-page="/Tours/Index" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">Tour not found.</div>
+    <a asp-page="/Tours/Index" class="btn btn-secondary">Back to Tours</a>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const pricePerPerson = @Model.Tour?.Price ?? 0;
+        document.getElementById('NumberOfPeople').addEventListener('input', function() {
+            const numberOfPeople = parseInt(this.value) || 0;
+            const total = numberOfPeople * pricePerPerson;
+            document.getElementById('totalAmount').textContent = '$' + total.toFixed(2);
+        });
+    </script>
+}

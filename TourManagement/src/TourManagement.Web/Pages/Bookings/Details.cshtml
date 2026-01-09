@@ -1,0 +1,65 @@
+@page
+@model TourManagement.Web.Pages.Bookings.DetailsModel
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<h1>Booking Details</h1>
+
+@if (Model.Booking != null)
+{
+    <div class="card">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Booking Date</dt>
+                <dd class="col-sm-9">@Model.Booking.BookingDate.ToString("yyyy-MM-dd")</dd>
+
+                <dt class="col-sm-3">Tour Name</dt>
+                <dd class="col-sm-9">@Model.Booking.Tour?.TourName</dd>
+
+                <dt class="col-sm-3">Place</dt>
+                <dd class="col-sm-9">@Model.Booking.Tour?.Place</dd>
+
+                <dt class="col-sm-3">Number of People</dt>
+                <dd class="col-sm-9">@Model.Booking.NumberOfPeople</dd>
+
+                <dt class="col-sm-3">Total Amount</dt>
+                <dd class="col-sm-9">$@Model.Booking.TotalAmount.ToString("N2")</dd>
+
+                <dt class="col-sm-3">Status</dt>
+                <dd class="col-sm-9">
+                    <span class="badge bg-@(Model.Booking.Status == "Confirmed" ? "success" : Model.Booking.Status == "Pending" ? "warning" : "secondary")">
+                        @Model.Booking.Status
+                    </span>
+                </dd>
+
+                @if (Model.IsAdmin)
+                {
+                    <dt class="col-sm-3">Customer Email</dt>
+                    <dd class="col-sm-9">@Model.Booking.User?.Email</dd>
+
+                    <dt class="col-sm-3">Customer Name</dt>
+                    <dd class="col-sm-9">@Model.Booking.User?.FirstName @Model.Booking.User?.LastName</dd>
+                }
+
+                <dt class="col-sm-3">Notes</dt>
+                <dd class="col-sm-9">@(Model.Booking.Notes ?? "No additional notes")</dd>
+
+                <dt class="col-sm-3">Created Date</dt>
+                <dd class="col-sm-9">@Model.Booking.CreatedDate.ToString("yyyy-MM-dd HH:mm")</dd>
+            </dl>
+        </div>
+        <div class="card-footer">
+            <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+            @if (Model.Booking.Status == "Pending")
+            {
+                <a asp-page="./Delete" asp-route-id="@Model.Booking.Id" class="btn btn-danger">Cancel Booking</a>
+            }
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">Booking not found.</div>
+    <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+}
