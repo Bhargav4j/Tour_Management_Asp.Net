@@ -34,7 +34,7 @@ public class BookingConfiguration : IEntityTypeConfiguration<Booking>
             .HasMaxLength(1000);
 
         builder.Property(b => b.CreatedDate)
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(b => b.IsActive)
             .HasDefaultValue(true);

@@ -17,10 +17,22 @@ public static class ServiceCollectionExtensions
         IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection")
-            ?? "Server=(localdb)\\mssqllocaldb;Database=TourManagementDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+            ?? "Host=localhost;Port=5432;Database=tourmanagementdb;Username=postgres;Password=postgres";
 
         services.AddDbContext<TourManagementDbContext>(options =>
-            options.UseSqlServer(connectionString));
+        {
+            options.UseNpgsql(connectionString, npgsqlOptions =>
+            {
+                npgsqlOptions.EnableRetryOnFailure(
+                    maxRetryCount: 5,
+                    maxRetryDelay: TimeSpan.FromSeconds(30),
+                    errorCodesToAdd: null);
+                npgsqlOptions.MigrationsHistoryTable("__efmigrations_history", "public");
+            })
+            .UseSnakeCaseNamingConvention();
+
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+        });
 
         services.AddScoped<ITourRepository, TourRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
