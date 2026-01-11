@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "restore": {
+    "/modernize-data/studio-data/TNT1001/APP2885/transformed-code/976/studio-workspace/CompTestTourMgmt/src/TourManagement.Web/TourManagement.Web.csproj": {}
+  },
+  "projects": {
+    "/modernize-data/studio-data/TNT1001/APP2885/transformed-code/976/studio-workspace/CompTestTourMgmt/src/TourManagement.Web/TourManagement.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/modernize-data/studio-data/TNT1001/APP2885/transformed-code/976/studio-workspace/CompTestTourMgmt/src/TourManagement.Web/TourManagement.Web.csproj",
+        "projectName": "TourManagement.Web",
+        "projectPath": "/modernize-data/studio-data/TNT1001/APP2885/transformed-code/976/studio-workspace/CompTestTourMgmt/src/TourManagement.Web/TourManagement.Web.csproj",
+        "packagesPath": "/home/studioai/.nuget/packages/",
+        "outputPath": "/modernize-data/studio-data/TNT1001/APP2885/transformed-code/976/studio-workspace/CompTestTourMgmt/src/TourManagement.Web/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/studioai/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.416/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

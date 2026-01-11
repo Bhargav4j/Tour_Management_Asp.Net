@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "kE0GfW2OemRcHwVoC3j+zy4vdeRRgUby/p65xFV4I2g=",
+  "Source": "TourManagement.Web",
+  "BasePath": "_content/TourManagement.Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "TourManagement.Web/wwwroot",
+      "Source": "TourManagement.Web",
+      "ContentRoot": "/modernize-data/studio-data/TNT1001/APP2885/transformed-code/976/studio-workspace/CompTestTourMgmt/src/TourManagement.Web/wwwroot/",
+      "BasePath": "_content/TourManagement.Web",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
