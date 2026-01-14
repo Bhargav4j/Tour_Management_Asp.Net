@@ -1,0 +1,45 @@
+@page "{id:int}"
+@model TourManagement.Web.Pages.Tours.DeleteModel
+@{
+    ViewData["Title"] = "Delete Tour";
+}
+
+<h1>Delete Tour</h1>
+
+<h3>Are you sure you want to delete this tour?</h3>
+
+@if (Model.Tour != null)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Tour.TourName</h5>
+
+            <dl class="row">
+                <dt class="col-sm-3">Place</dt>
+                <dd class="col-sm-9">@Model.Tour.Place</dd>
+
+                <dt class="col-sm-3">Duration</dt>
+                <dd class="col-sm-9">@Model.Tour.Days days</dd>
+
+                <dt class="col-sm-3">Price</dt>
+                <dd class="col-sm-9">$@Model.Tour.Price</dd>
+
+                <dt class="col-sm-3">Locations</dt>
+                <dd class="col-sm-9">@Model.Tour.Locations</dd>
+
+                <dt class="col-sm-3">Tour Information</dt>
+                <dd class="col-sm-9">@Model.Tour.TourInfo</dd>
+            </dl>
+
+            <form method="post">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <p>Tour not found.</p>
+    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+}
