@@ -1,0 +1,63 @@
+@page
+@model TourManagement.Web.Pages.Tours.DetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+<div class="container">
+    @if (Model.Tour != null)
+    {
+        <h1>@Model.Tour.TourName</h1>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-6">
+                @if (!string.IsNullOrEmpty(Model.Tour.PictureFileName))
+                {
+                    <img src="~/uploads/Tour_pics/@Model.Tour.PictureFileName" class="img-fluid rounded" alt="@Model.Tour.TourName" />
+                }
+                else
+                {
+                    <div class="bg-secondary d-flex align-items-center justify-content-center rounded" style="height: 400px;">
+                        <span class="text-white h3">No Image Available</span>
+                    </div>
+                }
+            </div>
+
+            <div class="col-md-6">
+                <dl class="row">
+                    <dt class="col-sm-4">Place</dt>
+                    <dd class="col-sm-8">@Model.Tour.Place</dd>
+
+                    <dt class="col-sm-4">Duration</dt>
+                    <dd class="col-sm-8">@Model.Tour.Days days</dd>
+
+                    <dt class="col-sm-4">Price</dt>
+                    <dd class="col-sm-8">$@Model.Tour.Price.ToString("N2")</dd>
+
+                    <dt class="col-sm-4">Locations</dt>
+                    <dd class="col-sm-8">@Model.Tour.Locations</dd>
+
+                    <dt class="col-sm-4">Information</dt>
+                    <dd class="col-sm-8">@Model.Tour.TourInfo</dd>
+                </dl>
+
+                <div class="mt-4">
+                    <a asp-page="/Bookings/Create" asp-route-tourId="@Model.Tour.Id" class="btn btn-success">Book Now</a>
+                    <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+                    @if (Model.IsAdmin)
+                    {
+                        <a asp-page="./Edit" asp-route-id="@Model.Tour.Id" class="btn btn-warning">Edit</a>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            Tour not found.
+        </div>
+        <a asp-page="./Index" class="btn btn-secondary">Back to List</a>
+    }
+</div>

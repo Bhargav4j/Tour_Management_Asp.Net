@@ -1,0 +1,6 @@
+{
+  "TourManagement.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/modernize-data\/studio-data\/TNT1001\/APP1124\/transformed-code\/305\/studio-workspace\/TourMgmt2001cmp\/src\/TourManagement.Application",
+  "TourManagement.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/modernize-data\/studio-data\/TNT1001\/APP1124\/transformed-code\/305\/studio-workspace\/TourMgmt2001cmp\/src\/TourManagement.Domain",
+  "TourManagement.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/modernize-data\/studio-data\/TNT1001\/APP1124\/transformed-code\/305\/studio-workspace\/TourMgmt2001cmp\/src\/TourManagement.Infrastructure",
+  "TourManagement.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/modernize-data\/studio-data\/TNT1001\/APP1124\/transformed-code\/305\/studio-workspace\/TourMgmt2001cmp\/src\/TourManagement.Web"
+}
