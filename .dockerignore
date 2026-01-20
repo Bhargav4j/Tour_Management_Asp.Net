@@ -1,0 +1,46 @@
+# Build artifacts
+bin/
+obj/
+publish/
+
+# IDE and editor folders
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+README*
+LICENSE*
+
+# Test results
+TestResults/
+*.trx
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+
+# Build logs
+*.log
+
+# User-specific files
+launchSettings.json
+
+# Temporary files
+*.tmp
+*.temp

@@ -9,13 +9,13 @@ namespace TourManagement.Web.Pages.Tours;
 public class CreateModel : PageModel
 {
     private readonly ITourService _tourService;
-    private readonly IWebHostEnvironment _environment;
+    private readonly IFileStorageService _fileStorageService;
     private readonly ILogger<CreateModel> _logger;
 
-    public CreateModel(ITourService tourService, IWebHostEnvironment environment, ILogger<CreateModel> logger)
+    public CreateModel(ITourService tourService, IFileStorageService fileStorageService, ILogger<CreateModel> logger)
     {
         _tourService = tourService;
-        _environment = environment;
+        _fileStorageService = fileStorageService;
         _logger = logger;
     }
 
@@ -75,18 +75,7 @@ public class CreateModel : PageModel
 
     private async Task<string> SaveFileAsync(IFormFile file)
     {
-        var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "Tour_pics");
-        Directory.CreateDirectory(uploadsFolder);
-
-        var uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";
-        var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-        using (var fileStream = new FileStream(filePath, FileMode.Create))
-        {
-            await file.CopyToAsync(fileStream);
-        }
-
-        return uniqueFileName;
+        return await _fileStorageService.SaveFileAsync(file, "uploads/Tour_pics");
     }
 
     public class TourInputModel

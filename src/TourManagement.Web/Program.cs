@@ -4,11 +4,13 @@ using TourManagement.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Explicitly add environment variables for configuration override clarity
+builder.Configuration.AddEnvironmentVariables();
+
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
     .WriteTo.Console()
-    .WriteTo.File("logs/tourmanagement-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 builder.Host.UseSerilog();
@@ -19,6 +21,26 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
 builder.Services.AddHttpContextAccessor();
+
+// Add health checks for container orchestration
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<TourManagement.Infrastructure.Data.TourManagementDbContext>();
+
+// Add distributed cache for session storage (Redis or in-memory for development)
+var redisConnection = Environment.GetEnvironmentVariable("REDIS_CONNECTION") ?? builder.Configuration["Redis:Connection"];
+if (!string.IsNullOrEmpty(redisConnection))
+{
+    builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = redisConnection;
+        options.InstanceName = "TourManagement_";
+    });
+}
+else
+{
+    // Fallback to in-memory cache for development
+    builder.Services.AddDistributedMemoryCache();
+}
 
 builder.Services.AddSession(options =>
 {
@@ -45,6 +67,9 @@ app.UseSession();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+// Map health check endpoint for Kubernetes probes
+app.MapHealthChecks("/health");
 
 try
 {
