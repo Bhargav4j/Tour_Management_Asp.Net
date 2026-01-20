@@ -59,7 +59,7 @@ public class UserInfoConfiguration : IEntityTypeConfiguration<UserInfo>
             .HasMaxLength(100);
 
         builder.Property(u => u.CreatedDate)
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(u => u.IsActive)
             .HasDefaultValue(true);

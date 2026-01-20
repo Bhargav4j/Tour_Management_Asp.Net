@@ -15,12 +15,13 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<TourManagementDbContext>(options =>
-            options.UseSqlServer(
+            options.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection"),
-                sqlOptions => sqlOptions.EnableRetryOnFailure(
+                npgsqlOptions => npgsqlOptions.EnableRetryOnFailure(
                     maxRetryCount: 5,
                     maxRetryDelay: TimeSpan.FromSeconds(30),
-                    errorNumbersToAdd: null)));
+                    errorCodesToAdd: null))
+            .UseSnakeCaseNamingConvention());
 
         services.AddScoped<ITourRepository, TourRepository>();
         services.AddScoped<IUserInfoRepository, UserInfoRepository>();

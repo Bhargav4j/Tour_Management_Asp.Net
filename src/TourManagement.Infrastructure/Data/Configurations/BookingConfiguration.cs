@@ -26,7 +26,7 @@ public class BookingConfiguration : IEntityTypeConfiguration<Booking>
 
         builder.Property(b => b.BookingDate)
             .IsRequired()
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(b => b.NumberOfPeople)
             .IsRequired();
@@ -44,7 +44,7 @@ public class BookingConfiguration : IEntityTypeConfiguration<Booking>
             .HasMaxLength(1000);
 
         builder.Property(b => b.CreatedDate)
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(b => b.IsActive)
             .HasDefaultValue(true);
