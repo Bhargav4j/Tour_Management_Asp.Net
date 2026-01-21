@@ -86,7 +86,8 @@ public class EditModel : PageModel
 
     private async Task<string> SaveFileAsync(IFormFile file)
     {
-        var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads", "Tour_pics");
+        var uploadPath = Environment.GetEnvironmentVariable("UPLOAD_PATH") ?? Path.Combine(_environment.WebRootPath, "uploads");
+        var uploadsFolder = Path.Combine(uploadPath, "Tour_pics");
         Directory.CreateDirectory(uploadsFolder);
 
         var uniqueFileName = $"{Guid.NewGuid()}_{file.FileName}";
