@@ -1,0 +1,135 @@
+@page
+@model TourManagement.Web.Pages.Users.EditModel
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="display-6">
+                    <i class="bi bi-pencil-square"></i> Edit User
+                </h1>
+                <div>
+                    <a asp-page="Details" asp-route-id="@Model.Input.Id" class="btn btn-secondary">
+                        <i class="bi bi-x-circle"></i> Cancel
+                    </a>
+                </div>
+            </div>
+
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0">
+                        <i class="bi bi-person-gear"></i> Update User Information
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <input type="hidden" asp-for="Input.Id" />
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.Email" class="form-label"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-envelope"></i>
+                                    </span>
+                                    <input asp-for="Input.Email" class="form-control" placeholder="user@example.com" />
+                                </div>
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.Name" class="form-label"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-person"></i>
+                                    </span>
+                                    <input asp-for="Input.Name" class="form-control" placeholder="John Doe" />
+                                </div>
+                                <span asp-validation-for="Input.Name" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="bi bi-telephone"></i>
+                                    </span>
+                                    <input asp-for="Input.PhoneNumber" class="form-control" placeholder="+1 (555) 123-4567" />
+                                </div>
+                                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Input.IsActive" class="form-label">Account Status</label>
+                                <div class="form-check form-switch">
+                                    <input asp-for="Input.IsActive" class="form-check-input" role="switch" style="width: 3em; height: 1.5em;" />
+                                    <label asp-for="Input.IsActive" class="form-check-label ms-2">
+                                        @if (Model.Input.IsActive)
+                                        {
+                                            <span class="badge bg-success">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">Inactive</span>
+                                        }
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Input.Address" class="form-label"></label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-geo-alt"></i>
+                                </span>
+                                <input asp-for="Input.Address" class="form-control" placeholder="123 Main St, City, State, ZIP" />
+                            </div>
+                            <span asp-validation-for="Input.Address" class="text-danger"></span>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-page="Details" asp-route-id="@Model.Input.Id" class="btn btn-secondary">
+                                <i class="bi bi-x-circle"></i> Cancel
+                            </a>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-save"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="alert alert-info mt-3" role="alert">
+                <i class="bi bi-info-circle"></i>
+                <strong>Note:</strong> User ID <strong>@Model.Input.Id</strong>. Email changes will affect login credentials.
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Update badge text when switch is toggled
+        document.getElementById('Input_IsActive').addEventListener('change', function() {
+            var badge = this.parentElement.querySelector('.badge');
+            if (this.checked) {
+                badge.className = 'badge bg-success';
+                badge.textContent = 'Active';
+            } else {
+                badge.className = 'badge bg-danger';
+                badge.textContent = 'Inactive';
+            }
+        });
+    </script>
+}

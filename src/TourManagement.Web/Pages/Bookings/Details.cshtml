@@ -1,0 +1,197 @@
+@page
+@model TourManagement.Web.Pages.Bookings.DetailsModel
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="display-5">Booking Details</h1>
+                <div>
+                    <a asp-page="./Edit" asp-route-id="@Model.Booking?.Id" class="btn btn-warning">
+                        Edit
+                    </a>
+                    <a asp-page="./Delete" asp-route-id="@Model.Booking?.Id" class="btn btn-danger">
+                        Cancel Booking
+                    </a>
+                    <a asp-page="./Index" class="btn btn-secondary">
+                        Back to List
+                    </a>
+                </div>
+            </div>
+
+            @if (Model.Booking != null)
+            {
+                <div class="row">
+                    <!-- Booking Information Card -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-primary text-white">
+                                <h4 class="mb-0">Booking Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <dl class="row mb-0">
+                                    <dt class="col-sm-5">Booking ID:</dt>
+                                    <dd class="col-sm-7">@Model.Booking.Id</dd>
+
+                                    <dt class="col-sm-5">Booking Date:</dt>
+                                    <dd class="col-sm-7">@Model.Booking.BookingDate.ToString("MMMM dd, yyyy")</dd>
+
+                                    <dt class="col-sm-5">Number of People:</dt>
+                                    <dd class="col-sm-7">@Model.Booking.NumberOfPeople</dd>
+
+                                    <dt class="col-sm-5">Total Amount:</dt>
+                                    <dd class="col-sm-7">
+                                        <strong class="text-success">$@Model.Booking.TotalAmount.ToString("N2")</strong>
+                                    </dd>
+
+                                    <dt class="col-sm-5">Status:</dt>
+                                    <dd class="col-sm-7">
+                                        @if (Model.Booking.Status == "Confirmed")
+                                        {
+                                            <span class="badge bg-success">@Model.Booking.Status</span>
+                                        }
+                                        else if (Model.Booking.Status == "Pending")
+                                        {
+                                            <span class="badge bg-warning text-dark">@Model.Booking.Status</span>
+                                        }
+                                        else if (Model.Booking.Status == "Cancelled")
+                                        {
+                                            <span class="badge bg-danger">@Model.Booking.Status</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">@Model.Booking.Status</span>
+                                        }
+                                    </dd>
+
+                                    <dt class="col-sm-5">Active:</dt>
+                                    <dd class="col-sm-7">
+                                        @if (Model.Booking.IsActive)
+                                        {
+                                            <span class="badge bg-success">Yes</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger">No</span>
+                                        }
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customer Information Card -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header bg-info text-white">
+                                <h4 class="mb-0">Customer Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <dl class="row mb-0">
+                                    <dt class="col-sm-5">Name:</dt>
+                                    <dd class="col-sm-7">@Model.Booking.UserName</dd>
+
+                                    <dt class="col-sm-5">Email:</dt>
+                                    <dd class="col-sm-7">@Model.Booking.UserEmail</dd>
+
+                                    <dt class="col-sm-5">Phone Number:</dt>
+                                    <dd class="col-sm-7">@Model.Booking.UserPhoneNumber</dd>
+
+                                    <dt class="col-sm-5">Address:</dt>
+                                    <dd class="col-sm-7">@Model.Booking.UserAddress</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tour Information Card -->
+                    <div class="col-md-12 mb-4">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-success text-white">
+                                <h4 class="mb-0">Tour Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <dl class="row mb-0">
+                                            <dt class="col-sm-4">Tour Name:</dt>
+                                            <dd class="col-sm-8"><strong>@Model.Booking.TourName</strong></dd>
+
+                                            <dt class="col-sm-4">Place:</dt>
+                                            <dd class="col-sm-8">@Model.Booking.TourPlace</dd>
+
+                                            <dt class="col-sm-4">Duration:</dt>
+                                            <dd class="col-sm-8">@Model.Booking.TourDays Days</dd>
+
+                                            <dt class="col-sm-4">Price per Person:</dt>
+                                            <dd class="col-sm-8">$@Model.Booking.TourPrice.ToString("N2")</dd>
+                                        </dl>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <dl class="row mb-0">
+                                            <dt class="col-sm-4">Locations:</dt>
+                                            <dd class="col-sm-8">@Model.Booking.TourLocations</dd>
+
+                                            <dt class="col-sm-4">Tour Info:</dt>
+                                            <dd class="col-sm-8">@Model.Booking.TourInfo</dd>
+                                        </dl>
+                                    </div>
+                                </div>
+
+                                <hr class="my-3" />
+
+                                <div class="alert alert-light mb-0">
+                                    <h5>Pricing Breakdown</h5>
+                                    <p class="mb-1">Price per Person: $@Model.Booking.TourPrice.ToString("N2")</p>
+                                    <p class="mb-1">Number of People: @Model.Booking.NumberOfPeople</p>
+                                    <p class="mb-0"><strong>Total Amount: $@Model.Booking.TotalAmount.ToString("N2")</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- System Information Card -->
+                    <div class="col-md-12">
+                        <div class="card shadow-sm">
+                            <div class="card-header bg-secondary text-white">
+                                <h5 class="mb-0">System Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <dl class="row mb-0">
+                                    <dt class="col-sm-2">Created Date:</dt>
+                                    <dd class="col-sm-4">@Model.Booking.CreatedDate.ToString("MMMM dd, yyyy hh:mm tt")</dd>
+
+                                    <dt class="col-sm-2">Created By:</dt>
+                                    <dd class="col-sm-4">@Model.Booking.CreatedBy</dd>
+
+                                    @if (Model.Booking.ModifiedDate.HasValue)
+                                    {
+                                        <dt class="col-sm-2">Modified Date:</dt>
+                                        <dd class="col-sm-4">@Model.Booking.ModifiedDate.Value.ToString("MMMM dd, yyyy hh:mm tt")</dd>
+
+                                        <dt class="col-sm-2">Modified By:</dt>
+                                        <dd class="col-sm-4">@Model.Booking.ModifiedBy</dd>
+                                    }
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-warning">
+                    <h4 class="alert-heading">Booking Not Found</h4>
+                    <p>The requested booking could not be found.</p>
+                    <hr>
+                    <p class="mb-0">
+                        <a asp-page="./Index" class="btn btn-primary">Back to Bookings</a>
+                    </p>
+                </div>
+            }
+        </div>
+    </div>
+</div>

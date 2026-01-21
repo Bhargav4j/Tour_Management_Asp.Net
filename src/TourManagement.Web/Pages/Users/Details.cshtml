@@ -1,0 +1,153 @@
+@page
+@model TourManagement.Web.Pages.Users.DetailsModel
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h1 class="display-6">
+                    <i class="bi bi-person-circle"></i> User Details
+                </h1>
+                <a asp-page="Index" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to List
+                </a>
+            </div>
+
+            <div class="card shadow">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">
+                        <i class="bi bi-info-circle"></i> @Model.UserDetails.Name
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h6 class="text-muted">User ID</h6>
+                            <p class="lead mb-0">@Model.UserDetails.Id</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-muted">Status</h6>
+                            <p class="lead mb-0">
+                                @if (Model.UserDetails.IsActive)
+                                {
+                                    <span class="badge bg-success fs-6">
+                                        <i class="bi bi-check-circle"></i> Active
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-danger fs-6">
+                                        <i class="bi bi-x-circle"></i> Inactive
+                                    </span>
+                                }
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h6 class="text-muted">
+                                <i class="bi bi-envelope"></i> Email Address
+                            </h6>
+                            <p class="mb-0">
+                                <a href="mailto:@Model.UserDetails.Email">@Model.UserDetails.Email</a>
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-muted">
+                                <i class="bi bi-telephone"></i> Phone Number
+                            </h6>
+                            <p class="mb-0">
+                                @if (!string.IsNullOrEmpty(Model.UserDetails.PhoneNumber))
+                                {
+                                    <a href="tel:@Model.UserDetails.PhoneNumber">@Model.UserDetails.PhoneNumber</a>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Not provided</span>
+                                }
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <h6 class="text-muted">
+                                <i class="bi bi-geo-alt"></i> Address
+                            </h6>
+                            <p class="mb-0">
+                                @if (!string.IsNullOrEmpty(Model.UserDetails.Address))
+                                {
+                                    @Model.UserDetails.Address
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Not provided</span>
+                                }
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <h6 class="text-muted">
+                                <i class="bi bi-calendar-plus"></i> Created Date
+                            </h6>
+                            <p class="mb-0">@Model.UserDetails.CreatedDate.ToString("MMMM dd, yyyy 'at' hh:mm tt")</p>
+                            <small class="text-muted">Created by: @Model.UserDetails.CreatedBy</small>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-muted">
+                                <i class="bi bi-calendar-check"></i> Last Modified
+                            </h6>
+                            <p class="mb-0">
+                                @if (Model.UserDetails.ModifiedDate.HasValue)
+                                {
+                                    @Model.UserDetails.ModifiedDate.Value.ToString("MMMM dd, yyyy 'at' hh:mm tt")
+                                    <br />
+                                    <small class="text-muted">Modified by: @Model.UserDetails.ModifiedBy</small>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">Never modified</span>
+                                }
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <h6 class="text-muted">
+                                <i class="bi bi-calendar-event"></i> Bookings Summary
+                            </h6>
+                            <p class="mb-0">
+                                <span class="badge bg-primary fs-6">
+                                    @Model.UserDetails.BookingsCount Total Bookings
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-light">
+                    <div class="d-flex justify-content-between">
+                        <a asp-page="Edit" asp-route-id="@Model.UserDetails.Id" class="btn btn-warning">
+                            <i class="bi bi-pencil"></i> Edit User
+                        </a>
+                        <a asp-page="Delete" asp-route-id="@Model.UserDetails.Id" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Delete User
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

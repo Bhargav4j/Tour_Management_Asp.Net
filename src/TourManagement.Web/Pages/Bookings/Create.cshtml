@@ -1,0 +1,116 @@
+@page
+@model TourManagement.Web.Pages.Bookings.CreateModel
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Create New Booking</h2>
+                </div>
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @Model.ErrorMessage
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    <form method="post" id="bookingForm">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Booking.TourId" class="form-label"></label>
+                            <select asp-for="Booking.TourId" class="form-select" asp-items="Model.Tours" id="tourSelect">
+                                <option value="">-- Select a Tour --</option>
+                            </select>
+                            <span asp-validation-for="Booking.TourId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Booking.BookingDate" class="form-label"></label>
+                            <input asp-for="Booking.BookingDate" class="form-control" type="date" />
+                            <span asp-validation-for="Booking.BookingDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Booking.NumberOfPeople" class="form-label"></label>
+                            <input asp-for="Booking.NumberOfPeople" class="form-control" type="number" min="1" max="100" id="numberOfPeople" />
+                            <span asp-validation-for="Booking.NumberOfPeople" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Booking.TotalAmount" class="form-label"></label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input asp-for="Booking.TotalAmount" class="form-control" type="text" readonly id="totalAmount" />
+                            </div>
+                            <small class="form-text text-muted">Total amount will be calculated automatically</small>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-between mt-4">
+                            <a asp-page="./Index" class="btn btn-secondary">
+                                Cancel
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                Create Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function() {
+            // Calculate total when tour or number of people changes
+            $('#tourSelect, #numberOfPeople').on('change', function() {
+                calculateTotal();
+            });
+
+            // Calculate total on page load if values are present
+            if ($('#tourSelect').val() && $('#numberOfPeople').val()) {
+                calculateTotal();
+            }
+
+            function calculateTotal() {
+                var tourId = $('#tourSelect').val();
+                var numberOfPeople = $('#numberOfPeople').val();
+
+                if (tourId && numberOfPeople && numberOfPeople > 0) {
+                    $.ajax({
+                        url: '/Bookings/Create?handler=CalculateTotal',
+                        type: 'GET',
+                        data: {
+                            tourId: tourId,
+                            numberOfPeople: numberOfPeople
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                $('#totalAmount').val(response.totalAmount.toFixed(2));
+                                $('#Booking_TotalAmount').val(response.totalAmount);
+                            } else {
+                                console.error('Error: ' + response.message);
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('AJAX Error: ' + error);
+                        }
+                    });
+                } else {
+                    $('#totalAmount').val('0.00');
+                    $('#Booking_TotalAmount').val(0);
+                }
+            }
+        });
+    </script>
+}

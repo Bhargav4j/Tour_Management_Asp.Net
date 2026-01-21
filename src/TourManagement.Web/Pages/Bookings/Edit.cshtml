@@ -1,0 +1,123 @@
+@page
+@model TourManagement.Web.Pages.Bookings.EditModel
+@{
+    ViewData["Title"] = "Edit Booking";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow-sm">
+                <div class="card-header bg-warning">
+                    <h2 class="mb-0">Edit Booking</h2>
+                </div>
+                <div class="card-body">
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @Model.ErrorMessage
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    <form method="post" id="editBookingForm">
+                        <input type="hidden" asp-for="Booking.Id" />
+                        <input type="hidden" asp-for="Booking.TourId" />
+                        <input type="hidden" asp-for="Booking.UserId" />
+                        <input type="hidden" asp-for="Booking.TourPrice" id="tourPrice" />
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Booking ID</label>
+                            <input type="text" class="form-control" value="@Model.Booking.Id" disabled />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Booking.TourName" class="form-label"></label>
+                            <input asp-for="Booking.TourName" class="form-control" disabled />
+                            <small class="form-text text-muted">Price per person: $@Model.Booking.TourPrice.ToString("N2")</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Booking.UserName" class="form-label"></label>
+                            <input asp-for="Booking.UserName" class="form-control" disabled />
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Booking.BookingDate" class="form-label"></label>
+                            <input asp-for="Booking.BookingDate" class="form-control" type="date" />
+                            <span asp-validation-for="Booking.BookingDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Booking.NumberOfPeople" class="form-label"></label>
+                            <input asp-for="Booking.NumberOfPeople" class="form-control" type="number" min="1" max="100" id="numberOfPeople" />
+                            <span asp-validation-for="Booking.NumberOfPeople" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Booking.TotalAmount" class="form-label"></label>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input asp-for="Booking.TotalAmount" class="form-control" type="text" readonly id="totalAmount" />
+                            </div>
+                            <small class="form-text text-muted">Total amount will be calculated automatically</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Booking.Status" class="form-label"></label>
+                            <select asp-for="Booking.Status" class="form-select" asp-items="Model.Statuses">
+                                <option value="">-- Select Status --</option>
+                            </select>
+                            <span asp-validation-for="Booking.Status" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-between mt-4">
+                            <a asp-page="./Details" asp-route-id="@Model.Booking.Id" class="btn btn-secondary">
+                                Cancel
+                            </a>
+                            <button type="submit" class="btn btn-warning">
+                                Update Booking
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        $(document).ready(function() {
+            // Store the booking ID
+            var bookingId = @Model.Booking.Id;
+
+            // Calculate total when number of people changes
+            $('#numberOfPeople').on('change', function() {
+                calculateTotal();
+            });
+
+            // Calculate total on page load
+            calculateTotal();
+
+            function calculateTotal() {
+                var numberOfPeople = $('#numberOfPeople').val();
+                var tourPrice = $('#tourPrice').val();
+
+                if (numberOfPeople && numberOfPeople > 0 && tourPrice) {
+                    // Simple calculation without AJAX since we already have the price
+                    var total = parseFloat(tourPrice) * parseInt(numberOfPeople);
+                    $('#totalAmount').val(total.toFixed(2));
+                    $('#Booking_TotalAmount').val(total);
+                } else {
+                    $('#totalAmount').val('0.00');
+                    $('#Booking_TotalAmount').val(0);
+                }
+            }
+        });
+    </script>
+}
