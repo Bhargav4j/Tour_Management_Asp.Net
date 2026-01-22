@@ -1,0 +1,61 @@
+@page
+@model TourManagement.Web.Pages.Bookings.IndexModel
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col">
+            <h1>My Bookings</h1>
+        </div>
+        <div class="col text-end">
+            <a asp-page="../Tours/Index" class="btn btn-primary">Book a Tour</a>
+        </div>
+    </div>
+
+    @if (Model.Bookings != null && Model.Bookings.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Tour Name</th>
+                    <th>Booking Date</th>
+                    <th>Number of People</th>
+                    <th>Total Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model.Bookings)
+                {
+                    <tr>
+                        <td>@booking.Id</td>
+                        <td>@booking.Tour.TourName</td>
+                        <td>@booking.BookingDate.ToString("yyyy-MM-dd")</td>
+                        <td>@booking.NumberOfPeople</td>
+                        <td>$@booking.TotalAmount.ToString("N2")</td>
+                        <td>
+                            <span class="badge bg-@(booking.Status == "Confirmed" ? "success" : booking.Status == "Cancelled" ? "danger" : "warning")">
+                                @booking.Status
+                            </span>
+                        </td>
+                        <td>
+                            <a asp-page="./Details" asp-route-id="@booking.Id" class="btn btn-sm btn-info">Details</a>
+                            @if (booking.Status == "Pending")
+                            {
+                                <a asp-page="./Cancel" asp-route-id="@booking.Id" class="btn btn-sm btn-danger">Cancel</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info">You don't have any bookings yet. <a asp-page="../Tours/Index">Browse tours</a> to make a booking.</div>
+    }
+</div>
