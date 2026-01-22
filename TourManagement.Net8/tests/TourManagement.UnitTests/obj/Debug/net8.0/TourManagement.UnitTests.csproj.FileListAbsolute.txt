@@ -1,0 +1,7 @@
+/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/bin/Debug/net8.0/CoverletSourceRootsMapping_TourManagement.UnitTests
+/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/obj/Debug/net8.0/TourManagement.UnitTests.csproj.AssemblyReference.cache
+/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/obj/Debug/net8.0/TourManagement.UnitTests.GeneratedMSBuildEditorConfig.editorconfig
+/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/obj/Debug/net8.0/TourManagement.UnitTests.AssemblyInfoInputs.cache
+/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/obj/Debug/net8.0/TourManagement.UnitTests.AssemblyInfo.cs
+/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/obj/Debug/net8.0/TourManagement.UnitTests.csproj.CoreCompileInputs.cache
+/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/obj/Debug/net8.0/TourManagement.UnitTests.sourcelink.json
