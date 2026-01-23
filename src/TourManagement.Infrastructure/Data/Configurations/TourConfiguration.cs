@@ -47,7 +47,7 @@ public class TourConfiguration : IEntityTypeConfiguration<Tour>
             .HasColumnName("pic");
 
         builder.Property(t => t.CreatedDate)
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW() AT TIME ZONE 'UTC'");
 
         builder.Property(t => t.IsActive)
             .HasDefaultValue(true);

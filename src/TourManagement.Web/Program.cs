@@ -23,7 +23,21 @@ builder.Services.AddRazorPages();
 
 // Configure DbContext
 builder.Services.AddDbContext<TourManagementDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"),
+        npgsqlOptions =>
+        {
+            npgsqlOptions.EnableRetryOnFailure(
+                maxRetryCount: 3,
+                maxRetryDelay: TimeSpan.FromSeconds(5),
+                errorCodesToAdd: null);
+            npgsqlOptions.MigrationsHistoryTable("__efmigrations_history", "public");
+        })
+        .UseSnakeCaseNamingConvention()
+        .EnableSensitiveDataLogging(builder.Environment.IsDevelopment());
+
+    AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+});
 
 // Register repositories
 builder.Services.AddScoped<IUserRepository, UserRepository>();
