@@ -1,0 +1,62 @@
+@page
+@model TourDetailsPageModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+@if (Model.Tour != null)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>@Model.Tour.TourName</h2>
+
+                @if (!string.IsNullOrEmpty(Model.Tour.PictureFileName))
+                {
+                    <img src="~/uploads/tour-pictures/@Model.Tour.PictureFileName" class="img-fluid mb-3" alt="@Model.Tour.TourName" />
+                }
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Tour Information</h5>
+                        <p class="card-text">@Model.Tour.TourInfo</p>
+
+                        <hr />
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Place:</strong> @Model.Tour.Place</p>
+                                <p><strong>Duration:</strong> @Model.Tour.Days days</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Price:</strong> $@Model.Tour.Price.ToString("N2")</p>
+                                <p><strong>Locations:</strong> @Model.Tour.Locations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <a asp-page="/Tours/Edit" asp-route-id="@Model.Tour.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="/Tours/Delete" asp-route-id="@Model.Tour.Id" class="btn btn-danger">Delete</a>
+                    <a asp-page="/Tours/Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Book This Tour</h5>
+                        <p class="card-text">Interested in this tour? Book now!</p>
+                        <a href="#" class="btn btn-primary w-100">Book Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">Tour not found.</div>
+    <a asp-page="/Tours/Index" class="btn btn-secondary">Back to List</a>
+}

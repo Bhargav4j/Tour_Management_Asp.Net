@@ -1,0 +1,44 @@
+@page
+@model ProfilePageModel
+@{
+    ViewData["Title"] = "User Profile";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Welcome, @Model.UserEmail</h2>
+            <hr />
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">My Bookings</h5>
+                    <p class="card-text">View and manage your tour bookings</p>
+                    <a asp-page="/Bookings/MyBookings" class="btn btn-primary">View Bookings</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Browse Tours</h5>
+                    <p class="card-text">Discover new travel destinations</p>
+                    <a asp-page="/Tours/Index" class="btn btn-primary">Browse Tours</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Account Settings</h5>
+                    <p class="card-text">Update your profile information</p>
+                    <a asp-page="/Account/Logout" class="btn btn-danger">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
