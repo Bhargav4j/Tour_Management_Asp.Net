@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jo0x4bgpoXQ=",
+  "dgSpecHash": "Du4H2kDj1y8=",
   "success": true,
-  "projectFilePath": "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/TourManagement.UnitTests.csproj",
+  "projectFilePath": "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/tests/TourManagement.UnitTests/TourManagement.UnitTests.csproj",
   "expectedPackageFiles": [
     "/home/studioai/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/studioai/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

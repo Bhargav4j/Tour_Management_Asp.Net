@@ -75,6 +75,22 @@
           }
         }
       },
+      "Castle.Core/5.1.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.EventLog": "6.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Castle.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Castle.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "coverlet.collector/6.0.0": {
         "type": "package",
         "build": {
@@ -1530,6 +1546,22 @@
           }
         }
       },
+      "Moq/4.20.70": {
+        "type": "package",
+        "dependencies": {
+          "Castle.Core": "5.1.1"
+        },
+        "compile": {
+          "lib/net6.0/Moq.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Moq.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -2388,6 +2420,30 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Castle.Core/5.1.1": {
+      "sha512": "rpYtIczkzGpf+EkZgDr9CClTdemhsrwA/W5hMoPjLkRFnXzH44zDLoovXeKtmxb1ykXK9aJVODSpiJml8CTw2g==",
+      "type": "package",
+      "path": "castle.core/5.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ASL - Apache Software Foundation License.txt",
+        "CHANGELOG.md",
+        "LICENSE",
+        "castle-logo.png",
+        "castle.core.5.1.1.nupkg.sha512",
+        "castle.core.nuspec",
+        "lib/net462/Castle.Core.dll",
+        "lib/net462/Castle.Core.xml",
+        "lib/net6.0/Castle.Core.dll",
+        "lib/net6.0/Castle.Core.xml",
+        "lib/netstandard2.0/Castle.Core.dll",
+        "lib/netstandard2.0/Castle.Core.xml",
+        "lib/netstandard2.1/Castle.Core.dll",
+        "lib/netstandard2.1/Castle.Core.xml",
+        "readme.txt"
       ]
     },
     "coverlet.collector/6.0.0": {
@@ -4394,6 +4450,27 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "Moq/4.20.70": {
+      "sha512": "4rNnAwdpXJBuxqrOCzCyICXHSImOTRktCgCWXWykuF1qwoIsVvEnR7PjbMk/eLOxWvhmj5Kwt+kDV3RGUYcNwg==",
+      "type": "package",
+      "path": "moq/4.20.70",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net462/Moq.dll",
+        "lib/net462/Moq.xml",
+        "lib/net6.0/Moq.dll",
+        "lib/net6.0/Moq.xml",
+        "lib/netstandard2.0/Moq.dll",
+        "lib/netstandard2.0/Moq.xml",
+        "lib/netstandard2.1/Moq.dll",
+        "lib/netstandard2.1/Moq.xml",
+        "moq.4.20.70.nupkg.sha512",
+        "moq.nuspec",
+        "readme.md"
+      ]
+    },
     "Newtonsoft.Json/13.0.1": {
       "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
@@ -5791,6 +5868,7 @@
       "Microsoft.AspNetCore.Mvc.Testing >= 8.0.0",
       "Microsoft.EntityFrameworkCore.InMemory >= 8.0.0",
       "Microsoft.NET.Test.Sdk >= 17.9.0",
+      "Moq >= 4.20.70",
       "TourManagement.Infrastructure >= 1.0.0",
       "TourManagement.Web >= 1.0.0",
       "coverlet.collector >= 6.0.0",
@@ -5804,11 +5882,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.IntegrationTests/TourManagement.IntegrationTests.csproj",
+      "projectUniqueName": "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/tests/TourManagement.IntegrationTests/TourManagement.IntegrationTests.csproj",
       "projectName": "TourManagement.IntegrationTests",
-      "projectPath": "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.IntegrationTests/TourManagement.IntegrationTests.csproj",
+      "projectPath": "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/tests/TourManagement.IntegrationTests/TourManagement.IntegrationTests.csproj",
       "packagesPath": "/home/studioai/.nuget/packages/",
-      "outputPath": "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.IntegrationTests/obj/",
+      "outputPath": "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/tests/TourManagement.IntegrationTests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/studioai/.nuget/NuGet/NuGet.Config"
@@ -5823,11 +5901,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/src/TourManagement.Infrastructure/TourManagement.Infrastructure.csproj": {
-              "projectPath": "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/src/TourManagement.Infrastructure/TourManagement.Infrastructure.csproj"
+            "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/src/TourManagement.Infrastructure/TourManagement.Infrastructure.csproj": {
+              "projectPath": "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/src/TourManagement.Infrastructure/TourManagement.Infrastructure.csproj"
             },
-            "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/src/TourManagement.Web/TourManagement.Web.csproj": {
-              "projectPath": "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/src/TourManagement.Web/TourManagement.Web.csproj"
+            "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/src/TourManagement.Web/TourManagement.Web.csproj": {
+              "projectPath": "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/src/TourManagement.Web/TourManagement.Web.csproj"
             }
           }
         }
@@ -5862,6 +5940,10 @@
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.9.0, )"
+          },
+          "Moq": {
+            "target": "Package",
+            "version": "[4.20.70, )"
           },
           "coverlet.collector": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

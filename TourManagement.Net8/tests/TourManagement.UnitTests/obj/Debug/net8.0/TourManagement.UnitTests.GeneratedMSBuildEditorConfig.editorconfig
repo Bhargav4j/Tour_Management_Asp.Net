@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TourManagement.UnitTests
-build_property.ProjectDir = /modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/
+build_property.ProjectDir = /modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/tests/TourManagement.UnitTests/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

@@ -1694,11 +1694,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/TourManagement.UnitTests.csproj",
+      "projectUniqueName": "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/tests/TourManagement.UnitTests/TourManagement.UnitTests.csproj",
       "projectName": "TourManagement.UnitTests",
-      "projectPath": "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/TourManagement.UnitTests.csproj",
+      "projectPath": "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/tests/TourManagement.UnitTests/TourManagement.UnitTests.csproj",
       "packagesPath": "/home/studioai/.nuget/packages/",
-      "outputPath": "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/tests/TourManagement.UnitTests/obj/",
+      "outputPath": "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/tests/TourManagement.UnitTests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/studioai/.nuget/NuGet/NuGet.Config"
@@ -1713,11 +1713,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/src/TourManagement.Application/TourManagement.Application.csproj": {
-              "projectPath": "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/src/TourManagement.Application/TourManagement.Application.csproj"
+            "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/src/TourManagement.Application/TourManagement.Application.csproj": {
+              "projectPath": "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/src/TourManagement.Application/TourManagement.Application.csproj"
             },
-            "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/src/TourManagement.Domain/TourManagement.Domain.csproj": {
-              "projectPath": "/modernize-data/studio-data/TNT1001/APP1150/transformed-code/327/studio-workspace/TourManage2201cmp/TourManagement.Net8/src/TourManagement.Domain/TourManagement.Domain.csproj"
+            "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/src/TourManagement.Domain/TourManagement.Domain.csproj": {
+              "projectPath": "/modernize-data/studio-data/TNT1001/APP1162/transformed-code/340/studio-workspace/Tour Management App/TourManagement.Net8/src/TourManagement.Domain/TourManagement.Domain.csproj"
             }
           }
         }
