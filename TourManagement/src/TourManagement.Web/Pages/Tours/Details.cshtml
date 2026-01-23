@@ -1,0 +1,46 @@
+@page
+@model TourDetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+@if (Model.Tour != null)
+{
+    <div class="row">
+        <div class="col-md-8">
+            <h2>@Model.Tour.Name</h2>
+
+            @if (!string.IsNullOrEmpty(Model.Tour.PicturePath))
+            {
+                <img src="~/images/@Model.Tour.PicturePath" class="img-fluid mb-3" alt="@Model.Tour.Name" />
+            }
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Tour Information</h5>
+                    <p><strong>Place:</strong> @Model.Tour.Place</p>
+                    <p><strong>Duration:</strong> @Model.Tour.Days days</p>
+                    <p><strong>Locations:</strong> @Model.Tour.Locations</p>
+                    <p><strong>Price:</strong> $@Model.Tour.Price.ToString("N2")</p>
+                    <p><strong>Description:</strong> @Model.Tour.TourInfo</p>
+                </div>
+            </div>
+
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <a asp-page="/Bookings/Create" asp-route-tourId="@Model.Tour.Id" class="btn btn-success btn-lg">Book This Tour</a>
+            }
+            else
+            {
+                <p class="alert alert-info">Please <a asp-page="/Account/Login">login</a> to book this tour.</p>
+            }
+
+            <a asp-page="/Tours/Index" class="btn btn-secondary">Back to Tours</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">Tour not found.</div>
+    <a asp-page="/Tours/Index" class="btn btn-secondary">Back to Tours</a>
+}

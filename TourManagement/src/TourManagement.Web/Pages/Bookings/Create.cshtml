@@ -1,0 +1,55 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@model BookingCreateModel
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<h2>Book Tour: @Model.TourName</h2>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+<form method="post">
+    <input type="hidden" asp-for="TourId" />
+
+    <div class="mb-3">
+        <label asp-for="BookingDate" class="form-label"></label>
+        <input asp-for="BookingDate" type="date" class="form-control" />
+        <span asp-validation-for="BookingDate" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="NumberOfPeople" class="form-label"></label>
+        <input asp-for="NumberOfPeople" type="number" class="form-control" min="1" />
+        <span asp-validation-for="NumberOfPeople" class="text-danger"></span>
+    </div>
+
+    @if (Model.TourPrice > 0)
+    {
+        <div class="alert alert-info">
+            <strong>Tour Price:</strong> $@Model.TourPrice.ToString("N2") per person<br />
+            <strong>Total Price:</strong> $<span id="totalPrice">@Model.TourPrice.ToString("N2")</span>
+        </div>
+    }
+
+    <div class="d-grid gap-2 d-md-block">
+        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        <a asp-page="/Tours/Index" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.getElementById('NumberOfPeople').addEventListener('input', function() {
+            var numberOfPeople = parseInt(this.value) || 0;
+            var pricePerPerson = @Model.TourPrice;
+            var totalPrice = numberOfPeople * pricePerPerson;
+            document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
+        });
+    </script>
+}
