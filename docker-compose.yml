@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  tmscontainerize-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tmscontainerize:latest
+    container_name: tmscontainerize-app
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - DOTNET_RUNNING_IN_CONTAINER=true
+      - TZ=UTC
+      # External service connections - configure as needed
+      - DATABASE_CONNECTION_STRING=${DATABASE_CONNECTION_STRING:-Server=db-host;Database=tmsdb;User Id=dbuser;Password=dbpass;}
+      - REDIS_CONNECTION_STRING=${REDIS_CONNECTION_STRING:-redis-host:6379}
+      - MESSAGE_QUEUE_HOST=${MESSAGE_QUEUE_HOST:-kafka-host:9092}
+    volumes:
+      - ./logs:/app/logs
+      - ./appsettings:/app/appsettings
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8080/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  logs:
+  appsettings:

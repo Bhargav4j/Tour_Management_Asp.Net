@@ -11,12 +11,14 @@ public class CreateModel : PageModel
     private readonly ITourService _tourService;
     private readonly IWebHostEnvironment _environment;
     private readonly ILogger<CreateModel> _logger;
+    private readonly IConfiguration _configuration;
 
-    public CreateModel(ITourService tourService, IWebHostEnvironment environment, ILogger<CreateModel> logger)
+    public CreateModel(ITourService tourService, IWebHostEnvironment environment, ILogger<CreateModel> logger, IConfiguration configuration)
     {
         _tourService = tourService;
         _environment = environment;
         _logger = logger;
+        _configuration = configuration;
     }
 
     [BindProperty]
@@ -81,7 +83,12 @@ public class CreateModel : PageModel
                     return Page();
                 }
 
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
+                // Get upload path from configuration (supports persistent volumes or cloud storage)
+                var uploadsFolder = _configuration.GetValue<string>("FileStorage:UploadPath");
+                if (string.IsNullOrEmpty(uploadsFolder))
+                {
+                    uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
+                }
                 Directory.CreateDirectory(uploadsFolder);
 
                 var uniqueFileName = $"{Guid.NewGuid()}{extension}";

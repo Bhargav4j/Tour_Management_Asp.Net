@@ -11,12 +11,14 @@ public class EditModel : PageModel
     private readonly ITourService _tourService;
     private readonly IWebHostEnvironment _environment;
     private readonly ILogger<EditModel> _logger;
+    private readonly IConfiguration _configuration;
 
-    public EditModel(ITourService tourService, IWebHostEnvironment environment, ILogger<EditModel> logger)
+    public EditModel(ITourService tourService, IWebHostEnvironment environment, ILogger<EditModel> logger, IConfiguration configuration)
     {
         _tourService = tourService;
         _environment = environment;
         _logger = logger;
+        _configuration = configuration;
     }
 
     public Tour? Tour { get; set; }
@@ -125,7 +127,12 @@ public class EditModel : PageModel
                     return Page();
                 }
 
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
+                // Get upload path from configuration (supports persistent volumes or cloud storage)
+                var uploadsFolder = _configuration.GetValue<string>("FileStorage:UploadPath");
+                if (string.IsNullOrEmpty(uploadsFolder))
+                {
+                    uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
+                }
                 Directory.CreateDirectory(uploadsFolder);
 
                 var uniqueFileName = $"{Guid.NewGuid()}{extension}";

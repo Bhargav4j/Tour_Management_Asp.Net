@@ -8,13 +8,24 @@ using TourManagement.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add environment variable configuration support
+builder.Configuration.AddEnvironmentVariables();
+
 // Configure Serilog
-Log.Logger = new LoggerConfiguration()
+var logConfig = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
-    .WriteTo.Console()
-    .WriteTo.File("logs/tourmanagement-.txt", rollingInterval: RollingInterval.Day)
-    .CreateLogger();
+    .WriteTo.Console();
+
+// Only add file logging in development or if explicitly enabled
+var enableFileLogging = builder.Configuration.GetValue<bool>("Logging:EnableFileLogging", false);
+if (builder.Environment.IsDevelopment() || enableFileLogging)
+{
+    var logPath = builder.Configuration.GetValue<string>("Logging:FilePath", "logs/tourmanagement-.txt");
+    logConfig.WriteTo.File(logPath, rollingInterval: RollingInterval.Day);
+}
+
+Log.Logger = logConfig.CreateLogger();
 
 builder.Host.UseSerilog();
 
@@ -49,8 +60,22 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ITourService, TourService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
 
-// Add session support
-builder.Services.AddDistributedMemoryCache();
+// Add session support with Redis or in-memory cache based on configuration
+var redisConnectionString = builder.Configuration.GetValue<string>("Redis:ConnectionString");
+if (!string.IsNullOrEmpty(redisConnectionString))
+{
+    builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = redisConnectionString;
+        options.InstanceName = builder.Configuration.GetValue<string>("Redis:InstanceName", "TourManagement_");
+    });
+}
+else
+{
+    // Fallback to in-memory cache (not recommended for production)
+    builder.Services.AddDistributedMemoryCache();
+}
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -60,6 +85,13 @@ builder.Services.AddSession(options =>
 
 // Add IHttpContextAccessor
 builder.Services.AddHttpContextAccessor();
+
+// Add health checks
+builder.Services.AddHealthChecks()
+    .AddNpgSql(
+        connectionString: builder.Configuration.GetConnectionString("DefaultConnection") ?? "",
+        name: "database",
+        tags: new[] { "ready", "db" });
 
 var app = builder.Build();
 
@@ -80,6 +112,17 @@ app.UseSession();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+// Map health check endpoints
+app.MapHealthChecks("/health");
+app.MapHealthChecks("/health/live", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+{
+    Predicate = _ => false
+});
+app.MapHealthChecks("/health/ready", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+{
+    Predicate = check => check.Tags.Contains("ready")
+});
 
 try
 {
