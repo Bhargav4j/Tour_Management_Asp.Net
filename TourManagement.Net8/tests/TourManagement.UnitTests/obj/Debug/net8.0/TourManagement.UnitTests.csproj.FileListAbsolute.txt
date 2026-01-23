@@ -117,3 +117,4 @@
 /modernize-data/studio-data/TNT1001/APP1171/transformed-code/355/studio-workspace/Rah-hostcheck/TourManagement.Net8/tests/TourManagement.UnitTests/obj/Debug/net8.0/TourManagement.UnitTests.pdb
 /modernize-data/studio-data/TNT1001/APP1171/transformed-code/355/studio-workspace/Rah-hostcheck/TourManagement.Net8/tests/TourManagement.UnitTests/obj/Debug/net8.0/TourManagement.UnitTests.genruntimeconfig.cache
 /modernize-data/studio-data/TNT1001/APP1171/transformed-code/355/studio-workspace/Rah-hostcheck/TourManagement.Net8/tests/TourManagement.UnitTests/obj/Debug/net8.0/ref/TourManagement.UnitTests.dll
+/modernize-data/studio-data/TNT1001/APP1171/transformed-code/355/studio-workspace/Rah-hostcheck/TourManagement.Net8/tests/TourManagement.UnitTests/bin/Debug/net8.0/CoverletSourceRootsMapping_TourManagement.UnitTests

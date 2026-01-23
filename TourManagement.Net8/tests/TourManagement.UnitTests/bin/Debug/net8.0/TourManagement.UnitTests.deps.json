@@ -13,6 +13,7 @@
           "Moq": "4.20.70",
           "TourManagement.Application": "1.0.0",
           "TourManagement.Domain": "1.0.0",
+          "coverlet.msbuild": "6.0.4",
           "xunit": "2.6.6",
           "xunit.runner.visualstudio": "2.5.6"
         },
@@ -62,6 +63,7 @@
           }
         }
       },
+      "coverlet.msbuild/6.0.4": {},
       "FluentAssertions/6.12.0": {
         "dependencies": {
           "System.Configuration.ConfigurationManager": "4.4.0"
@@ -566,6 +568,13 @@
       "sha512": "sha512-rpYtIczkzGpf+EkZgDr9CClTdemhsrwA/W5hMoPjLkRFnXzH44zDLoovXeKtmxb1ykXK9aJVODSpiJml8CTw2g==",
       "path": "castle.core/5.1.1",
       "hashPath": "castle.core.5.1.1.nupkg.sha512"
+    },
+    "coverlet.msbuild/6.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Qa7Hg+wrOMDKpXVn2dw4Wlun490bIWsFW0fdNJQFJLZnbU27MCP0HJ2mPgS+3EQBQUb0zKlkwiQzP+j38Hc3Iw==",
+      "path": "coverlet.msbuild/6.0.4",
+      "hashPath": "coverlet.msbuild.6.0.4.nupkg.sha512"
     },
     "FluentAssertions/6.12.0": {
       "type": "package",
