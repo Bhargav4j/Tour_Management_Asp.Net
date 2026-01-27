@@ -1,0 +1,59 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using TourManagement.Application.DTOs;
+using TourManagement.Application.Services;
+
+namespace TourManagement.Web.Pages.Bookings;
+
+public class DeleteModel : PageModel
+{
+    private readonly IBookingService _bookingService;
+    private readonly ILogger<DeleteModel> _logger;
+
+    public DeleteModel(IBookingService bookingService, ILogger<DeleteModel> logger)
+    {
+        _bookingService = bookingService;
+        _logger = logger;
+    }
+
+    [BindProperty]
+    public BookingDto? Booking { get; set; }
+
+    public async Task<IActionResult> OnGetAsync(int id)
+    {
+        try
+        {
+            Booking = await _bookingService.GetByIdAsync(id);
+            if (Booking == null)
+            {
+                return NotFound();
+            }
+            return Page();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error loading booking for deletion, ID: {BookingId}", id);
+            return RedirectToPage("./Index");
+        }
+    }
+
+    public async Task<IActionResult> OnPostAsync()
+    {
+        if (Booking?.Id == null)
+        {
+            return NotFound();
+        }
+
+        try
+        {
+            await _bookingService.DeleteAsync(Booking.Id);
+            return RedirectToPage("./Index");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error deleting booking ID: {BookingId}", Booking.Id);
+            ModelState.AddModelError(string.Empty, "Error deleting booking. Please try again.");
+            return Page();
+        }
+    }
+}

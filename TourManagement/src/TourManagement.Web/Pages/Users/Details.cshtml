@@ -1,0 +1,87 @@
+@page
+@model TourManagement.Web.Pages.Users.DetailsModel
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1>User Details</h1>
+            <hr />
+
+            @if (Model.User == null)
+            {
+                <div class="alert alert-warning">User not found.</div>
+            }
+            else
+            {
+                <div class="card">
+                    <div class="card-header">
+                        <h4>@Model.User.Name</h4>
+                    </div>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-3">ID</dt>
+                            <dd class="col-sm-9">@Model.User.Id</dd>
+
+                            <dt class="col-sm-3">Name</dt>
+                            <dd class="col-sm-9">@Model.User.Name</dd>
+
+                            <dt class="col-sm-3">Email</dt>
+                            <dd class="col-sm-9">@Model.User.Email</dd>
+
+                            <dt class="col-sm-3">Phone</dt>
+                            <dd class="col-sm-9">@Model.User.Phone</dd>
+
+                            <dt class="col-sm-3">Address</dt>
+                            <dd class="col-sm-9">@Model.User.Address</dd>
+
+                            <dt class="col-sm-3">Role</dt>
+                            <dd class="col-sm-9">
+                                <span class="badge bg-@(Model.User.Role == "Admin" ? "danger" : "primary")">
+                                    @Model.User.Role
+                                </span>
+                            </dd>
+
+                            <dt class="col-sm-3">Status</dt>
+                            <dd class="col-sm-9">
+                                @if (Model.User.IsActive)
+                                {
+                                    <span class="badge bg-success">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">Inactive</span>
+                                }
+                            </dd>
+
+                            <dt class="col-sm-3">Created Date</dt>
+                            <dd class="col-sm-9">@Model.User.CreatedDate.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+
+                            <dt class="col-sm-3">Created By</dt>
+                            <dd class="col-sm-9">@Model.User.CreatedBy</dd>
+
+                            @if (Model.User.ModifiedDate.HasValue)
+                            {
+                                <dt class="col-sm-3">Modified Date</dt>
+                                <dd class="col-sm-9">@Model.User.ModifiedDate.Value.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.User.ModifiedBy))
+                            {
+                                <dt class="col-sm-3">Modified By</dt>
+                                <dd class="col-sm-9">@Model.User.ModifiedBy</dd>
+                            }
+                        </dl>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-page="Edit" asp-route-id="@Model.User.Id" class="btn btn-warning">Edit</a>
+                        <a asp-page="Delete" asp-route-id="@Model.User.Id" class="btn btn-danger">Delete</a>
+                        <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

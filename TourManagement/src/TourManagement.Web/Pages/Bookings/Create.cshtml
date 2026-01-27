@@ -1,0 +1,68 @@
+@page
+@model TourManagement.Web.Pages.Bookings.CreateModel
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1>Create New Booking</h1>
+            <hr />
+
+            <form method="post" class="needs-validation" novalidate>
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.UserId" class="form-label"></label>
+                    <select asp-for="Input.UserId" class="form-select" asp-items="Model.Users">
+                        <option value="">Select User</option>
+                    </select>
+                    <span asp-validation-for="Input.UserId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.TourId" class="form-label"></label>
+                    <select asp-for="Input.TourId" class="form-select" asp-items="Model.Tours">
+                        <option value="">Select Tour</option>
+                    </select>
+                    <span asp-validation-for="Input.TourId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.BookingDate" class="form-label"></label>
+                    <input asp-for="Input.BookingDate" class="form-control" type="date" />
+                    <span asp-validation-for="Input.BookingDate" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.NumberOfPersons" class="form-label"></label>
+                    <input asp-for="Input.NumberOfPersons" class="form-control" type="number" min="1" />
+                    <span asp-validation-for="Input.NumberOfPersons" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.TotalAmount" class="form-label"></label>
+                    <input asp-for="Input.TotalAmount" class="form-control" type="number" step="0.01" min="0" />
+                    <span asp-validation-for="Input.TotalAmount" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input asp-for="Input.IsActive" class="form-check-input" type="checkbox" />
+                        <label asp-for="Input.IsActive" class="form-check-label"></label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

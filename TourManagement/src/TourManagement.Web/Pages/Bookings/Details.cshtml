@@ -1,0 +1,83 @@
+@page
+@model TourManagement.Web.Pages.Bookings.DetailsModel
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1>Booking Details</h1>
+            <hr />
+
+            @if (Model.Booking == null)
+            {
+                <div class="alert alert-warning">Booking not found.</div>
+            }
+            else
+            {
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Booking #@Model.Booking.Id</h4>
+                    </div>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-3">Booking ID</dt>
+                            <dd class="col-sm-9">@Model.Booking.Id</dd>
+
+                            <dt class="col-sm-3">User</dt>
+                            <dd class="col-sm-9">@Model.Booking.UserName</dd>
+
+                            <dt class="col-sm-3">Tour</dt>
+                            <dd class="col-sm-9">@Model.Booking.TourName</dd>
+
+                            <dt class="col-sm-3">Booking Date</dt>
+                            <dd class="col-sm-9">@Model.Booking.BookingDate.ToString("yyyy-MM-dd")</dd>
+
+                            <dt class="col-sm-3">Number of Persons</dt>
+                            <dd class="col-sm-9">@Model.Booking.NumberOfPersons</dd>
+
+                            <dt class="col-sm-3">Total Amount</dt>
+                            <dd class="col-sm-9">$@Model.Booking.TotalAmount.ToString("N2")</dd>
+
+                            <dt class="col-sm-3">Status</dt>
+                            <dd class="col-sm-9">
+                                @if (Model.Booking.IsActive)
+                                {
+                                    <span class="badge bg-success">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">Inactive</span>
+                                }
+                            </dd>
+
+                            <dt class="col-sm-3">Created Date</dt>
+                            <dd class="col-sm-9">@Model.Booking.CreatedDate.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+
+                            <dt class="col-sm-3">Created By</dt>
+                            <dd class="col-sm-9">@Model.Booking.CreatedBy</dd>
+
+                            @if (Model.Booking.ModifiedDate.HasValue)
+                            {
+                                <dt class="col-sm-3">Modified Date</dt>
+                                <dd class="col-sm-9">@Model.Booking.ModifiedDate.Value.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+                            }
+
+                            @if (!string.IsNullOrEmpty(Model.Booking.ModifiedBy))
+                            {
+                                <dt class="col-sm-3">Modified By</dt>
+                                <dd class="col-sm-9">@Model.Booking.ModifiedBy</dd>
+                            }
+                        </dl>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-page="Edit" asp-route-id="@Model.Booking.Id" class="btn btn-warning">Edit</a>
+                        <a asp-page="Delete" asp-route-id="@Model.Booking.Id" class="btn btn-danger">Delete</a>
+                        <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

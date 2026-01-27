@@ -1,0 +1,80 @@
+@page
+@model TourManagement.Web.Pages.Bookings.IndexModel
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Bookings</h1>
+        <a asp-page="Create" class="btn btn-primary">Create New Booking</a>
+    </div>
+
+    @if (!ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                @foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            </ul>
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-body">
+            @if (Model.Bookings.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>User</th>
+                                <th>Tour</th>
+                                <th>Number of Persons</th>
+                                <th>Booking Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var booking in Model.Bookings)
+                            {
+                                <tr>
+                                    <td>@booking.Id</td>
+                                    <td>@booking.UserName</td>
+                                    <td>@booking.TourName</td>
+                                    <td>@booking.NumberOfPersons</td>
+                                    <td>@booking.BookingDate.ToString("yyyy-MM-dd")</td>
+                                    <td>
+                                        @if (booking.IsActive)
+                                        {
+                                            <span class="badge bg-success">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">Inactive</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <a asp-page="Details" asp-route-id="@booking.Id" class="btn btn-sm btn-info">Details</a>
+                                            <a asp-page="Edit" asp-route-id="@booking.Id" class="btn btn-sm btn-warning">Edit</a>
+                                            <a asp-page="Delete" asp-route-id="@booking.Id" class="btn btn-sm btn-danger">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <p class="text-muted">No bookings found.</p>
+            }
+        </div>
+    </div>
+</div>
