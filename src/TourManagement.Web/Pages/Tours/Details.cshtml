@@ -1,0 +1,67 @@
+@page "{id:int}"
+@model TourDetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+<div class="container">
+    @if (Model.Tour != null)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h2>@Model.Tour.TourName</h2>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        @if (!string.IsNullOrEmpty(Model.Tour.Pic))
+                        {
+                            <img src="~/uploads/@Model.Tour.Pic" class="img-fluid rounded" alt="@Model.Tour.TourName">
+                        }
+                        else
+                        {
+                            <div class="bg-secondary text-white d-flex align-items-center justify-content-center rounded" style="height: 300px;">
+                                <span>No Image Available</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        <dl class="row">
+                            <dt class="col-sm-4">Place:</dt>
+                            <dd class="col-sm-8">@Model.Tour.Place</dd>
+
+                            <dt class="col-sm-4">Duration:</dt>
+                            <dd class="col-sm-8">@Model.Tour.Days days</dd>
+
+                            <dt class="col-sm-4">Price:</dt>
+                            <dd class="col-sm-8">$@Model.Tour.Price</dd>
+
+                            <dt class="col-sm-4">Locations:</dt>
+                            <dd class="col-sm-8">@Model.Tour.Locations</dd>
+
+                            <dt class="col-sm-4">Information:</dt>
+                            <dd class="col-sm-8">@Model.Tour.TourInfo</dd>
+                        </dl>
+
+                        <div class="mt-3">
+                            @if (!string.IsNullOrEmpty(Model.UserEmail))
+                            {
+                                <a asp-page="/Bookings/Create" asp-route-tourId="@Model.Tour.TourId" class="btn btn-success">Book This Tour</a>
+                            }
+                            else
+                            {
+                                <a asp-page="/Account/Login" class="btn btn-primary">Login to Book</a>
+                            }
+                            <a asp-page="/Tours/Index" class="btn btn-secondary">Back to Tours</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">Tour not found.</div>
+        <a asp-page="/Tours/Index" class="btn btn-secondary">Back to Tours</a>
+    }
+</div>
