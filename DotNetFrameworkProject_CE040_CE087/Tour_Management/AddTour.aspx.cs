@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
+using Npgsql;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,10 +18,10 @@ namespace Tour_Management
        
         protected void Register_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
             conn.Open();
-            string insertQuery = "insert into Tour(TOUR_NAME,PLACE,DAYS,PRICE,LOCATIONS,TOUR_INFO,pic) values(@TOUR_NAME,@PLACE,@DAYS,@PRICE,@LOCATIONS,@TOUR_INFO,@pic)";
-            SqlCommand com = new SqlCommand(insertQuery, conn);
+            string insertQuery = "INSERT INTO tour(tour_name,place,days,price,locations,tour_info,pic) VALUES(@TOUR_NAME,@PLACE,@DAYS,@PRICE,@LOCATIONS,@TOUR_INFO,@pic)";
+            NpgsqlCommand com = new NpgsqlCommand(insertQuery, conn);
             
             com.Parameters.AddWithValue("@TOUR_NAME", tour_name.Text);
             com.Parameters.AddWithValue("@PLACE", place.Text);

@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
+using Npgsql;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace Tour_Management
 {
@@ -15,23 +15,23 @@ namespace Tour_Management
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (!Page.IsPostBack)
+            if (!IsPostBack)
             {
                 refreshdata();
             }
         }
         public void refreshdata()
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
             conn.Open();
-            string insertQuery = "select * from Tour";
-            SqlCommand com = new SqlCommand(insertQuery, conn);
+            string insertQuery = "SELECT * FROM tour";
+            NpgsqlCommand com = new NpgsqlCommand(insertQuery, conn);
           // GridView1.DataSource = insertQuery;
            // GridView1.DataBind();
 
 
-            // SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;User Instance=True");
-        //    SqlCommand cmd = new SqlCommand("select * from tbl_data", con);
+            // NpgsqlConnection con = new NpgsqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;User Instance=True");
+        //    NpgsqlCommand cmd = new NpgsqlCommand("select * from tbl_data", con);
          //   SqlDataAdapter sda = new SqlDataAdapter(cmd);
            // DataTable dt = new DataTable();
             //sda.Fill(dt);

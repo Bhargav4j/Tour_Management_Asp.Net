@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
+using ConfigurationManager = System.Configuration.ConfigurationManager;
+using Npgsql;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -22,10 +22,12 @@ namespace Tour_Management
             
                
 
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
+                NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
                 conn.Open();
-                string checkPasswordQuery = "select password from Userinfo where password='" + txtPassword.Text + "' and email = '" + txtEmail.Text + "'";
-                SqlCommand passComm = new SqlCommand(checkPasswordQuery, conn);
+                string checkPasswordQuery = "SELECT password FROM userinfo WHERE password=@password AND email = @email";
+                NpgsqlCommand passComm = new NpgsqlCommand(checkPasswordQuery, conn);
+                passComm.Parameters.AddWithValue("@password", txtPassword.Text);
+                passComm.Parameters.AddWithValue("@email", txtEmail.Text);
             string password = passComm.ExecuteScalar()?.ToString() ?? "";
 
 
