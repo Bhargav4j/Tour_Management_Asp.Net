@@ -1,0 +1,28 @@
+@page
+@model TourManagement.Web.Pages.Users.ProfileModel
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<h1>My Profile</h1>
+
+@if (Model.User != null)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@Model.User.FirstName @Model.User.LastName</h5>
+            <p class="card-text"><strong>Email:</strong> @Model.User.Email</p>
+            <p class="card-text"><strong>Gender:</strong> @Model.User.Gender</p>
+            <p class="card-text"><strong>Date of Birth:</strong> @Model.User.DateOfBirth.ToShortDateString()</p>
+            <p class="card-text"><strong>Address:</strong> @Model.User.Street, @Model.User.City, @Model.User.State</p>
+            <a asp-page="/Index" class="btn btn-primary">Back to Home</a>
+            <a asp-page="/Tours/Index" class="btn btn-info">Browse Tours</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        User not found. Please <a asp-page="/Auth/Login">login</a>.
+    </div>
+}
