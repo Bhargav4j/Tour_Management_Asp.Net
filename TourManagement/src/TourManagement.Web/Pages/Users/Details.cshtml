@@ -18,31 +18,24 @@
             {
                 <div class="card">
                     <div class="card-header">
-                        <h4>@Model.User.Name</h4>
+                        <h4>@Model.User.FirstName @Model.User.LastName</h4>
                     </div>
                     <div class="card-body">
                         <dl class="row">
                             <dt class="col-sm-3">ID</dt>
                             <dd class="col-sm-9">@Model.User.Id</dd>
 
-                            <dt class="col-sm-3">Name</dt>
-                            <dd class="col-sm-9">@Model.User.Name</dd>
+                            <dt class="col-sm-3">First Name</dt>
+                            <dd class="col-sm-9">@Model.User.FirstName</dd>
+
+                            <dt class="col-sm-3">Last Name</dt>
+                            <dd class="col-sm-9">@Model.User.LastName</dd>
 
                             <dt class="col-sm-3">Email</dt>
                             <dd class="col-sm-9">@Model.User.Email</dd>
 
                             <dt class="col-sm-3">Phone</dt>
-                            <dd class="col-sm-9">@Model.User.Phone</dd>
-
-                            <dt class="col-sm-3">Address</dt>
-                            <dd class="col-sm-9">@Model.User.Address</dd>
-
-                            <dt class="col-sm-3">Role</dt>
-                            <dd class="col-sm-9">
-                                <span class="badge bg-@(Model.User.Role == "Admin" ? "danger" : "primary")">
-                                    @Model.User.Role
-                                </span>
-                            </dd>
+                            <dd class="col-sm-9">@Model.User.PhoneNumber</dd>
 
                             <dt class="col-sm-3">Status</dt>
                             <dd class="col-sm-9">
@@ -58,21 +51,6 @@
 
                             <dt class="col-sm-3">Created Date</dt>
                             <dd class="col-sm-9">@Model.User.CreatedDate.ToString("yyyy-MM-dd HH:mm:ss")</dd>
-
-                            <dt class="col-sm-3">Created By</dt>
-                            <dd class="col-sm-9">@Model.User.CreatedBy</dd>
-
-                            @if (Model.User.ModifiedDate.HasValue)
-                            {
-                                <dt class="col-sm-3">Modified Date</dt>
-                                <dd class="col-sm-9">@Model.User.ModifiedDate.Value.ToString("yyyy-MM-dd HH:mm:ss")</dd>
-                            }
-
-                            @if (!string.IsNullOrEmpty(Model.User.ModifiedBy))
-                            {
-                                <dt class="col-sm-3">Modified By</dt>
-                                <dd class="col-sm-9">@Model.User.ModifiedBy</dd>
-                            }
                         </dl>
                     </div>
                     <div class="card-footer">

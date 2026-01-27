@@ -66,13 +66,11 @@ public class CreateModel : PageModel
         {
             var dto = new UserCreateDto
             {
-                Name = Input.Name,
                 Email = Input.Email,
                 Password = Input.Password,
-                Phone = Input.Phone,
-                Address = Input.Address,
-                Role = Input.Role,
-                IsActive = Input.IsActive
+                FirstName = Input.Name,
+                LastName = string.Empty,
+                PhoneNumber = Input.Phone
             };
 
             await _userService.CreateAsync(dto);

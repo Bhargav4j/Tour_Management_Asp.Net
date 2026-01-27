@@ -18,7 +18,7 @@ public class EditModel : PageModel
     }
 
     [BindProperty]
-    public InputModel User { get; set; } = new();
+    public new InputModel User { get; set; } = new();
 
     public class InputModel
     {
@@ -61,11 +61,11 @@ public class EditModel : PageModel
             User = new InputModel
             {
                 Id = user.Id,
-                Name = user.Name,
+                Name = $"{user.FirstName} {user.LastName}",
                 Email = user.Email,
-                Phone = user.Phone,
-                Address = user.Address,
-                Role = user.Role,
+                Phone = user.PhoneNumber ?? string.Empty,
+                Address = string.Empty,
+                Role = "User",
                 IsActive = user.IsActive
             };
 
@@ -89,12 +89,10 @@ public class EditModel : PageModel
         {
             var dto = new UserUpdateDto
             {
-                Name = User.Name,
                 Email = User.Email,
-                Phone = User.Phone,
-                Address = User.Address,
-                Role = User.Role,
-                IsActive = User.IsActive
+                FirstName = User.Name,
+                LastName = string.Empty,
+                PhoneNumber = User.Phone
             };
 
             await _userService.UpdateAsync(User.Id, dto);

@@ -78,7 +78,7 @@ public class EditModel : PageModel
                 UserId = booking.UserId,
                 TourId = booking.TourId,
                 BookingDate = booking.BookingDate,
-                NumberOfPersons = booking.NumberOfPersons,
+                NumberOfPersons = booking.NumberOfPeople,
                 TotalAmount = booking.TotalAmount,
                 IsActive = booking.IsActive
             };
@@ -105,12 +105,10 @@ public class EditModel : PageModel
         {
             var dto = new BookingUpdateDto
             {
-                UserId = Booking.UserId,
-                TourId = Booking.TourId,
                 BookingDate = Booking.BookingDate,
-                NumberOfPersons = Booking.NumberOfPersons,
+                NumberOfPeople = Booking.NumberOfPersons,
                 TotalAmount = Booking.TotalAmount,
-                IsActive = Booking.IsActive
+                Status = "Pending"
             };
 
             await _bookingService.UpdateAsync(Booking.Id, dto);
@@ -128,7 +126,7 @@ public class EditModel : PageModel
     private async Task LoadDropdownsAsync()
     {
         var users = await _userService.GetAllAsync();
-        Users = new SelectList(users, "Id", "Name");
+        Users = new SelectList(users, "Id", "Email");
 
         var tours = await _tourService.GetAllAsync();
         Tours = new SelectList(tours, "Id", "TourName");

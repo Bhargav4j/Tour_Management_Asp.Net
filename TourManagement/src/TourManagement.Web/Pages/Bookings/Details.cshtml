@@ -25,17 +25,17 @@
                             <dt class="col-sm-3">Booking ID</dt>
                             <dd class="col-sm-9">@Model.Booking.Id</dd>
 
-                            <dt class="col-sm-3">User</dt>
-                            <dd class="col-sm-9">@Model.Booking.UserName</dd>
+                            <dt class="col-sm-3">User ID</dt>
+                            <dd class="col-sm-9">@Model.Booking.UserId</dd>
 
-                            <dt class="col-sm-3">Tour</dt>
-                            <dd class="col-sm-9">@Model.Booking.TourName</dd>
+                            <dt class="col-sm-3">Tour ID</dt>
+                            <dd class="col-sm-9">@Model.Booking.TourId</dd>
 
                             <dt class="col-sm-3">Booking Date</dt>
                             <dd class="col-sm-9">@Model.Booking.BookingDate.ToString("yyyy-MM-dd")</dd>
 
-                            <dt class="col-sm-3">Number of Persons</dt>
-                            <dd class="col-sm-9">@Model.Booking.NumberOfPersons</dd>
+                            <dt class="col-sm-3">Number of People</dt>
+                            <dd class="col-sm-9">@Model.Booking.NumberOfPeople</dd>
 
                             <dt class="col-sm-3">Total Amount</dt>
                             <dd class="col-sm-9">$@Model.Booking.TotalAmount.ToString("N2")</dd>
@@ -54,21 +54,6 @@
 
                             <dt class="col-sm-3">Created Date</dt>
                             <dd class="col-sm-9">@Model.Booking.CreatedDate.ToString("yyyy-MM-dd HH:mm:ss")</dd>
-
-                            <dt class="col-sm-3">Created By</dt>
-                            <dd class="col-sm-9">@Model.Booking.CreatedBy</dd>
-
-                            @if (Model.Booking.ModifiedDate.HasValue)
-                            {
-                                <dt class="col-sm-3">Modified Date</dt>
-                                <dd class="col-sm-9">@Model.Booking.ModifiedDate.Value.ToString("yyyy-MM-dd HH:mm:ss")</dd>
-                            }
-
-                            @if (!string.IsNullOrEmpty(Model.Booking.ModifiedBy))
-                            {
-                                <dt class="col-sm-3">Modified By</dt>
-                                <dd class="col-sm-9">@Model.Booking.ModifiedBy</dd>
-                            }
                         </dl>
                     </div>
                     <div class="card-footer">

@@ -52,7 +52,7 @@ public class TourConfiguration : IEntityTypeConfiguration<Tour>
             .HasMaxLength(500);
 
         builder.Property(t => t.CreatedDate)
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
         builder.Property(t => t.IsActive)
             .HasDefaultValue(true);

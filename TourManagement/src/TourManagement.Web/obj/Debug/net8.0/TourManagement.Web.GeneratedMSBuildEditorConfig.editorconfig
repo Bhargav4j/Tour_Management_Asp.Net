@@ -26,6 +26,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web
 build_property._RazorSourceGeneratorDebug = 
 
+[/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Bookings/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va2luZ3MvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Bookings/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va2luZ3MvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Bookings/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va2luZ3MvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Bookings/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va2luZ3MvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Bookings/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va2luZ3MvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -60,6 +80,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Tours/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG91cnMvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Users/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlcnMvQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Users/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlcnMvRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Users/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlcnMvRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlcnMvRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlcnMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/modernize-data/studio-data/TNT1001/APP1189/transformed-code/377/studio-workspace/Tourmgmt2701testcmp/TourManagement/src/TourManagement.Web/Pages/_ViewImports.cshtml]

@@ -80,9 +80,9 @@ public class CreateModel : PageModel
                 UserId = Input.UserId,
                 TourId = Input.TourId,
                 BookingDate = Input.BookingDate,
-                NumberOfPersons = Input.NumberOfPersons,
+                NumberOfPeople = Input.NumberOfPersons,
                 TotalAmount = Input.TotalAmount,
-                IsActive = Input.IsActive
+                Status = "Pending"
             };
 
             await _bookingService.CreateAsync(dto);
@@ -100,7 +100,7 @@ public class CreateModel : PageModel
     private async Task LoadDropdownsAsync()
     {
         var users = await _userService.GetAllAsync();
-        Users = new SelectList(users, "Id", "Name");
+        Users = new SelectList(users, "Id", "Email");
 
         var tours = await _tourService.GetAllAsync();
         Tours = new SelectList(tours, "Id", "TourName");

@@ -16,7 +16,7 @@ public class DetailsModel : PageModel
         _logger = logger;
     }
 
-    public UserDto? User { get; set; }
+    public new UserDto? User { get; set; }
 
     public async Task<IActionResult> OnGetAsync(int id)
     {
