@@ -1,0 +1,45 @@
+@page
+@model TourManagement.Web.Pages.Bookings.IndexModel
+@{
+    ViewData["Title"] = "All Bookings";
+}
+
+<h2>All Bookings</h2>
+
+@if (Model.Bookings != null && Model.Bookings.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Tour Name</th>
+                <th>Place</th>
+                <th>Customer</th>
+                <th>Email</th>
+                <th>Booking Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model.Bookings)
+            {
+                <tr>
+                    <td>@booking.BookingId</td>
+                    <td>@booking.TourName</td>
+                    <td>@booking.Place</td>
+                    <td>@booking.FirstName</td>
+                    <td>@booking.Email</td>
+                    <td>@booking.BookingDate.ToShortDateString()</td>
+                    <td>
+                        <a asp-page="/Bookings/Details" asp-route-id="@booking.BookingId" class="btn btn-sm btn-info">Details</a>
+                        <a asp-page="/Bookings/Delete" asp-route-id="@booking.BookingId" class="btn btn-sm btn-danger">Cancel</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No bookings found.</p>
+}

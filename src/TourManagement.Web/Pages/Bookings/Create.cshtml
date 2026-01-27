@@ -1,0 +1,30 @@
+@page
+@model TourManagement.Web.Pages.Bookings.CreateModel
+@{
+    ViewData["Title"] = "Book Tour";
+}
+
+<h2>Book Tour</h2>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+@if (Model.Tour != null)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Tour.TourName</h5>
+            <p class="card-text"><strong>Place:</strong> @Model.Tour.Place</p>
+            <p class="card-text"><strong>Duration:</strong> @Model.Tour.Days days</p>
+            <p class="card-text"><strong>Price:</strong> $@Model.Tour.Price</p>
+        </div>
+    </div>
+
+    <form method="post">
+        <input type="hidden" asp-for="TourId" />
+        <button type="submit" class="btn btn-primary">Confirm Booking</button>
+        <a asp-page="/Tours/Index" class="btn btn-secondary">Cancel</a>
+    </form>
+}

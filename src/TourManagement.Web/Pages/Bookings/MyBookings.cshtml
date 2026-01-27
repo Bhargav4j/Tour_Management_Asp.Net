@@ -1,0 +1,31 @@
+@page
+@model TourManagement.Web.Pages.Bookings.MyBookingsModel
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<h2>My Bookings</h2>
+
+@if (Model.Bookings != null && Model.Bookings.Any())
+{
+    <div class="row">
+        @foreach (var booking in Model.Bookings)
+        {
+            <div class="col-md-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@booking.TourName</h5>
+                        <p class="card-text"><strong>Place:</strong> @booking.Place</p>
+                        <p class="card-text"><strong>Booking Date:</strong> @booking.BookingDate.ToShortDateString()</p>
+                        <a asp-page="/Bookings/Details" asp-route-id="@booking.BookingId" class="btn btn-sm btn-info">Details</a>
+                        <a asp-page="/Bookings/Delete" asp-route-id="@booking.BookingId" class="btn btn-sm btn-danger">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p>You have no bookings yet. <a asp-page="/Tours/Index">Browse tours</a> to make a booking.</p>
+}
