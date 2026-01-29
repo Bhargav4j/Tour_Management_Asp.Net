@@ -11,13 +11,22 @@ namespace Tour_Management
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Cloud-ready: Retrieve admin credentials from configuration (environment variables)
+            string adminEmail = System.Configuration.ConfigurationManager.AppSettings["AdminEmail"];
+            string adminPassword = System.Configuration.ConfigurationManager.AppSettings["AdminPassword"];
 
-            if (password.Text == "admin" && name.Text == "admin@gmail.com")
+            if (!string.IsNullOrEmpty(password.Text) && !string.IsNullOrEmpty(name.Text))
             {
-                Response.Redirect("AdminProfile.aspx");
-                Server.Transfer("AdminProfile.aspx");
+                if (password.Text == adminPassword && name.Text == adminEmail)
+                {
+                    Session["AdminEmail"] = name.Text;
+                    Response.Redirect("AdminProfile.aspx");
+                }
+                else
+                {
+                    Response.Write("Invalid admin credentials");
+                }
             }
-
         }
     }
 }

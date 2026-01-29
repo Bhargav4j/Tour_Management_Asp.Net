@@ -22,23 +22,23 @@ namespace Tour_Management
         }
         public void refreshdata()
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
-            conn.Open();
-            string insertQuery = "select * from Tour";
-            SqlCommand com = new SqlCommand(insertQuery, conn);
-          // GridView1.DataSource = insertQuery;
-           // GridView1.DataBind();
+            // Cloud-ready: Using proper disposal pattern with using statement
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString))
+            {
+                conn.Open();
+                string selectQuery = "select * from Tour";
 
-
-            // SqlConnection con = new SqlConnection(@"Data Source=.\SQLEXPRESS;AttachDbFilename=|DataDirectory|\Database.mdf;Integrated Security=True;User Instance=True");
-        //    SqlCommand cmd = new SqlCommand("select * from tbl_data", con);
-         //   SqlDataAdapter sda = new SqlDataAdapter(cmd);
-           // DataTable dt = new DataTable();
-            //sda.Fill(dt);
-           // GridView1.DataSource = dt;
-            //GridView1.DataBind();
-
-
+                using (SqlCommand com = new SqlCommand(selectQuery, conn))
+                {
+                    using (SqlDataAdapter sda = new SqlDataAdapter(com))
+                    {
+                        DataTable dt = new DataTable();
+                        sda.Fill(dt);
+                        // GridView1.DataSource = dt;
+                        // GridView1.DataBind();
+                    }
+                }
+            }
         }
 
        

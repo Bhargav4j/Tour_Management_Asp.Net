@@ -18,28 +18,40 @@ namespace Tour_Management
        
         protected void Register_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString);
-            conn.Open();
-            string insertQuery = "insert into Tour(TOUR_NAME,PLACE,DAYS,PRICE,LOCATIONS,TOUR_INFO,pic) values(@TOUR_NAME,@PLACE,@DAYS,@PRICE,@LOCATIONS,@TOUR_INFO,@pic)";
-            SqlCommand com = new SqlCommand(insertQuery, conn);
-            
-            com.Parameters.AddWithValue("@TOUR_NAME", tour_name.Text);
-            com.Parameters.AddWithValue("@PLACE", place.Text);
-            com.Parameters.AddWithValue("@DAYS", days.Text); 
-            com.Parameters.AddWithValue("@PRICE", price.Text);
-            com.Parameters.AddWithValue("@LOCATIONS", locations.Text);
-            com.Parameters.AddWithValue("@TOUR_INFO", tour_info.Text);
+            // Cloud-ready: Using proper disposal pattern and environment variable for upload path
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconnection"].ConnectionString))
+            {
+                conn.Open();
+                string insertQuery = "insert into Tour(TOUR_NAME,PLACE,DAYS,PRICE,LOCATIONS,TOUR_INFO,pic) values(@TOUR_NAME,@PLACE,@DAYS,@PRICE,@LOCATIONS,@TOUR_INFO,@pic)";
 
-            FileUpload1.SaveAs(Server.MapPath("~/Tour_pics/") + FileUpload1.FileName);
+                using (SqlCommand com = new SqlCommand(insertQuery, conn))
+                {
+                    com.Parameters.AddWithValue("@TOUR_NAME", tour_name.Text);
+                    com.Parameters.AddWithValue("@PLACE", place.Text);
+                    com.Parameters.AddWithValue("@DAYS", days.Text);
+                    com.Parameters.AddWithValue("@PRICE", price.Text);
+                    com.Parameters.AddWithValue("@LOCATIONS", locations.Text);
+                    com.Parameters.AddWithValue("@TOUR_INFO", tour_info.Text);
 
-             com.Parameters.AddWithValue("@pic", FileUpload1.FileName);
+                    // Cloud-ready: Use configurable upload path instead of hardcoded path
+                    string uploadPath = ConfigurationManager.AppSettings["UploadPath"] ?? Server.MapPath("~/Tour_pics/");
 
+                    // Ensure upload directory exists
+                    if (!System.IO.Directory.Exists(uploadPath))
+                    {
+                        System.IO.Directory.CreateDirectory(uploadPath);
+                    }
 
-            com.ExecuteNonQuery();
-            Response.Write("ADD  Successful");
-            //Response.Redirect("a.aspx");
-            //Server.Transfer("a.aspx");
-            conn.Close();
+                    string fileName = System.IO.Path.GetFileName(FileUpload1.FileName);
+                    string filePath = System.IO.Path.Combine(uploadPath, fileName);
+                    FileUpload1.SaveAs(filePath);
+
+                    com.Parameters.AddWithValue("@pic", fileName);
+
+                    com.ExecuteNonQuery();
+                    Response.Write("ADD  Successful");
+                }
+            }
         }
     }
 }
