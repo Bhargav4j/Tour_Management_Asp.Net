@@ -36,10 +36,13 @@ public class BookingConfiguration : IEntityTypeConfiguration<Booking>
             .HasMaxLength(50);
 
         builder.Property(b => b.BookingDate)
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
         builder.Property(b => b.CreatedDate)
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        builder.Property(b => b.ModifiedDate)
+            .HasDefaultValueSql("NULL");
 
         builder.Property(b => b.IsActive)
             .HasDefaultValue(true);

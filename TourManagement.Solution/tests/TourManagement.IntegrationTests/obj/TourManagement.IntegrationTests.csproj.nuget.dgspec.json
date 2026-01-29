@@ -196,6 +196,10 @@
               "target": "Package",
               "version": "[2.1.28, )"
             },
+            "EFCore.NamingConventions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.0, )"
@@ -206,7 +210,7 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.0, )"
             }
@@ -384,6 +388,12 @@
             "Moq": {
               "target": "Package",
               "version": "[4.20.70, )"
+            },
+            "coverlet.msbuild": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.4, )"
             },
             "xunit": {
               "target": "Package",

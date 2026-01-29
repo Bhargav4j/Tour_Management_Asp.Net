@@ -11,7 +11,10 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.ToTable("UserInfo");
+        builder.ToTable("UserInfo", t =>
+        {
+            t.HasCheckConstraint("CK_Gender", "\"Gender\"='Female' OR \"Gender\"='Male'");
+        });
 
         builder.HasKey(u => u.Email);
 
@@ -60,7 +63,10 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasMaxLength(50);
 
         builder.Property(u => u.CreatedDate)
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+        builder.Property(u => u.ModifiedDate)
+            .HasDefaultValueSql("NULL");
 
         builder.Property(u => u.IsActive)
             .HasDefaultValue(true);
@@ -70,7 +76,5 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasForeignKey(b => b.UserEmail)
             .HasPrincipalKey(u => u.Email)
             .OnDelete(DeleteBehavior.Restrict);
-
-        builder.HasCheckConstraint("CK_Gender", "[Gender]='Female' OR [Gender]='Male'");
     }
 }

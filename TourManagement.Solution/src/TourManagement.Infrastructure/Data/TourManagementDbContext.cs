@@ -21,6 +21,17 @@ public class TourManagementDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
+        // Set default schema to public for PostgreSQL
+        modelBuilder.HasDefaultSchema("public");
+
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(TourManagementDbContext).Assembly);
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+
+        // Enable legacy timestamp behavior for PostgreSQL compatibility
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
 }
