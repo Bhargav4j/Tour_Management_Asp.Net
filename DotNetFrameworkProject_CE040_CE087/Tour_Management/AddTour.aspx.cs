@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -30,7 +31,10 @@ namespace Tour_Management
             com.Parameters.AddWithValue("@LOCATIONS", locations.Text);
             com.Parameters.AddWithValue("@TOUR_INFO", tour_info.Text);
 
-            FileUpload1.SaveAs(Server.MapPath("~/Tour_pics/") + FileUpload1.FileName);
+            var uploadPath = Environment.GetEnvironmentVariable("UPLOAD_PATH") ?? "/data/uploads";
+            var fullPath = Path.Combine(uploadPath, FileUpload1.FileName);
+            Directory.CreateDirectory(uploadPath);
+            FileUpload1.SaveAs(fullPath);
 
              com.Parameters.AddWithValue("@pic", FileUpload1.FileName);
 

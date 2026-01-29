@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  tour-management-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tour-management:latest
+    container_name: tour-management-container
+    ports:
+      - "8080:80"
+    environment:
+      - ASPNET_ENV=Production
+      - DB_SERVER=${DB_SERVER:-sql-server-host}
+      - DB_NAME=${DB_NAME:-tourdb}
+      - DB_USER=${DB_USER:-sa}
+      - DB_PASSWORD=${DB_PASSWORD:-YourStrong@Passw0rd}
+    volumes:
+      - ./pics:/inetpub/wwwroot/pics
+      - ./Tour_pics:/inetpub/wwwroot/Tour_pics
+      - charts-data:/tmp/charts
+    networks:
+      - tour-network
+    healthcheck:
+      test: ["CMD", "powershell", "-Command", "try { $response = Invoke-WebRequest -Uri http://localhost/health.aspx -UseBasicParsing -TimeoutSec 5; if ($response.StatusCode -eq 200) { exit 0 } else { exit 1 } } catch { exit 1 }"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+volumes:
+  charts-data:
+    driver: local
+
+networks:
+  tour-network:
+    driver: bridge
