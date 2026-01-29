@@ -1,0 +1,50 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@model BookingCreateModel
+@{
+    ViewData["Title"] = "Book Tour";
+}
+
+<h2>Book Tour</h2>
+
+@if (Model.Tour != null)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h4>@Model.Tour.Name</h4>
+            <p>
+                <strong>Place:</strong> @Model.Tour.Place<br />
+                <strong>Days:</strong> @Model.Tour.Days<br />
+                <strong>Price:</strong> $@Model.Tour.Price
+            </p>
+        </div>
+    </div>
+
+    <form method="post">
+        <input type="hidden" asp-for="Input.TourId" />
+        <input type="hidden" asp-for="Input.TourName" />
+        <input type="hidden" asp-for="Input.Place" />
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="Input.FirstName" class="form-label"></label>
+            <input asp-for="Input.FirstName" class="form-control" />
+            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-success">Confirm Booking</button>
+            <a asp-page="/Tours/Details" asp-route-id="@Model.Tour.Id" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+}
+else
+{
+    <p>Tour not found.</p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,39 @@
+@page
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@model BookingDetailsModel
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<h2>Booking Details</h2>
+
+@if (Model.Booking != null)
+{
+    <div class="card">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3">Tour Name</dt>
+                <dd class="col-sm-9">@Model.Booking.TourName</dd>
+
+                <dt class="col-sm-3">Place</dt>
+                <dd class="col-sm-9">@Model.Booking.Place</dd>
+
+                <dt class="col-sm-3">Booking Date</dt>
+                <dd class="col-sm-9">@Model.Booking.BookingDate.ToString("yyyy-MM-dd HH:mm")</dd>
+
+                <dt class="col-sm-3">Name</dt>
+                <dd class="col-sm-9">@Model.Booking.FirstName</dd>
+
+                <dt class="col-sm-3">Email</dt>
+                <dd class="col-sm-9">@Model.Booking.UserEmail</dd>
+            </dl>
+
+            <a asp-page="/Bookings/Index" class="btn btn-secondary">Back to Bookings</a>
+        </div>
+    </div>
+}
+else
+{
+    <p>Booking not found.</p>
+}

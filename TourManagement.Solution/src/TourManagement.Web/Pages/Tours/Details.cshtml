@@ -1,0 +1,46 @@
+@page
+@model TourDetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+<h2>Tour Details</h2>
+
+@if (Model.Tour != null)
+{
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title">@Model.Tour.Name</h3>
+            <dl class="row">
+                <dt class="col-sm-3">Place</dt>
+                <dd class="col-sm-9">@Model.Tour.Place</dd>
+
+                <dt class="col-sm-3">Days</dt>
+                <dd class="col-sm-9">@Model.Tour.Days</dd>
+
+                <dt class="col-sm-3">Price</dt>
+                <dd class="col-sm-9">$@Model.Tour.Price</dd>
+
+                <dt class="col-sm-3">Locations</dt>
+                <dd class="col-sm-9">@Model.Tour.Locations</dd>
+
+                <dt class="col-sm-3">Tour Information</dt>
+                <dd class="col-sm-9">@Model.Tour.TourInfo</dd>
+            </dl>
+
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <a asp-page="/Bookings/Create" asp-route-tourId="@Model.Tour.Id" class="btn btn-success">Book This Tour</a>
+            }
+            else
+            {
+                <a asp-page="/Account/Login" class="btn btn-primary">Login to Book</a>
+            }
+            <a asp-page="/Tours/Index" class="btn btn-secondary">Back to Tours</a>
+        </div>
+    </div>
+}
+else
+{
+    <p>Tour not found.</p>
+}
