@@ -10,12 +10,18 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Serilog
-Log.Logger = new LoggerConfiguration()
+var enableFileLogs = builder.Configuration.GetValue<bool>("Serilog:EnableFileLogging", false);
+var loggerConfig = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
-    .WriteTo.Console()
-    .WriteTo.File("logs/tourmanagement-.txt", rollingInterval: RollingInterval.Day)
-    .CreateLogger();
+    .WriteTo.Console();
+
+if (enableFileLogs)
+{
+    loggerConfig.WriteTo.File("logs/tourmanagement-.txt", rollingInterval: RollingInterval.Day);
+}
+
+Log.Logger = loggerConfig.CreateLogger();
 
 builder.Host.UseSerilog();
 
@@ -63,7 +69,20 @@ builder.Services.AddAuthorization(options =>
 });
 
 // Configure Session
-builder.Services.AddDistributedMemoryCache();
+var redisConnection = builder.Configuration.GetValue<string>("REDIS_CONNECTION");
+if (!string.IsNullOrEmpty(redisConnection))
+{
+    builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = redisConnection;
+        options.InstanceName = "TourManagement_";
+    });
+}
+else
+{
+    builder.Services.AddDistributedMemoryCache();
+}
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -72,6 +91,10 @@ builder.Services.AddSession(options =>
 });
 
 builder.Services.AddHttpContextAccessor();
+
+// Configure Health Checks
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<TourManagementDbContext>();
 
 var app = builder.Build();
 
@@ -93,6 +116,10 @@ app.UseAuthorization();
 app.UseSession();
 
 app.MapRazorPages();
+
+// Map Health Check Endpoints
+app.MapHealthChecks("/health");
+app.MapHealthChecks("/health/ready");
 
 try
 {

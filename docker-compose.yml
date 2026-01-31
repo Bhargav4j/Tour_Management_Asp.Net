@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  tourmanagement-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tourmanagement-app:latest
+    container_name: tourmanagement-app
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=${DATABASE_CONNECTION_STRING}
+      - REDIS_CONNECTION=${REDIS_CONNECTION_STRING}
+      - Serilog__EnableFileLogging=true
+      - TZ=UTC
+    volumes:
+      - ./logs:/app/logs
+      - ./appsettings:/app/appsettings:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["NONE"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  logs:
+    driver: local

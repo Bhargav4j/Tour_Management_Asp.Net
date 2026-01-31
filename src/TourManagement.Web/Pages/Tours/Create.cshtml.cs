@@ -10,12 +10,14 @@ public class CreateModel : PageModel
     private readonly ITourService _tourService;
     private readonly IWebHostEnvironment _environment;
     private readonly ILogger<CreateModel> _logger;
+    private readonly IConfiguration _configuration;
 
-    public CreateModel(ITourService tourService, IWebHostEnvironment environment, ILogger<CreateModel> logger)
+    public CreateModel(ITourService tourService, IWebHostEnvironment environment, ILogger<CreateModel> logger, IConfiguration configuration)
     {
         _tourService = tourService;
         _environment = environment;
         _logger = logger;
+        _configuration = configuration;
     }
 
     [BindProperty]
@@ -58,7 +60,8 @@ public class CreateModel : PageModel
 
             if (PictureFile != null && PictureFile.Length > 0)
             {
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "images", "tours");
+                var uploadPath = _configuration.GetValue<string>("UPLOAD_PATH") ?? "/app/uploads";
+                var uploadsFolder = Path.Combine(uploadPath, "images", "tours");
                 Directory.CreateDirectory(uploadsFolder);
 
                 fileName = $"{Guid.NewGuid()}_{Path.GetFileName(PictureFile.FileName)}";

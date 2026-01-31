@@ -10,12 +10,14 @@ public class EditModel : PageModel
     private readonly ITourService _tourService;
     private readonly IWebHostEnvironment _environment;
     private readonly ILogger<EditModel> _logger;
+    private readonly IConfiguration _configuration;
 
-    public EditModel(ITourService tourService, IWebHostEnvironment environment, ILogger<EditModel> logger)
+    public EditModel(ITourService tourService, IWebHostEnvironment environment, ILogger<EditModel> logger, IConfiguration configuration)
     {
         _tourService = tourService;
         _environment = environment;
         _logger = logger;
+        _configuration = configuration;
     }
 
     [BindProperty]
@@ -64,7 +66,8 @@ public class EditModel : PageModel
         {
             if (PictureFile != null && PictureFile.Length > 0)
             {
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "images", "tours");
+                var uploadPath = _configuration.GetValue<string>("UPLOAD_PATH") ?? "/app/uploads";
+                var uploadsFolder = Path.Combine(uploadPath, "images", "tours");
                 Directory.CreateDirectory(uploadsFolder);
 
                 var fileName = $"{Guid.NewGuid()}_{Path.GetFileName(PictureFile.FileName)}";
