@@ -54,7 +54,7 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(u => u.CreatedDate)
             .HasColumnName("CreatedDate")
             .IsRequired()
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(u => u.ModifiedDate)
             .HasColumnName("ModifiedDate");

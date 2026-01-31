@@ -39,7 +39,7 @@ public class BookingConfiguration : IEntityTypeConfiguration<Booking>
         builder.Property(b => b.BookingDate)
             .HasColumnName("BookingDate")
             .IsRequired()
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(b => b.BookingStatus)
             .HasColumnName("BookingStatus")
@@ -54,7 +54,7 @@ public class BookingConfiguration : IEntityTypeConfiguration<Booking>
         builder.Property(b => b.CreatedDate)
             .HasColumnName("CreatedDate")
             .IsRequired()
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(b => b.ModifiedDate)
             .HasColumnName("ModifiedDate");

@@ -24,9 +24,17 @@ builder.Services.AddRazorPages();
 
 // Configure Database
 builder.Services.AddDbContext<TourManagementDbContext>(options =>
-    options.UseSqlServer(
+{
+    options.UseNpgsql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
-        sqlOptions => sqlOptions.EnableRetryOnFailure()));
+        npgsqlOptions => npgsqlOptions
+            .EnableRetryOnFailure(
+                maxRetryCount: 5,
+                maxRetryDelay: TimeSpan.FromSeconds(10),
+                errorCodesToAdd: null)
+            .MigrationsHistoryTable("__efmigrations_history", "public"))
+    .UseSnakeCaseNamingConvention();
+});
 
 // Register Repositories
 builder.Services.AddScoped<ITourRepository, TourRepository>();
@@ -99,3 +107,6 @@ finally
 {
     Log.CloseAndFlush();
 }
+
+// Make Program class accessible for testing
+public partial class Program { }

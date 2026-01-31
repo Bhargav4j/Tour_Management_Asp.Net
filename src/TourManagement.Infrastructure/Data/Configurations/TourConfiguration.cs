@@ -55,7 +55,7 @@ public class TourConfiguration : IEntityTypeConfiguration<Tour>
         builder.Property(t => t.CreatedDate)
             .HasColumnName("CreatedDate")
             .IsRequired()
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(t => t.ModifiedDate)
             .HasColumnName("ModifiedDate");
