@@ -1,0 +1,52 @@
+@page
+@model TourManagement.Web.Pages.Tours.DetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+<h1>Tour Details</h1>
+
+<hr />
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+
+@if (Model.Tour != null)
+{
+    <div class="row">
+        <div class="col-md-6">
+            @if (!string.IsNullOrEmpty(Model.Tour.Picture))
+            {
+                <img src="~/images/tours/@Model.Tour.Picture" class="img-fluid" alt="@Model.Tour.TourName" />
+            }
+        </div>
+        <div class="col-md-6">
+            <h2>@Model.Tour.TourName</h2>
+            <dl class="row">
+                <dt class="col-sm-4">Place</dt>
+                <dd class="col-sm-8">@Model.Tour.Place</dd>
+
+                <dt class="col-sm-4">Days</dt>
+                <dd class="col-sm-8">@Model.Tour.Days</dd>
+
+                <dt class="col-sm-4">Price</dt>
+                <dd class="col-sm-8">$@Model.Tour.Price.ToString("N2")</dd>
+
+                <dt class="col-sm-4">Locations</dt>
+                <dd class="col-sm-8">@Model.Tour.Locations</dd>
+
+                <dt class="col-sm-4">Tour Information</dt>
+                <dd class="col-sm-8">@Model.Tour.TourInfo</dd>
+            </dl>
+
+            <a asp-page="Edit" asp-route-id="@Model.Tour.Id" class="btn btn-warning">Edit</a>
+            <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+}
+else
+{
+    <p>Tour not found.</p>
+}
