@@ -61,7 +61,7 @@ public class UserInfoConfiguration : IEntityTypeConfiguration<UserInfo>
 
         builder.Property(u => u.CreatedDate)
             .IsRequired()
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(u => u.ModifiedDate);
 
