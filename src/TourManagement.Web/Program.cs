@@ -4,12 +4,14 @@ using TourManagement.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Explicitly add environment variables for container configuration
+builder.Configuration.AddEnvironmentVariables();
+
 // Configure Serilog
 Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
     .WriteTo.Console()
-    .WriteTo.File("logs/tourmanagement-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 builder.Host.UseSerilog();
@@ -31,6 +33,10 @@ builder.Services.AddSession(options =>
 // Add HTTP context accessor for accessing HttpContext in services
 builder.Services.AddHttpContextAccessor();
 
+// Add health checks for container orchestration
+builder.Services.AddHealthChecks()
+    .AddNpgSql(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("DefaultConnection not configured"));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline
@@ -46,6 +52,10 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
+
+// Map health check endpoints for container orchestration
+app.MapHealthChecks("/health");
+app.MapHealthChecks("/health/ready");
 
 app.MapRazorPages();
 
