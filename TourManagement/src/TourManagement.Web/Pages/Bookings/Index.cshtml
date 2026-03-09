@@ -1,0 +1,57 @@
+@page
+@model TourManagement.Web.Pages.Bookings.IndexModel
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h1>My Bookings</h1>
+        <div class="mb-3">
+            <a asp-page="Create" class="btn btn-primary">Create New Booking</a>
+        </div>
+
+        @if (Model.Bookings == null || !Model.Bookings.Any())
+        {
+            <div class="alert alert-info">No bookings found.</div>
+        }
+        else
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tour</th>
+                        <th>Place</th>
+                        <th>Booking Date</th>
+                        <th>People</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model.Bookings)
+                    {
+                        <tr>
+                            <td>@booking.TourName</td>
+                            <td>@booking.TourPlace</td>
+                            <td>@booking.BookingDate.ToString("yyyy-MM-dd")</td>
+                            <td>@booking.NumberOfPeople</td>
+                            <td>@booking.TotalAmount.ToString("C")</td>
+                            <td>
+                                <span class="badge @(booking.Status == "Confirmed" ? "bg-success" : booking.Status == "Pending" ? "bg-warning" : "bg-secondary")">
+                                    @booking.Status
+                                </span>
+                            </td>
+                            <td>
+                                <a asp-page="Details" asp-route-id="@booking.Id" class="btn btn-sm btn-info">Details</a>
+                                <a asp-page="Edit" asp-route-id="@booking.Id" class="btn btn-sm btn-warning">Edit</a>
+                                <a asp-page="Delete" asp-route-id="@booking.Id" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

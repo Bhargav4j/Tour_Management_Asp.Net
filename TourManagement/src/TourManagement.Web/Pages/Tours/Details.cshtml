@@ -1,0 +1,50 @@
+@page
+@model TourManagement.Web.Pages.Tours.DetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1>Tour Details</h1>
+        <hr />
+
+        @if (Model.Tour == null)
+        {
+            <div class="alert alert-warning">Tour not found.</div>
+        }
+        else
+        {
+            <div class="card">
+                @if (!string.IsNullOrEmpty(Model.Tour.PictureUrl))
+                {
+                    <img src="@Model.Tour.PictureUrl" class="card-img-top" alt="@Model.Tour.Name" style="max-height: 400px; object-fit: cover;">
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Tour.Name</h5>
+                    <dl class="row">
+                        <dt class="col-sm-3">Place</dt>
+                        <dd class="col-sm-9">@Model.Tour.Place</dd>
+
+                        <dt class="col-sm-3">Days</dt>
+                        <dd class="col-sm-9">@Model.Tour.Days</dd>
+
+                        <dt class="col-sm-3">Price</dt>
+                        <dd class="col-sm-9">@Model.Tour.Price.ToString("C")</dd>
+
+                        <dt class="col-sm-3">Locations</dt>
+                        <dd class="col-sm-9">@Model.Tour.Locations</dd>
+
+                        <dt class="col-sm-3">Tour Information</dt>
+                        <dd class="col-sm-9">@Model.Tour.TourInfo</dd>
+                    </dl>
+                </div>
+                <div class="card-footer">
+                    <a asp-page="Edit" asp-route-id="@Model.Tour.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="Delete" asp-route-id="@Model.Tour.Id" class="btn btn-danger">Delete</a>
+                    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

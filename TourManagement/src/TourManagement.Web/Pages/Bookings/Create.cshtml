@@ -1,0 +1,55 @@
+@page
+@model TourManagement.Web.Pages.Bookings.CreateModel
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1>Create New Booking</h1>
+        <hr />
+
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Booking.TourId" class="form-label">Select Tour</label>
+                <select asp-for="Booking.TourId" class="form-select">
+                    <option value="">-- Select Tour --</option>
+                    @foreach (var tour in Model.AvailableTours)
+                    {
+                        <option value="@tour.Id">@tour.Name - @tour.Place (@tour.Price.ToString("C"))</option>
+                    }
+                </select>
+                <span asp-validation-for="Booking.TourId" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Booking.BookingDate" class="form-label"></label>
+                <input asp-for="Booking.BookingDate" class="form-control" type="date" />
+                <span asp-validation-for="Booking.BookingDate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Booking.NumberOfPeople" class="form-label"></label>
+                <input asp-for="Booking.NumberOfPeople" class="form-control" type="number" min="1" />
+                <span asp-validation-for="Booking.NumberOfPeople" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Booking.Notes" class="form-label"></label>
+                <textarea asp-for="Booking.Notes" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Booking.Notes" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Create Booking</button>
+                <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
