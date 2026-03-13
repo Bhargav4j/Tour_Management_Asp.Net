@@ -1,0 +1,79 @@
+@page
+@model TourManagement.Web.Pages.Users.EditModel
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<h1>Edit User</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <input type="hidden" asp-for="UserInput.Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UserInput.Email" class="control-label"></label>
+                <input asp-for="UserInput.Email" class="form-control" />
+                <span asp-validation-for="UserInput.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UserInput.FirstName" class="control-label"></label>
+                <input asp-for="UserInput.FirstName" class="form-control" />
+                <span asp-validation-for="UserInput.FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UserInput.LastName" class="control-label"></label>
+                <input asp-for="UserInput.LastName" class="form-control" />
+                <span asp-validation-for="UserInput.LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UserInput.Gender" class="control-label"></label>
+                <select asp-for="UserInput.Gender" class="form-control">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span asp-validation-for="UserInput.Gender" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UserInput.DateOfBirth" class="control-label"></label>
+                <input asp-for="UserInput.DateOfBirth" type="date" class="form-control" />
+                <span asp-validation-for="UserInput.DateOfBirth" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UserInput.Street" class="control-label"></label>
+                <input asp-for="UserInput.Street" class="form-control" />
+                <span asp-validation-for="UserInput.Street" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UserInput.City" class="control-label"></label>
+                <input asp-for="UserInput.City" class="form-control" />
+                <span asp-validation-for="UserInput.City" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="UserInput.State" class="control-label"></label>
+                <input asp-for="UserInput.State" class="form-control" />
+                <span asp-validation-for="UserInput.State" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

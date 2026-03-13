@@ -1,0 +1,48 @@
+@page
+@model TourManagement.Web.Pages.Users.DetailsModel
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h1>User Details</h1>
+
+@if (Model.User != null)
+{
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">Email</dt>
+            <dd class="col-sm-10">@Model.User.Email</dd>
+
+            <dt class="col-sm-2">First Name</dt>
+            <dd class="col-sm-10">@Model.User.FirstName</dd>
+
+            <dt class="col-sm-2">Last Name</dt>
+            <dd class="col-sm-10">@Model.User.LastName</dd>
+
+            <dt class="col-sm-2">Gender</dt>
+            <dd class="col-sm-10">@Model.User.Gender</dd>
+
+            <dt class="col-sm-2">Date of Birth</dt>
+            <dd class="col-sm-10">@Model.User.DateOfBirth.ToString("MM/dd/yyyy")</dd>
+
+            <dt class="col-sm-2">Street</dt>
+            <dd class="col-sm-10">@Model.User.Street</dd>
+
+            <dt class="col-sm-2">City</dt>
+            <dd class="col-sm-10">@Model.User.City</dd>
+
+            <dt class="col-sm-2">State</dt>
+            <dd class="col-sm-10">@Model.User.State</dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-page="Edit" asp-route-id="@Model.User.Id" class="btn btn-warning">Edit</a>
+        <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+}
+else
+{
+    <p>User not found.</p>
+    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+}

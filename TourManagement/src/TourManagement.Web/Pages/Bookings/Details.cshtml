@@ -1,0 +1,45 @@
+@page
+@model TourManagement.Web.Pages.Bookings.DetailsModel
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<h1>Booking Details</h1>
+
+@if (Model.Booking != null)
+{
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">Booking ID</dt>
+            <dd class="col-sm-10">@Model.Booking.Id</dd>
+
+            <dt class="col-sm-2">User</dt>
+            <dd class="col-sm-10">@Model.Booking.User.FirstName @Model.Booking.User.LastName (@Model.Booking.User.Email)</dd>
+
+            <dt class="col-sm-2">Tour</dt>
+            <dd class="col-sm-10">@Model.Booking.Tour.TourName - @Model.Booking.Tour.Place</dd>
+
+            <dt class="col-sm-2">Booking Date</dt>
+            <dd class="col-sm-10">@Model.Booking.BookingDate.ToString("MM/dd/yyyy HH:mm")</dd>
+
+            <dt class="col-sm-2">Number of People</dt>
+            <dd class="col-sm-10">@Model.Booking.NumberOfPeople</dd>
+
+            <dt class="col-sm-2">Total Amount</dt>
+            <dd class="col-sm-10">$@Model.Booking.TotalAmount</dd>
+
+            <dt class="col-sm-2">Booking Status</dt>
+            <dd class="col-sm-10">@Model.Booking.BookingStatus</dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-page="Edit" asp-route-id="@Model.Booking.Id" class="btn btn-warning">Edit</a>
+        <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+}
+else
+{
+    <p>Booking not found.</p>
+    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+}

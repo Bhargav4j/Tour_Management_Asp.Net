@@ -1,0 +1,52 @@
+@page
+@model TourManagement.Web.Pages.Bookings.IndexModel
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<h1>Bookings</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New Booking</a>
+</p>
+
+@if (Model.Bookings != null && Model.Bookings.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>User</th>
+                <th>Tour</th>
+                <th>Booking Date</th>
+                <th>Number of People</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model.Bookings)
+            {
+                <tr>
+                    <td>@booking.Id</td>
+                    <td>@booking.User.FirstName @booking.User.LastName</td>
+                    <td>@booking.Tour.TourName</td>
+                    <td>@booking.BookingDate.ToString("MM/dd/yyyy")</td>
+                    <td>@booking.NumberOfPeople</td>
+                    <td>$@booking.TotalAmount</td>
+                    <td>@booking.BookingStatus</td>
+                    <td>
+                        <a asp-page="Details" asp-route-id="@booking.Id" class="btn btn-info btn-sm">Details</a>
+                        <a asp-page="Edit" asp-route-id="@booking.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-page="Delete" asp-route-id="@booking.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No bookings available.</p>
+}

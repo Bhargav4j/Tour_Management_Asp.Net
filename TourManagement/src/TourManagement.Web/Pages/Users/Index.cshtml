@@ -1,0 +1,48 @@
+@page
+@model TourManagement.Web.Pages.Users.IndexModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New User</a>
+</p>
+
+@if (Model.Users != null && Model.Users.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model.Users)
+            {
+                <tr>
+                    <td>@user.Email</td>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.City</td>
+                    <td>@user.State</td>
+                    <td>
+                        <a asp-page="Details" asp-route-id="@user.Id" class="btn btn-info btn-sm">Details</a>
+                        <a asp-page="Edit" asp-route-id="@user.Id" class="btn btn-warning btn-sm">Edit</a>
+                        <a asp-page="Delete" asp-route-id="@user.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No users available.</p>
+}
