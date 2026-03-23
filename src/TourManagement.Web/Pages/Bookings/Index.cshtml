@@ -1,0 +1,51 @@
+@page
+@model TourManagement.Web.Pages.Bookings.IndexModel
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<h1>My Bookings</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">New Booking</a>
+</p>
+
+@if (Model.Bookings != null && Model.Bookings.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Tour Name</th>
+                <th>Place</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Booking Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model.Bookings)
+            {
+                <tr>
+                    <td>@booking.BookingId</td>
+                    <td>@booking.TourName</td>
+                    <td>@booking.Place</td>
+                    <td>@booking.Email</td>
+                    <td>@booking.FirstName</td>
+                    <td>@booking.CreatedDate.ToString("MMM dd, yyyy")</td>
+                    <td>
+                        <a asp-page="./Details" asp-route-id="@booking.BookingId" class="btn btn-sm btn-info">Details</a>
+                        <a asp-page="./Delete" asp-route-id="@booking.BookingId" class="btn btn-sm btn-danger">Cancel</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        No bookings found. <a asp-page="Create" class="alert-link">Create your first booking</a>
+    </div>
+}

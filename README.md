@@ -1,29 +1,107 @@
-# Tour_Management_Project
- simple asp.net application for booking of tours.
- 
-# Admin
-* Add Tour
-* Manage Tour 
-* See Bookings
-<img width="752" alt="image" src="https://user-images.githubusercontent.com/81226571/196478877-2a66ec3b-1a71-48ce-ab20-6013890ae19d.png">
-<img width="760" alt="image" src="https://user-images.githubusercontent.com/81226571/196479030-a0cbc14c-6085-4d7c-8de5-86414aa8be7f.png">
+# Tour Management System - .NET 8 Migration
 
-# User
-- Manage Profile
-- Book Tour
-- See his booking
-<img width="745" alt="image" src="https://user-images.githubusercontent.com/81226571/196478761-6a7d261a-1769-4c56-9052-b3e4a77722e5.png">
+This project has been successfully migrated from ASP.NET Web Forms (.NET Framework 4.7.2) to .NET 8 using clean architecture principles.
 
-## How to run?
-- Fork Project 
-- clone repository( git clone https://github.com/jaygajera17/Tour_Management_Asp.Net)
-- open app_data folder
-- right click on database file (.mdf) click modify connection.
-- you can also config your own database by step mention in [database.txt](https://github.com/jaygajera17/Tour_Management_Asp.Net/blob/main/Database.txt) file.
+## Project Structure
 
-## Important Links
-- 𝗬𝗼𝘂𝘁𝘂𝗯𝗲 𝗽𝗿𝗼𝗷𝗲𝗰𝘁 𝘃𝗶𝗱𝗲𝗼 𝗪𝗼𝗿𝗸𝗶𝗻𝗴 𝗗𝗲𝗺𝗼  ::---  [  click here  ](https://youtu.be/r-UfxsVzndk) [![youtube][youtube-shield]][youtube-url]
+```
+TourManagement/
+├── src/
+│   ├── TourManagement.Domain/          # Domain entities and interfaces
+│   ├── TourManagement.Application/     # Business logic and services
+│   ├── TourManagement.Infrastructure/  # Data access and repositories
+│   └── TourManagement.Web/             # Razor Pages UI
+├── tests/
+│   ├── TourManagement.UnitTests/       # Unit tests
+│   └── TourManagement.IntegrationTests/# Integration tests
+└── docs/                                # Documentation
+```
 
+## Technologies Used
 
-[youtube-shield]:https://img.shields.io/youtube/views/r-UfxsVzndk?style=social
-[youtube-url]:  https://youtu.be/r-UfxsVzndk
+- **.NET 8** - Target framework
+- **ASP.NET Core Razor Pages** - UI framework (migrated from Web Forms)
+- **Entity Framework Core 8.0** - ORM for data access
+- **SQL Server** - Database
+- **Serilog** - Logging framework
+- **BCrypt.Net** - Password hashing
+- **xUnit** - Testing framework
+- **Moq** - Mocking framework for tests
+- **FluentAssertions** - Assertion library
+
+## Getting Started
+
+### Prerequisites
+
+- .NET 8 SDK
+- SQL Server (LocalDB or full instance)
+- Visual Studio 2022 or VS Code
+
+### Setup Instructions
+
+1. **Restore NuGet packages**
+   ```bash
+   dotnet restore
+   ```
+
+2. **Update database connection string**
+   Edit `src/TourManagement.Web/appsettings.json`:
+   ```json
+   {
+     "ConnectionStrings": {
+       "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=TourManagementDb;Trusted_Connection=True;"
+     }
+   }
+   ```
+
+3. **Create the database**
+   Run the SQL scripts from Database.txt to create tables.
+
+4. **Run the application**
+   ```bash
+   dotnet run --project src/TourManagement.Web
+   ```
+
+5. **Access the application**
+   Open your browser and navigate to: `https://localhost:5001`
+
+## Features
+
+- **Tour Management**: Create, view, edit, and delete tours
+- **User Registration & Login**: Secure user authentication with BCrypt password hashing
+- **Booking System**: Book tours and manage bookings
+- **Admin Portal**: Admin login for tour and user management
+- **Search Functionality**: Search tours by name, place, or location
+- **Image Upload**: Upload tour images with validation
+- **Session Management**: User sessions for authentication state
+- **Logging**: Comprehensive logging with Serilog
+
+## Default Credentials
+
+### Admin Login
+- Username: `admin`
+- Password: `admin123`
+
+## Migration Details
+
+### What Was Migrated
+
+- ✅ **Web Forms pages** → Razor Pages
+- ✅ **ADO.NET** → Entity Framework Core
+- ✅ **Web.config** → appsettings.json
+- ✅ **System.Web** → ASP.NET Core equivalents
+- ✅ **Plaintext passwords** → BCrypt hashed passwords
+- ✅ **SQL injection vulnerabilities** → Parameterized queries (EF Core)
+- ✅ **Server controls** → HTML helpers and Tag Helpers
+- ✅ **ViewState** → Modern state management (session, TempData)
+
+### Architecture Improvements
+
+- **Clean Architecture**: Separation into Domain, Application, Infrastructure, and Web layers
+- **Dependency Injection**: Built-in DI container for all services
+- **Async/Await**: All I/O operations are async
+- **Error Handling**: Comprehensive try-catch blocks with logging
+- **Validation**: Model validation with Data Annotations
+- **Security**: BCrypt password hashing, SQL injection prevention
+- **Logging**: Structured logging with Serilog
+- **Testing**: Unit and integration tests included
